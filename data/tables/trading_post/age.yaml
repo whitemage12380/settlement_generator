@@ -1,0 +1,37 @@
+---
+- weight: 3
+  name: Recent
+  description: The trading post was established within the past year.
+  modifiers:
+  - modifier: -1
+    table: visitor traffic
+- weight: 5
+  name: Established
+  description: The trading post has been around for at least a couple of years.
+  modifiers:
+  - modifier: 0
+    table: visitor traffic
+- weight: 5
+  name: Mature
+  description: The trading post was originally built decades ago.
+  modifiers:
+  - modifier: 1
+    table: visitor traffic
+- weight: 4
+  name: Old
+  description: The trading post was built around a hundred years ago.
+  modifiers:
+  - modifier: 2
+    table: visitor traffic
+- weight: 2
+  name: Ancient
+  description: The trading post was built hundreds of years ago.
+  modifiers:
+  - modifier: 3
+    table: visitor traffic
+- weight: 1
+  name: Unknown
+  description: No one really knows when the trading post was established.
+  modifiers:
+  - modifier: 4
+    table: visitor traffic

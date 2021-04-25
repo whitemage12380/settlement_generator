@@ -1,0 +1,37 @@
+---
+- weight: 2
+  name: Ramshackle
+  description: A few of the buildings look to be falling down. There are no formal
+    roads, only trodden paths.
+  modifiers:
+  - modifier: -6
+    table: population wealth
+- weight: 4
+  name: Poor
+  description: The buildings and surroundings are rough and dirty. Roads are uneven
+    dirt and dust.
+  modifiers:
+  - modifier: -3
+    table: population wealth
+- weight: 8
+  name: Fair
+  description: The buildings are clean and sparsely decorated. Roads are flattened
+    earth, possibly with gravel.
+  modifiers:
+  - modifier: 0
+    table: population wealth
+- weight: 4
+  name: Good
+  description: Most of the structures are exceptionally well kept and moderately decorated.
+    Roads are cobblestone or, perhaps, cheap brick.
+  modifiers:
+  - modifier: 3
+    table: population wealth
+- weight: 2
+  name: Immaculate
+  description: The shops and houses are spotless, and well-adorned with tasteful decorations.
+    Roads are made of fine, smooth, well-placed flagstones. Groups. Visitors are a
+    rarity, though a few might be around.
+  modifiers:
+  - modifier: 6
+    table: population wealth

@@ -1,0 +1,14 @@
+This application must handle:
+- Tables
+- Rolls within tables
+- Modifiers to tables
+- Different levels of objects - Trading posts have several points of interest which each have their own information
+- Special result rules. Such as:
+-- Reroll if settlement is not bordering a
+significant source of water
+-- (If you roll for the inn’s quality using the quality
+table found in step 3, ignore results that would make
+it ‘poor’)
+- Ideally store page numbers for tables and optionally print them
+- Export to markdown
+- Race generation (can steal from other projects)

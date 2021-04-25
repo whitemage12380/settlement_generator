@@ -1,0 +1,35 @@
+---
+- weight: 1
+  name: Accidental
+  description: The trading post came about due to an accident, such as a caravan breaking
+    down or mistaken directions. What was set up to deal with the accident eventually
+    became the trading post.
+- weight: 1
+  name: Business Venture
+  description: The trading post was established by a wealthy entrepreneur specifically
+    to be a trading post from the start.
+- weight: 1
+  name: Crossroads
+  description: The trading post is at the intersection of more than one major trade
+    route.
+- weight: 1
+  name: Military Outpost
+  description: The trading post was built on the remnants of an old fortress or watchtower,
+    the structures of which have long since fallen down or been repurposed by the
+    locals.
+- weight: 1
+  name: No Man’s Land
+  description: The trading post was established as a neutral place where opposing
+    forces could purchase wares, without encroaching on enemy territory.
+- weight: 1
+  name: Native
+  description: The trading post was started by someone native to the area, who saw
+    potential in trade with passersby.
+- weight: 1
+  name: Overnight Stop
+  description: The trading post was originally a single, large house for overnight
+    stays for weary travelers, which soon grew, along with the demand for accommodations.
+- weight: 1
+  name: Wilderness Expert
+  description: The trading post was started when a trapper, hunter or guide set up
+    a camp, in order to aid those passing through the area.

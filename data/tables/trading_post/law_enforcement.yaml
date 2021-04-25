@@ -1,0 +1,31 @@
+---
+- weight: 2
+  name: None
+  description: This could be good or bad, depending on one’s point of view. Good,
+    if the folk here are just that. Bad when mob justice is carried out on a petty
+    thief.
+  modifiers:
+  - modifier: -8
+    table: crime
+- weight: 4
+  name: Sheriff
+  description: "A single sheriff and a deputy keep things civil."
+  modifiers:
+  - modifier: -4
+    table: crime
+- weight: 8
+  name: 'Small Local Watch'
+  description: "A sheriff, a deputy, and a handful of volunteer
+    residents make up a token watch presence."
+- weight: 4
+  name: Well-Equipped
+  description: Law enforcement is very common.
+  modifiers:
+  - modifier: 4
+    table: crime
+- weight: 2
+  name: Overwhelming Presence
+  description: Law enforcement is always around in public, no matter what.
+  modifiers:
+  - modifier: 8
+    table: crime

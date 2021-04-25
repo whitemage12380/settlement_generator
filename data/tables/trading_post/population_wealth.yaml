@@ -1,0 +1,54 @@
+---
+- weight: 2
+  name: Destitute
+  description: Most of the population consistently lacks the barest essentials of
+    what they need to survive.
+  modifiers:
+  - modifier: -4
+    table: crime
+  - modifier: -2
+    table: quality
+- weight: 4
+  name: Impoverished
+  description: Around half of the population struggles to carve out even a meager
+    existence.
+  modifiers:
+  - modifier: -2
+    table: crime
+  - modifier: -1
+    table: quality
+- weight: 8
+  name: Average
+  description: Most of the population have enough to live a modest life.
+  modifiers:
+  - modifier: 0
+    table: crime
+  - modifier: 0
+    table: quality
+- weight: 3
+  name: Prosperous
+  description: Most of the population has enough to live a good life and, of them,
+    a fair amount can even live comfortably.
+  modifiers:
+  - modifier: -1
+    table: crime
+  - modifier: 0
+    table: quality
+- weight: 2
+  name: Wealthy
+  description: Nearly everyone has what they need to live comfortably, many are able
+    to live well, and some are very prosperous.
+  modifiers:
+  - modifier: -2
+    table: crime
+  - modifier: 2
+    table: quality
+- weight: 1
+  name: Affluent
+  description: Nearly everyone is able to live comfortably, with a significant portion
+    living in luxury.
+  modifiers:
+  - modifier: -4
+    table: crime
+  - modifier: 3
+    table: quality

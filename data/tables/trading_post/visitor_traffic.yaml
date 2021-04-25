@@ -1,0 +1,41 @@
+---
+- weight: 2
+  name: Vacant
+  description: No one seems to be visiting this place.
+  modifiers:
+  - modifier: 0
+    table: size
+  - modifier: 2
+    table: crime
+- weight: 4
+  name: Groups
+  description: Visitors are a rarity, though a few might be around.
+  modifiers:
+  - modifier: 1
+    table: size
+  - modifier: 1
+    table: crime
+- weight: 8
+  name: Crowds
+  description: It is typical to see some new visitors most days.
+  modifiers:
+  - modifier: 2
+    table: size
+  - modifier: 0
+    table: crime
+- weight: 4
+  name: Droves
+  description: There are lots of new faces on a regular basis.
+  modifiers:
+  - modifier: 3
+    table: size
+  - modifier: -1
+    table: crime
+- weight: 2
+  name: Masses
+  description: New people are everywhere, coming and going at all times.
+  modifiers:
+  - modifier: 4
+    table: size
+  - modifier: -2
+    table: crime

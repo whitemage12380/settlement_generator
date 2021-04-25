@@ -1,0 +1,9 @@
+trading_post:
+  shops: 1-8
+  default_shops:
+    - general store
+  services: 1-6
+  default_services:
+    - inn
+  place_of_worship_chance: 0.5
+  race_table: interesting # common_only, standard, interesting, wild

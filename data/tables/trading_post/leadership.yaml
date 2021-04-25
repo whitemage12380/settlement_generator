@@ -1,0 +1,38 @@
+---
+- weight: 1
+  name: No Leader
+  description: The trading post operates with no leadership, which could lead to unresolved
+    disputes.
+- weight: 3
+  name: Hereditary
+  description: A non-elected leader is in power, by virtue of their bloodline.
+- weight: 3
+  name: Merchant Monarch
+  description: The wealthiest shop owner in the trading post leads by default.
+- weight: 3
+  name: Underworld or Criminal Enterprise
+  description: A criminal, or group of criminals, either publicly, or privately, controls
+    the trading post.
+- weight: 3
+  name: Oligarchy
+  description: 'A few individuals hold sway, collectively, over the trading post[roll].'
+  roll:
+  - weight: 1
+    name: ': merchants (plutocracy)'
+  - weight: 1
+    name: ': mages (magocracy)'
+  - weight: 1
+    name: ': priests (theocracy)'
+  - weight: 1
+    name: ''
+- weight: 3
+  name: Local Council
+  description: Prominent members of the community were chosen to lead the trading
+    post collectively.
+- weight: 3
+  name: Single, elected leader
+  description: The locals democratically voted for their current leader.
+- weight: 1
+  name: Anarcho-Syndicalist Commune
+  description: The members of the trading post take turns as a sort of executive officer
+    for the week.

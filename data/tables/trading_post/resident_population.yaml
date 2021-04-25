@@ -1,0 +1,32 @@
+---
+- weight: 2
+  name: Nearly Deserted
+  description: There are many empty houses and businesses.
+  modifiers:
+  - modifier: 2
+    table: crime
+- weight: 4
+  name: Sparse
+  description: There are some empty houses and businesses.
+  modifiers:
+  - modifier: 1
+    table: crime
+- weight: 8
+  name: Appropriate
+  description: Homes and businesses are comfortably populated.
+  modifiers:
+  - modifier: 0
+    table: crime
+- weight: 4
+  name: Congested
+  description: Movement is difficult. Homes and common buildings are often at capacity.
+  modifiers:
+  - modifier: -1
+    table: crime
+- weight: 2
+  name: Overwhelmed
+  description: The trading post cannot support this many people. Movement is extremely
+    difficult. Tent and shanty towns have cropped up along the outskirts of the settlement.
+  modifiers:
+  - modifier: -2
+    table: crime
