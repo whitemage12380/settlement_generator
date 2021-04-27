@@ -1,0 +1,20 @@
+---
+- weight: 2
+  name: Good
+  description: Unseasonably excellent. A warm day in winter, a cool day in summer,
+    etc.
+- weight: 4
+  name: Mild
+  description: The best kind of day that could be expected for the season. Rain or
+    snow is light, if at all. Winds are soft.
+- weight: 8
+  name: Fair
+  description: A normal day for the season. Rain, snow or wind are average and manageable.
+- weight: 4
+  name: Harsh
+  description: A rough day for the season. Rain, snow and wind are strong and could
+    make things difficult.
+- weight: 2
+  name: Bad
+  description: Most folk are staying indoors. Travel is dangerous in these conditions.
+    Rain is torrential, snow is blinding. Winds potentially reach hurricane force.

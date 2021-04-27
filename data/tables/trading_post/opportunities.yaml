@@ -1,0 +1,28 @@
+---
+- weight: 1
+  name: Political Intrigue
+  description: A locally-known noble has gone missing recently. Perhaps they were
+    traveling through and never made it to their destination? Perhaps no one even
+    saw them leave at all...
+- weight: 1
+  name: Missing Person
+  description: A local has gone missing, possibly a child, and rumors abound. Some
+    talk of monsters, but their whispers are quickly dismissed as fairy tales. Others
+    have theories, but none have yielded fruit.
+- weight: 1
+  name: Monster
+  description: A monster has been causing trouble for the locals. Someone in the trading
+    post is asking for help to deal with it.
+- weight: 1
+  name: Guard Duty
+  description: The local constabulary are in need of more hands for an upcoming event,
+    and capable adventurers are prime candidates.
+- weight: 1
+  name: Transportation
+  description: A visitor feels they’ve outstayed their welcome, or urgently needs
+    to leave, for some reason. They need help leaving and getting to their destination.
+- weight: 1
+  name: Acquisition
+  description: Rumours abound that an item of value is hidden nearby, perhaps one
+    tied to the trading post’s history. Several locals are interested in acquiring
+    it, but not all for the same reason.

@@ -1,0 +1,18 @@
+---
+- weight: 4
+  name: Poor
+  description: The location is a substandard version of what is typically expected.
+    Its offerings are likely limited, or of bad quality. The location itself may be
+    in disrepair, dirty, or have any number of other issues present.
+- weight: 6
+  name: Good
+  description: The location is a standard version of what is typically expected. Its
+    offerings are likely not terrible, but often not particularly remarkable either
+    (though sometimes there may be exceptions). The location itself is likely in a
+    serviceable state, though probably not flawless.
+- weight: 2
+  name: Fine
+  description: The location is an exceptional version of what is typically expected.
+    Its offerings are likely extensive, or of surpassing quality. The location itself
+    is likely remarkable in some way (or, possibly, many ways) such as being very
+    clean or well-built.

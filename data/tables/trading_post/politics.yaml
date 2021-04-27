@@ -1,0 +1,27 @@
+---
+- weight: 1
+  name: On the Brink of War
+  description: Tension is in the air, and rumors of impending conflict can be heard
+    in hushed tones within the trading post.
+- weight: 1
+  name: Lawless Region
+  description: With the trading post outside the regularly frequented borders of any
+    established kingdom, the generally accepted standards of justice don’t seem to
+    apply here.
+- weight: 1
+  name: Embattled
+  description: Opposing enemy forces surround the trading post on all sides, and it
+    finds itself located in the midst of (though not necessarily participating in)
+    an ongoing conflict.
+- weight: 1
+  name: Revolution
+  description: A nearby kingdom is in the throes of an uprising. Members of either
+    side may be present in the trading post.
+- weight: 1
+  name: Peace
+  description: All is quiet, almost suspiciously so...
+- weight: 1
+  name: New Governance
+  description: A new and unknown power has moved in to control the surrounding area.
+    Locals may be in favor of, against, or neutral about it. Depending on the kind
+    of governance, speaking out against the leadership may not be permitted.

@@ -1,0 +1,25 @@
+---
+- weight: 1
+  name: High-Class Visitor
+  description: A wealthy aristocrat is passing through and throwing their money around.
+    It seems like anything can be bought, and no price is too high.
+- weight: 1
+  name: Troublemakers
+  description: A pack of ruffians is making themselves a nuisance to the locals. Hostile
+    encounters are escalating and might become violent.
+- weight: 1
+  name: Fool’s Festival
+  description: It’s the day of the fool. Many folk are dressed as jesters and tumblers.
+    The drink is flowing and the mood is merry.
+- weight: 1
+  name: Caught Red-Handed
+  description: A shop owner has caught a thief, and is threatening them with a weapon
+    in the street as they beg for mercy.
+- weight: 1
+  name: Strangers
+  description: A large trade caravan just arrived, full of people locals have never
+    seen, and some don’t know what to make of them.
+- weight: 1
+  name: Public Emergency
+  description: There is an emergency situation in town, such as a fire. There is lots
+    of commotion as people rush to help, or get a look at what’s going on.

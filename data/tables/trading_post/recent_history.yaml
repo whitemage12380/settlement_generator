@@ -1,0 +1,26 @@
+---
+- weight: 1
+  name: Benevolence of Yesteryear
+  description: The trading post was run by a benevolent leader, or council, but a
+    corrupt individual, or group, has taken over.
+- weight: 1
+  name: Construction
+  description: Certain parts of the trading post have been (or currently are) under
+    construction. Tools, scaffolding, and other such elements can still be seen, as
+    well as individuals working throughout the day.
+- weight: 1
+  name: Crime Central
+  description: Some of the older population remember when the trading post was run
+    by a criminal organization, but they were ousted some time ago.
+- weight: 1
+  name: Neutrality
+  description: The trading post has always professed neutrality, setting itself apart
+    as a safe haven, even if pressured by nearby settlements.
+- weight: 1
+  name: Popular Producer
+  description: The trading post was known for the production of a unique and/or popular
+    item or service, which is now unavailable or no longer in demand.
+- weight: 1
+  name: Wartorn
+  description: The trading post was occupied by military forces, and suffered damages,
+    during wartime in the recent past.

@@ -31,7 +31,20 @@ File.readlines(table).each do |line|
     line.strip!
     line.delete_prefix!("#{entry_name}.")
     entry_desc = line.strip
+    if entry_name =~ /\(([BSE])\)/
+      shop_type_char = $1
+      shop_type = case shop_type_char
+                  when 'B'
+                    "basic"
+                  when 'S'
+                    "specialty"
+                  when 'E'
+                    "exotic"
+                  end
+      entry_name.delete_suffix!(" (#{shop_type_char})")
+    end
     entries << {'weight' => entry_weight, 'name' => entry_name, 'description' => entry_desc}
+    entries.last['shop_type'] = shop_type unless shop_type.nil?
   elsif line.split.first[0].is_integer?
     entry = entries.last
     entry['roll'] = Array.new if entry['roll'].nil?

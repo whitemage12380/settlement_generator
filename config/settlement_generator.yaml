@@ -1,3 +1,4 @@
+save_directory: data/settlements
 trading_post:
   shops: 1-8
   default_shops:
@@ -7,3 +8,4 @@ trading_post:
     - inn
   place_of_worship_chance: 0.5
   race_table: interesting # common_only, standard, interesting, wild
+verbose: off

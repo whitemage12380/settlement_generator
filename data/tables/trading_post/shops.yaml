@@ -1,0 +1,137 @@
+---
+- weight: 4
+  name: Baker
+  description: Bakes and sells fresh bread and, possibly, pastries.
+  shop_type: basic
+- weight: 4
+  name: Butcher
+  description: Processes and sells fresh and/or dried meat.
+  shop_type: basic
+- weight: 4
+  name: Cooper
+  description: Crafts wooden vessels held together with metal hoops, including barrels,
+    buckets, etc.
+  shop_type: basic
+- weight: 4
+  name: Carpenter
+  description: Builds with or carves wood, as well as carrying out repairs.
+  shop_type: basic
+- weight: 8
+  name: General Store
+  description: Sells basic supplies, groceries, and various odds and ends.
+  shop_type: basic
+- weight: 4
+  name: Herbalist
+  description: Sells common herbs and natural, non- magical remedies.
+  shop_type: basic
+- weight: 8
+  name: Smithy
+  description: Sells and crafts metal tools and equipment, including very basic weapons
+    and armor.
+  shop_type: basic
+- weight: 4
+  name: Tailor
+  description: Makes and sells of clothing, including hats and cloaks. Also sells
+    general items made from cloth, such as blankets, and carries out repairs and alterations
+    of cloth goods.
+  shop_type: basic
+- weight: 4
+  name: Tanner/Taxidermist
+  description: Processes animal hides for practical or ornamental purposes.
+  shop_type: basic
+- weight: 4
+  name: Thatcher
+  description: Builds roofs using layers of dried straw, reeds, rushes, etc.
+  shop_type: basic
+- weight: 4
+  name: Wainwright
+  description: Builds carts and wagons.
+  shop_type: basic
+- weight: 4
+  name: Weaver
+  description: Weaves raw fabric and baskets.
+  shop_type: basic
+- weight: 3
+  name: Alchemist
+  description: Brews and sells potions, as well as mundane herbs and alchemical ingredients.
+  shop_type: specialty
+- weight: 3
+  name: Artist
+  description: Encompasses painter, sculptor or other visual art as appropriate.
+  shop_type: specialty
+- weight: 3
+  name: Bank & Exchange
+  description: Encompasses auctions, banking, and the specific selling of gems or
+    exchange of currency.
+  shop_type: specialty
+- weight: 3
+  name: Cobbler
+  description: Makes and mends boots and shoes.
+  shop_type: specialty
+- weight: 3
+  name: Foundry/Smelting
+  description: Ore processing and metal fabrication.
+  shop_type: specialty
+- weight: 3
+  name: Mill
+  description: Facilities for milling grain.
+  shop_type: specialty
+- weight: 3
+  name: Textile Production
+  description: Larger scale than a single weaver, offering a wider array of materials
+    in larger quantities.
+  shop_type: specialty
+- weight: 3
+  name: Shipwright
+  description: Builds and launches boats and/ or ships. [Reroll if settlement is not
+    bordering a significant source of water]
+  shop_type: specialty
+- weight: 2
+  name: Rare Botanicals
+  description: Cultivates and sells herbs rare to the region.
+  shop_type: exotic
+- weight: 2
+  name: Luxury Furnishings
+  description: Procures and sells all manner of home items for fine living, including
+    furniture, art, and other high-quality goods.
+  shop_type: exotic
+- weight: 2
+  name: Rare Libations & Fare
+  description: Sells (and, perhaps, makes or brews) drinks and/or food of surpassing
+    quality or rarity to the region.
+  shop_type: exotic
+- weight: 2
+  name: Rare Trade Goods
+  description: Procures and sells items and materials, such as ores or textiles, that
+    are rare to the region.
+  shop_type: exotic
+- weight: 2
+  name: Magic Shop - Armor
+  description: Sells magical items with a focus on armor and protective equipment.
+  shop_type: exotic
+- weight: 2
+  name: Magic Shop - Books
+  description: Sells magical items with a focus on literature, arcane tomes and lore.
+    They may also carry books and documents (such as maps and records) of a rare and
+    significant nature, though non-magical.
+  shop_type: exotic
+- weight: 2
+  name: Magic Shop - Clothing
+  description: Sells magical items with a focus on clothing of all types which bear
+    magical properties.
+  shop_type: exotic
+- weight: 2
+  name: Magic Shop - Jewelry
+  description: Sells magical items with a focus on enchanted, or otherwise magically
+    imbued, jewelry.
+  shop_type: exotic
+- weight: 2
+  name: Magic Shop - Weapons
+  description: Sells magical items with a focus on weapons with mystic properties
+    and, perhaps, shields.
+  shop_type: exotic
+- weight: 2
+  name: Magic Shop - Miscellaneous & Curiosities
+  description: " Procures and sells magical items with a focus on strange and rare
+    artifacts of a wondrous or intriguing nature."
+  shop_type: exotic

@@ -1,8 +1,11 @@
 require_relative 'settlement_generator_helper'
+require_relative 'shop'
+require_relative 'service'
+require_relative 'place_of_worship'
 
 class TradingPost
   include SettlementGeneratorHelper
-  attr_reader :settlement_type, :tables
+  attr_reader :settlement_type, :tables, :points_of_interest
 
   def initialize()
     @settlement_type = "trading_post"
@@ -13,12 +16,7 @@ class TradingPost
       table.merge!(roll_on_table(table_name, modifiers.fetch(table_name, 0)))
     end
     generate_races()
-    # @tables.each_pair do |section_name, section_tables|
-    #   section_tables.each do |table|
-    #     table_name = table['table_name']
-    #     table.merge!(roll_on_table(table_name, modifiers.fetch(table_name, 0)))
-    #   end
-    # end
+    generate_points_of_interest()
   end
 
   def settlement_type_tables(settlement_type = @settlement_type)
@@ -28,18 +26,40 @@ class TradingPost
     }
   end
 
+  def generate_points_of_interest()
+    @points_of_interest = Hash.new
+    {'shops' => Shop, 'services' => Service}.each_pair do |poi_type, poi_class|
+      poi_count = roll(@config[poi_type])
+      @points_of_interest[poi_type] = @config.fetch("default_#{poi_type}", []).collect { |poi_name| poi_class.new(self, poi_name) }
+      @points_of_interest[poi_type].concat(Array.new(poi_count) { poi_class.new(self) })
+    end
+    if rand() < @config['place_of_worship_chance'].to_f
+      @points_of_interest['place of worship'] = PlaceOfWorship.new(@settlement_type)
+    end
+  end
+
   def all_tables()
     @tables.values.flatten(1)
   end
 
   def all_tables_hash()
-    puts Hash[all_tables.collect { |table| [table['table_name'], table] }]
     Hash[all_tables.collect { |table| [table['table_name'], table] }]
   end
 
+  def table_value(table_name)
+    all_tables_hash[table_name]['name']
+  end
+
+  def shops()
+    @points_of_interest.fetch('shops', []).sort_by { |s| s.name }
+  end
+
+  def services()
+    @points_of_interest.fetch('services', []).sort_by { |s| s.name }
+  end
+
   def modifiers(tables = @tables)
-    #puts tables.values.flatten(1).to_s
-    return tables.values.flatten(1).collect { |table|
+    return all_tables.collect { |table|
       table.fetch('modifiers', []).collect { |m|
         [m['table'], m['modifier']]
       }
@@ -52,7 +72,11 @@ class TradingPost
     } # Hash - keys are deduped table names, vals are the final modifiers for those tables
   end
 
-  def print_trading_post()
+  def default_filename()
+    "#{@settlement_type}_#{table_value('age').filename_style}_#{table_value('size').filename_style}"
+  end
+
+  def print()
     puts @settlement_type.pretty
     puts
     puts
@@ -66,6 +90,23 @@ class TradingPost
         puts "    #{table['description']}"
         puts
       end
+    end
+    puts "------------------"
+    puts "SHOPS"
+    puts "------------------"
+    puts
+    shops.each { |shop| shop.print(); puts}
+    puts "------------------"
+    puts "SERVICES"
+    puts "------------------"
+    puts
+    services.each { |service| service.print(); puts}
+    unless @points_of_interest['place of worship'].nil?
+      puts "------------------"
+      puts "PLACE OF WORSHIP"
+      puts "------------------"
+      puts
+      @points_of_interest['place of worship'].print()
     end
   end
 end

@@ -1,0 +1,29 @@
+---
+- weight: 1
+  name: Secret
+  description: The place of worship’s size is unclear, as the location is not publicly
+    known.
+- weight: 7
+  name: Altar
+  description: A small shrine or, perhaps, a tiny shack, usually evincing some various
+    items or images relating to that which the faith venerates.
+- weight: 6
+  name: Oratory
+  description: A modest building with seating for attendees, appointed with various
+    items or images relating to that which the faith venerates.
+- weight: 3
+  name: Sanctuary
+  description: A large, well-appointed structure, able to comfortably accommodate
+    up to a few hundred people.
+- weight: 2
+  name: Temple
+  description: A grand building, replete with elements like high ceilings, plush furnishings,
+    and other impressive ornamental and/or architectural features. It can hold nearly
+    a thousand attendees.
+- weight: 1
+  name: Great Temple
+  description: An awe-inspiring structure, devoted to that which it venerates. No
+    expense was spared in its construction. It might display such elements as stunning
+    frescos, elaborate stained-glass scenes, and towering, gilded statues. Walking
+    into a great temple is a rare and striking experience for those who do not live
+    near one.

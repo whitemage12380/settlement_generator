@@ -41,11 +41,11 @@
   weight: 4
 - name: orcs
   weight: 4
-- name: Yuan-ti
+- name: yuan-ti
   weight: 3
-- name: Vampires
+- name: vampires
   weight: 1
-- name: Giants
+- name: giants
   weight: 2
-- name: Fey
+- name: fey
   weight: 2

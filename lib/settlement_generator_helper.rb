@@ -11,9 +11,17 @@ class String
             .gsub(/\b(?<!\w['])[a-z]/) { |match| match.capitalize }
     return output
   end
+
+  def filename_style()
+    return downcase.tr(" ", "_")
+  end
 end
 
 module SettlementGeneratorHelper
+
+  def verbose(str)
+    puts str if $configuration['verbose'] == true
+  end
 
   def parse_path(path_str)
     # Currently only callable from ruby files directly in lib, no nesting (can be changed later)
@@ -23,6 +31,11 @@ module SettlementGeneratorHelper
 
   def read_yaml_file(file)
     YAML.load(File.read(file))
+  end
+
+  def read_table(table_name, settlement_type = @settlement_type)
+    file_path = "#{Configuration.project_path}/data/tables/#{settlement_type}/#{table_name.filename_style}.yaml"
+    return read_yaml_file(file_path)
   end
 
   # Might need to do a more traditional roll logic instead of using weight, to easily
@@ -59,8 +72,7 @@ module SettlementGeneratorHelper
   end
 
   def roll_on_table(table_name, modifier = 0, settlement_type = @settlement_type)
-    file_path = "#{Configuration.project_path}/data/tables/#{settlement_type}/#{table_name.tr(" ", "_")}.yaml"
-    table_entries = read_yaml_file(file_path)
+    table_entries = read_table(table_name, settlement_type)
     selected_entry = weighted_random(table_entries, modifier)
     if selected_entry.has_key? 'roll'
       selected_entry['roll_result'] = weighted_random(selected_entry['roll'])
@@ -69,6 +81,14 @@ module SettlementGeneratorHelper
       end
     end
     return selected_entry
+  end
+
+  def roll(min, max = nil)
+    if (min.kind_of? String) and min =~ /(\d+)-(\d+)/
+      min = $1.to_i
+      max = $2.to_i
+    end
+    return rand(min..max)
   end
 
   def roll_race(races_chosen = [], table_name = @config.fetch('race_table', 'standard'))
@@ -86,10 +106,6 @@ module SettlementGeneratorHelper
       demographics['chosen_races'] = Hash.new if demographics['chosen_races'].nil?
       chosen_race = roll_race(demographics['chosen_races'])
       demographics['chosen_races'][race_label] = chosen_race
-      # Find and replace "race_label race" with race name
-      puts demographics['description']
-      puts race_label
-      puts chosen_race
       demographics['description'].sub!("#{race_label} race", chosen_race)
     end
   end

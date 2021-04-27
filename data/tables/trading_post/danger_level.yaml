@@ -1,0 +1,22 @@
+---
+- weight: 2
+  name: Ever-Present
+  description: The trading post is constantly in peril. Encountering some form of
+    hardship or adversity, when in the area, is almost guaranteed. It is never safe
+    to go anywhere alone. Preparation and caution (even in and around the trading
+    post) are critical.
+- weight: 4
+  name: Frequent
+  description: Traveling near the trading post and not encountering danger or hazards
+    is a rarity. Preparation and caution are strongly advised.
+- weight: 8
+  name: Common
+  description: Danger or hazards are commonplace. Preparation and caution are advised.
+- weight: 4
+  name: Uncommon
+  description: Danger or hazards are not encountered often, though preparation is
+    encouraged.
+- weight: 2
+  name: Rare
+  description: This trading post is built in a place known to be extremely safe; danger
+    or hazards are a rarity.
