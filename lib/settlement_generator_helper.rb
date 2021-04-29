@@ -17,7 +17,44 @@ class String
   end
 end
 
+class Integer
+  def signed()
+    sign = self >= 0 ? '+' : ''
+    "#{sign}#{self}"
+  end
+end
+
 module SettlementGeneratorHelper
+  require 'logger'
+
+  def init_logger()
+    $log = Logger.new(STDOUT) if $log.nil?
+    $log.level = $configuration['log_level'] ? $configuration['log_level'].upcase : Logger::INFO
+    $messages = StringIO.new() if $messages.nil?
+    $message_log = Logger.new($messages) if $message_log.nil?
+    $message_log.level = Logger::INFO
+  end
+
+  def debug(message)
+    init_logger()
+    $log.debug(message)
+  end
+
+  def log(message)
+    init_logger()
+    $log.info(message)
+  end
+
+  def log_error(message)
+    init_logger()
+    $log.error(message)
+  end
+
+  def log_important(message)
+    init_logger()
+    $log.info(message)
+    $message_log.info(message)
+  end
 
   def verbose(str)
     puts str if $configuration['verbose'] == true
@@ -38,11 +75,6 @@ module SettlementGeneratorHelper
     return read_yaml_file(file_path)
   end
 
-  # Might need to do a more traditional roll logic instead of using weight, to easily
-  # incorporate both positive and negative modifiers
-  # Nah, I can just remove array elements from one side or the other based on modifier and
-  # that should work. No, it won't because that doesn't simulate the highest value becoming
-  # more likely. I guess I could tack on elements to the other end when I remove one.
   def weighted_random(obj, modifier = 0)
     arr = obj.kind_of?(Array) ? obj : obj.to_a
     weighted_arr = []
@@ -71,11 +103,17 @@ module SettlementGeneratorHelper
     return weighted_arr.sample
   end
 
-  def roll_on_table(table_name, modifier = 0, settlement_type = @settlement_type)
+  def roll_on_table(table_name, modifier = 0, settlement_type = @settlement_type, log_roll = true)
     table_entries = read_table(table_name, settlement_type)
     selected_entry = weighted_random(table_entries, modifier)
+    if log_roll == true
+      roll_modifier_str = modifier != 0 ? " (#{modifier.signed})" : ''
+      modifiers_str = " (#{table_entry_modifiers_str(selected_entry)})" if entry_has_modifiers? selected_entry
+      log "Rolled on #{table_name} table#{roll_modifier_str}: #{selected_entry['name'].pretty}#{modifiers_str}"
+    end
     if selected_entry.has_key? 'roll'
       selected_entry['roll_result'] = weighted_random(selected_entry['roll'])
+      log "Sub-table roll result on #{table_name} table: #{selected_entry['roll_result']['name'].pretty}" if log_roll == true
       if selected_entry['description'] =~ /\[roll\]/
         selected_entry['description'].sub!(/\[roll\]/, selected_entry['roll_result']['name'])
       end
@@ -83,12 +121,16 @@ module SettlementGeneratorHelper
     return selected_entry
   end
 
-  def roll(min, max = nil)
-    if (min.kind_of? String) and min =~ /(\d+)-(\d+)/
+  def roll(range, modifier = 0)
+    if range.kind_of?(String) and range =~ /(\d+)-(\d+)/
       min = $1.to_i
       max = $2.to_i
+    elsif range.kind_of?(Array)
+      min, max = range
+    elsif range.kind_of?(Range)
+      return rand(range) + modifier
     end
-    return rand(min..max)
+    return rand(min..max) + modifier
   end
 
   def roll_race(races_chosen = [], table_name = @config.fetch('race_table', 'standard'))
@@ -105,8 +147,17 @@ module SettlementGeneratorHelper
     demographics.fetch('races', []).each do |race_label|
       demographics['chosen_races'] = Hash.new if demographics['chosen_races'].nil?
       chosen_race = roll_race(demographics['chosen_races'])
+      log "Chose #{race_label} race: #{chosen_race}"
       demographics['chosen_races'][race_label] = chosen_race
       demographics['description'].sub!("#{race_label} race", chosen_race)
     end
+  end
+
+  def entry_has_modifiers?(entry)
+    entry.fetch('modifiers', []).any? { |m| m['modifier'] != 0 }
+  end
+
+  def table_entry_modifiers_str(entry)
+    entry.fetch('modifiers', []).select { |m| m['modifier'] != 0 }.collect { |m| "#{m['modifier'].signed} to #{m['table']}"}.join(", ")
   end
 end

@@ -6,13 +6,14 @@ class PointOfInterest
 
   def initialize(settlement, name = nil)
     if name.nil?
-      table = roll_on_table(@location_type + "s", 0, settlement.settlement_type)
+      table = roll_on_table(@location_type + "s", 0, settlement.settlement_type, false)
     else
       table = read_table(@location_type + "s", settlement.settlement_type).select { |entry| entry['name'].downcase == name.downcase}.first
     end
     @name = table['name']
     @description = table['description']
-    @quality = roll_on_table('quality', settlement.modifiers['quality'], settlement.settlement_type)
+    @quality = roll_on_table('quality', settlement.modifiers['quality'], settlement.settlement_type, false)
+    log "Added #{@location_type}: #{@name.pretty} (#{@quality['name']})"
   end
 
   def print()

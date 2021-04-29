@@ -4,36 +4,36 @@
   description: Up to 20 standing structures.
   modifiers:
     - modifier: 2
-      name: shops
+      table: shops
 - weight: 4
   name: Small
   description: Up to 40 standing structures.
   modifiers:
     - modifier: 4
-      name: shops
+      table: shops
     - modifier: 1
-      name: services
+      table: services
 - weight: 8
   name: Medium
   description: Up to 60 standing structures.
   modifiers:
     - modifier: 6
-      name: shops
+      table: shops
     - modifier: 3
-      name: services
+      table: services
 - weight: 4
   name: Large
   description: Up to 80 standing structures.
   modifiers:
     - modifier: 8
-      name: shops
+      table: shops
     - modifier: 5
-      name: services
+      table: services
 - weight: 2
   name: Very Large
   description: Up to 100 standing structures.
   modifiers:
     - modifier: 10
-      name: shops
+      table: shops
     - modifier: 7
-      name: services
+      table: services

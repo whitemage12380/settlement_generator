@@ -6,10 +6,10 @@ class PlaceOfWorship < PointOfInterest
   attr_reader :alignment, :fervency, :size
 
   def initialize(settlement_type)
-    puts "2"
-    @alignment = roll_on_table('alignment of the faith', 0, settlement_type)['name']
-    @fervency = roll_on_table('fervency of local following', 0, settlement_type)
-    @size = roll_on_table('place of worship size', 0, settlement_type)
+    @alignment = roll_on_table('alignment of the faith', 0, settlement_type, false)['name']
+    @fervency = roll_on_table('fervency of local following', 0, settlement_type, false)
+    @size = roll_on_table('place of worship size', 0, settlement_type, false)
+    log "Rolled place of worship: #{@size['name']} (#{@alignment}, #{fervency['name']})"
   end
 
   def print()

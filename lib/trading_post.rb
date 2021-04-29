@@ -29,7 +29,10 @@ class TradingPost
   def generate_points_of_interest()
     @points_of_interest = Hash.new
     {'shops' => Shop, 'services' => Service}.each_pair do |poi_type, poi_class|
-      poi_count = roll(@config[poi_type])
+      modifier = modifiers.fetch(poi_type, 0)
+      poi_count = roll(@config[poi_type], modifier)
+      modifier_str = " (#{modifier.signed})" unless modifier == 0
+      log "Adding #{poi_count} #{poi_type}#{modifier_str}"
       @points_of_interest[poi_type] = @config.fetch("default_#{poi_type}", []).collect { |poi_name| poi_class.new(self, poi_name) }
       @points_of_interest[poi_type].concat(Array.new(poi_count) { poi_class.new(self) })
     end
