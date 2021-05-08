@@ -1,0 +1,35 @@
+---
+- name: "The {adjective} {noun}"
+  weight: 10
+- name: "The {adjective} {noun} {location}"
+  weight: 10
+- name: "The {adjective} {location}"
+  weight: 10
+- name: "The {noun}"
+  weight: 8
+- name: "The {noun} {location}"
+  weight: 8
+- name: "The {noun} & {noun}"
+  weight: 7
+- name: "The {noun} & {noun} {location}"
+  weight: 7
+- name: "{adjective} {noun}"
+  weight: 8
+- name: "{adjective} {noun} {location}"
+  weight: 7
+- name: "{adjective} {location}"
+  weight: 8
+- name: "{noun}"
+  weight: 7
+- name: "{noun} {location}"
+  weight: 8
+- name: "{noun} & {noun}"
+  weight: 7
+- name: "{noun} & {noun} {location}"
+  weight: 7
+- name: "{individual}'s"
+  weight: 0
+- name: "{individual}'s {location}"
+  weight: 0
+- name: "{family} Family {location}"
+  weight: 0

@@ -70,8 +70,8 @@ module SettlementGeneratorHelper
     YAML.load(File.read(file))
   end
 
-  def read_table(table_name, settlement_type = @settlement_type)
-    file_path = "#{Configuration.project_path}/data/tables/#{settlement_type}/#{table_name.filename_style}.yaml"
+  def read_table(table_name, table_directory = @settlement_type)
+    file_path = "#{Configuration.project_path}/data/tables/#{table_directory}/#{table_name.filename_style}.yaml"
     return read_yaml_file(file_path)
   end
 
@@ -81,8 +81,10 @@ module SettlementGeneratorHelper
     arr.each { |elem|
       if (elem.kind_of? Array) and (elem.length == 2) and ((elem[0].kind_of? String) or (elem[0].kind_of? Symbol)) and (elem[1].kind_of? Hash)
         elem_weight = elem[1].fetch("weight", elem[1][:weight]) if elem[1].kind_of? Hash
+      elsif elem.kind_of? Hash
+        elem_weight = elem.fetch("weight", elem[:weight])
       else
-        elem_weight = elem.fetch("weight", elem[:weight]) if elem.kind_of? Hash
+        elem_weight = 1
       end
       probability = elem_weight ? elem_weight : 10
       probability.times do
@@ -103,15 +105,15 @@ module SettlementGeneratorHelper
     return weighted_arr.sample
   end
 
-  def roll_on_table(table_name, modifier = 0, settlement_type = @settlement_type, log_roll = true)
-    table_entries = read_table(table_name, settlement_type)
+  def roll_on_table(table_name, modifier = 0, table_directory = @settlement_type, log_roll = true)
+    table_entries = read_table(table_name, table_directory)
     selected_entry = weighted_random(table_entries, modifier)
     if log_roll == true
       roll_modifier_str = modifier != 0 ? " (#{modifier.signed})" : ''
       modifiers_str = " (#{table_entry_modifiers_str(selected_entry)})" if entry_has_modifiers? selected_entry
       log "Rolled on #{table_name} table#{roll_modifier_str}: #{selected_entry['name'].pretty}#{modifiers_str}"
     end
-    if selected_entry.has_key? 'roll'
+    if selected_entry.kind_of? Hash and selected_entry.has_key? 'roll'
       selected_entry['roll_result'] = weighted_random(selected_entry['roll'])
       log "Sub-table roll result on #{table_name} table: #{selected_entry['roll_result']['name'].pretty}" if log_roll == true
       if selected_entry['description'] =~ /\[roll\]/
@@ -137,7 +139,7 @@ module SettlementGeneratorHelper
     file_path = "#{Configuration.project_path}/data/tables/race/#{table_name}.yaml"
     table_entries = read_yaml_file(file_path)
     selected_entry = nil
-    while selected_entry.nil? or races_chosen.any? { |r| r == selected_entry.fetch('name', nil) }
+    while selected_entry.nil? or races_chosen.values.any? { |r| r == selected_entry.fetch('name', nil) }
       selected_entry = weighted_random(table_entries)
     end
     return selected_entry['name']

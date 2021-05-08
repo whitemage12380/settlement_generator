@@ -1,3 +1,7 @@
+locations:
+  location_adjective_chance: 0.6
+  location_noun_chance: 0.7
+  synonym_chance: 0.5
 save_directory: data/settlements
 trading_post:
   shops: 1-8

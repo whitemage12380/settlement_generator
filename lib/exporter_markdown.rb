@@ -39,7 +39,8 @@ class ExporterMarkdown
           output << "**Alignment of the faith:** #{poi.alignment.pretty}"
         else
           pois.each do |poi|
-            output << "#### #{poi.name.pretty}"
+            output << "#### #{poi.title.pretty}"
+            output << "*#{poi.name.pretty}*"
             output << poi.description
             output << poi.hired_help_size['description'] if poi.kind_of? Service and not poi.hired_help_size.nil?
             output << "**Quality:** #{poi.quality['name'].pretty}" unless poi.quality.nil?
