@@ -1,0 +1,6 @@
+any: ["Barnok", "Bezalk", "Brank", "Brin", "Brurron", "Bruzzarr", "Chrittomkk", "Dunn", "Ghaddonk", "Gheggark", "Ghinn", "Ghoggimkk", "Ghorramkk", "Ghottan", "Hror", "Hrugginn", "Hrumkk", "Khizzurr", "Khornuth", "Khudank", "Numkk", "Rirrilk", "Rorrorr", "Stazzur", "Sternak", "Stiturr", "Stun", "Theddur", "Thedok", "Thirk", "Togurr", "Vegunk", "Vin", "Vith", "Vittamkk", "Vunn", "Zeddonn", "Zhodrilk", "Zugin", "Zutrurk"]
+options:
+  use_family_name: false
+  first_name_race_chances:
+      bugbear: 2
+      goblin: 1

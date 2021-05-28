@@ -1,0 +1,4 @@
+female: ["Thondril", "Samoven", "Zoverd", "Motha", "Iskozen", "Zalren", "Athrozen", "Avizel", "Hithrire", "Valda", "Astrena", "Mizhi", "Rigra", "Vigral", "Oskevird", "Athre", "Himres", "Sastri", "Hinda", "Ralleni", "Ina", "Mannin", "Thomnaves", "Oskaren", "Sinme", "Rindrild", "Vivres", "Nande", "Ithi", "Hovares", "Samroris", "Rizhi", "Roldmona", "Mathazin", "Vinne", "Havrene", "Raze", "Thinilas", "Nasri", "Othes"]
+male: ["Zrenzarn", "Skuztart", "Zralkan", "Zalzerar", "Rhezam", "Mernor", "Aztus", "Estuj", "Aron", "Thrugrem", "Vokssatur", "Skollorn", "Hurtarlort", "Therkom", "Zrulmort", "Zrezurt", "Threlzam", "Ralzer", "Venmert", "Sauzdart", "Alor", "Zanzas", "Zraston", "Zulmaun", "Threzuj", "Sazrer", "Kezam", "Manmatarn", "Allur", "Urkan", "Rhaztej", "Throrkaeur", "Thordern", "Trunmurt", "Regrertart", "Kugrer", "Yllurtus", "Grezon", "Strolnaeuj", "Rhalmern"]
+options:
+  use_family_name: false

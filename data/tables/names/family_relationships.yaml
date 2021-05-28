@@ -1,0 +1,16 @@
+---
+- weight: 52
+  race: family
+  name_style: family
+- weight: 3
+  race: demographics
+  name_style: family
+- weight: 3
+  race: demographics
+  name_style: individual
+- weight: 1
+  race: random
+  name_style: family
+- weight: 1
+  race: random
+  name_style: individual

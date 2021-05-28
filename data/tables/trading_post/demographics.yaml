@@ -3,32 +3,54 @@
   name: Only One
   description: 100% primary race.
   races:
-    - primary
+    - name: primary
+      weight: 20
+    - name: other
+      weight: 1
 - weight: 5
   name: Only Two
   description: 60% primary race, 40% secondary race.
   races:
-    - primary
-    - secondary
+    - name: primary
+      weight: 12
+    - name: secondary
+      weight: 8
+    - name: other
+      weight: 1
 - weight: 5
   name: Normal Distribution
   description: 50% primary race, 25% secondary race, 15% tertiary race, 10% other.
   races:
-    - primary
-    - secondary
-    - tertiary
+    - name: primary
+      weight: 10
+    - name: secondary
+      weight: 5
+    - name: tertiary
+      weight: 3
+    - name: other
+      weight: 3
 - weight: 3
   name: Wide Distribution
   description: 20% primary race. All others reasonably well represented.
   races:
-    - primary
+    - name: primary
+      weight: 4
+    - name: other
+      weight: 16
 - weight: 2
   name: High and Low
   description: 80% primary race, 20% secondary race.
   races:
-    - primary
-    - secondary
+    - name: primary
+      weight: 16
+    - name: secondary
+      weight: 4
+    - name: other
+      weight: 1
 - weight: 1
   name: Ever-Changing
   description: No discernible distribution. Racial representation lacks any sense
     of numerical dominance.
+  races:
+    - name: other
+      weight: 1

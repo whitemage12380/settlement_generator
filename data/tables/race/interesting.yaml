@@ -1,51 +1,61 @@
 ---
-- name: dwarves
+- name: dwarf
+  plural: dwarves
   weight: 12
-- name: elves
+- name: elf
+  plural: elves
   weight: 12
-- name: halflings
+- name: halfling
   weight: 12
-- name: humans
+- name: human
   weight: 20
 - name: dragonborn
+  plural: dragonborn
   weight: 4
-- name: gnomes
+- name: gnome
   weight: 8
-- name: half-elves
+- name: half-elf
+  plural: half-elves
   weight: 4
-- name: half-orcs
+- name: half-orc
   weight: 4
-- name: tieflings
-  weight: 2
+- name: tiefling
+  weight: 200
 - name: aasimar
+  plural: assimar
   weight: 2
-- name: firbolgs
+- name: firbolg
   weight: 1
-- name: goliaths
+- name: goliath
   weight: 2
 - name: kenku
+  plural: kenku
   weight: 1
 - name: lizardfolk
+  plural: lizardfolk
   weight: 4
 - name: tabaxi
+  plural: tabaxi
   weight: 4
-- name: tritons
+- name: triton
   weight: 1
-- name: bugbears
+- name: bugbear
   weight: 3
-- name: goblins
+- name: goblin
   weight: 4
-- name: hobgoblins
+- name: hobgoblin
   weight: 4
-- name: kobolds
+- name: kobold
   weight: 4
-- name: orcs
+- name: orc
   weight: 4
 - name: yuan-ti
+  plural: yuan-ti
   weight: 3
-- name: vampires
+- name: vampire
   weight: 1
-- name: giants
+- name: giant
   weight: 2
 - name: fey
+  plural: fey
   weight: 2

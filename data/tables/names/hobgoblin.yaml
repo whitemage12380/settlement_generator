@@ -1,0 +1,4 @@
+female: ["Avlarz", "Akkan", "Eken", "Gaik", "Gran", "Kagrovun", "Kuila", "Rhaldrar", "Revilra", "Shal", "Vuiloa", "Zronka"]
+male: ["Adrec", "Akkug", "Dor", "Drazrul", "Dulzun", "Grur", "Kurg", "Lagnok", "Maderon", "Mul", "Nozrurg", "Okrilek", "Shalvruc", "Vud", "Zunkaneg"]
+options:
+  use_family_name: false

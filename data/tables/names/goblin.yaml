@@ -1,0 +1,4 @@
+female: ["Bhaftaaz", "Criotnalmee", "Duzz", "Gliokkolsia", "Gryh", "Hokoiszea", "Khinkea", "Sharx", "Tamif", "Slilt", "Qild", "Jysiltee", "Tiex", "Thrunsea", "Wrash", "Qozz", "Gniosh", "Sumvuix", "Khinort", "Ans", "Neange", "Khiafta", "Iazea", "Chuklush", "Astoft", "Flotvoink", "Vrogogs"]
+male: ["Balb", "Caatterd", "Chuzz", "Cliarrung", "Cridnierk", "Drarm", "Driark", "Driz", "Eert", "Fasz", "Fenar", "Glisz", "Gruc", "Grutaat", "Humtunk", "Krok", "Krotros", "Oiq", "Prur", "Riobs", "Slibs", "Srebnalk", "Steesmurd", "Stral", "Vic", "Xiagluld"]
+options:
+  use_family_name: false

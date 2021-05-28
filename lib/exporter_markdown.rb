@@ -45,6 +45,10 @@ class ExporterMarkdown
             output << poi.hired_help_size['description'] if poi.kind_of? Service and not poi.hired_help_size.nil?
             output << "**Quality:** #{poi.quality['name'].pretty}" unless poi.quality.nil?
             output << poi.quality['description'] unless poi.quality.nil?
+            unless poi.owners.nil? or poi.owners.empty?
+              output << "**Owners:**"
+              output.concat(poi.owners.collect { |o| "* #{o.description}" })
+            end
           end
         end
       end

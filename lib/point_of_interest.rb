@@ -1,8 +1,10 @@
 require_relative 'settlement_generator_helper'
+require_relative 'owner'
+require_relative 'family'
 
 class PointOfInterest
   include SettlementGeneratorHelper
-  attr_reader :name, :title, :description, :quality
+  attr_reader :name, :title, :description, :quality, :owners, :owner_group_title
 
   def initialize(settlement, name = nil)
     if name.nil?
@@ -11,6 +13,7 @@ class PointOfInterest
       table = read_table(@location_type + "s", settlement.settlement_type).select { |entry| entry['name'].downcase == name.downcase}.first
     end
     @name = table['name']
+    @owners = generate_owners(settlement.all_tables_hash['demographics'])
     @names = table.fetch('names', {})
     @title = generate_title()
     @description = table['description']
@@ -34,7 +37,7 @@ class PointOfInterest
         end
       when 'location'
         synonym_chance = @names.fetch("synonym_chance",
-                               $configuration['locations'].fetch("synonym_chance", 0.5))
+                         $configuration['locations'].fetch("synonym_chance", 0.5))
         if rand() < synonym_chance and @names.has_key? 'synonyms'
           weighted_random(@names['synonyms'])
         else
@@ -50,6 +53,14 @@ class PointOfInterest
     }
   end
 
+  def generate_owners(demographics)
+    owner_strategy = roll_on_table('location_owners', 0, 'names', true)
+    chosen_owners = Array.new (owner_strategy['adults']) {
+      Owner.new(demographics)
+    }
+    return chosen_owners
+  end
+
   def print()
     puts @title unless @title.nil?
     puts @name if @title.nil? or not @title.include? @name
@@ -57,6 +68,7 @@ class PointOfInterest
     puts "    #{@hired_help_size['description']}" unless @hired_help_size.nil?
     puts "    Quality: #{@quality['name']}"
     verbose "        #{@quality['description']}"
+    puts "    Owners: #{@owners.collect {|o| o.description }.join('\n            ')}"
   end
 
   def to_h()

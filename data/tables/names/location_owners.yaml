@@ -1,0 +1,20 @@
+---
+- name: individual
+  adults: 1
+- name: partners
+  adults: 2
+  weight: 0
+- name: spouses
+  families:
+    - adults: 2
+  weight: 0
+- name: family
+  families:
+    - adults: 1-4
+      children: 0-4
+  weight: 0
+- name: named group
+  adults: 3-6
+  weight: 0
+- name: communal
+  weight: 0

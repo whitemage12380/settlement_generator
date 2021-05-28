@@ -1,0 +1,8 @@
+female: ["Aerin", "Aisling", "Amelia", "Beatrice", "Eirisse", "Esther", "Feronia", "Hegna", "Helen", "Hestia", "Ianira", "Isadora", "Kafara", "Kali", "Khalida", "Lenora", "Loredana", "Magdalena", "Mercy", "Nezera", "Nyx", "Psyche", "Scarlett", "Silver", "Tanith", "Thora", "Tiana", "Venette", "Zola"]
+male: ["Aleron", "Archibald", "Barnabas", "Dante", "Deverell", "Donovan", "Emil", "Florin", "Frank", "Griffin", "Jeremy", "Jorin", "Kristoph", "Lothaire", "Mordecai", "Nodin", "Quinn", "Samuel", "Sliske", "Stelian", "Tallon", "Tearle", "Zintius", "Zoltan"]
+options:
+  first_name_race_chances:
+    vampire: 3
+    human: 1
+  family_name_race_chances:
+    human: 1

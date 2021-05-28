@@ -1,0 +1,7 @@
+options:
+  first_name_race_chances:
+    human: 1
+    elf: 1
+  family_name_race_chances:
+    human: 1
+    elf: 1

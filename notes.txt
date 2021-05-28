@@ -45,16 +45,65 @@ From a generater:
 
 Owners:
 - Individual
+    - Pick an individual name and surname.
+    - In the case of humans, this might be within
+      the same ethnicity or different But this only
+      applies to humans.
 - Partners
+    - Chance for 2 individual names and 1 surname.
+    - Chance for 2 sets of individual + surname
+    - Humans: Higher chance for same ethnicity?
 - Family
+    - One surname, 2-5 individual names
+    - Familial designations - spouses, children, grandparents, cousins, etc.
+    - Humans: Higher chance for same ethnicity
 - Named group
+    - Same generator as store/service name generator?
+    - 3-6 sets of individual + surname
 - Communal
+    - Hmm
+
+Function: Generate an individual
+Function: Generate a family with n members
+Once I have these two, the rest should work out.
+
+An individual has a first name and a family.
+The family may have 1 or more members.
+The family may have no last name if it is told not to have one in the options key.
+The family otherwise always functions the same way.
+When creating an individual:
+  - A family is created. That family will be the same race as the individual unless it hits a small chance of being different.
+  - If it's different, for a family of 1 that just means the individual has a last name that would ordinarily belong to a different race.
+  - What if the family randomly chosen has no last name? Simplest would be, the individual has no last name, and it is noted that they were raised by people of the race chosen.
+
+Conditions to support:
+- Individual has a name or ethnicity that doesn't match their race. E.g. Human with a Dwarven name.
+- Individual has a race and name or ethnicity that doesn't match their family race. E.g. Human with a human name raised by dwarves.
+- Individual has a name or ethnicity that matches their family race but not their own. E.g. Human with a dwarven name raised by dwarves.
+
+Don't necessarily need to support:
+- Individual has a name that matches neither their race nor their family's. E.g. Human with a dwarven name raised by humans.
+
+Right now we have name_race_mismatch_chance and name_ethnicity_mismatch_chance.
+
+Let's have race and ethnicity originate in family
+Then, individual gets those OR random.
+Then, individual's name matches their race OR family's race
+
+For half-elves, half-orcs, and tieflings - since families don't have a concept of race vs name_race, it won't be clear which race's last name gets chosen for the last name. This might be fine.
+Also, there is no connection between the choice for first name and choice for last, so it is as likely to have elvish first name and human last name as it is to hae elvish first and last name. This is a little unrealistic, but not a big deal.
+
 
 Roadmap:
-- Shop naming
-- Shop owners
+- DONE - Shop naming
+- Shop owners (basic functionality, individual)
+- Owner names
 - Village
 - Town
 - City
+- More names
+  - Expanded halfling names (from Xanathar's)
+  - Expand Triton surnames (somehow)
+- Shop owners (all types)
 - Capital
 - Fortress

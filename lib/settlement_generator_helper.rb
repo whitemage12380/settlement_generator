@@ -1,5 +1,6 @@
 require 'yaml'
 require_relative 'configuration'
+require_relative 'race'
 
 class String
 
@@ -21,6 +22,13 @@ class Integer
   def signed()
     sign = self >= 0 ? '+' : ''
     "#{sign}#{self}"
+  end
+end
+
+class Hash
+  def deep_merge(second)
+    merger = proc { |_, v1, v2| Hash === v1 && Hash === v2 ? v1.merge(v2, &merger) : Array === v1 && Array === v2 ? v1 | v2 : [:undefined, nil, :nil].include?(v2) ? v1 : v2 }
+    merge(second.to_h, &merger)
   end
 end
 
@@ -71,8 +79,15 @@ module SettlementGeneratorHelper
   end
 
   def read_table(table_name, table_directory = @settlement_type)
-    file_path = "#{Configuration.project_path}/data/tables/#{table_directory}/#{table_name.filename_style}.yaml"
-    return read_yaml_file(file_path)
+    read_yaml_file(table_path(table_name, table_directory))
+  end
+
+  def table_path(table_name, table_directory = @settlement_type)
+    "#{Configuration.project_path}/data/tables/#{table_directory}/#{table_name.filename_style}.yaml"
+  end
+
+  def table_exist?(table_name, table_directory = @settlement_type)
+    File.exist? table_path(table_name, table_directory)
   end
 
   def weighted_random(obj, modifier = 0)
@@ -135,23 +150,24 @@ module SettlementGeneratorHelper
     return rand(min..max) + modifier
   end
 
-  def roll_race(races_chosen = [], table_name = @config.fetch('race_table', 'standard'))
+  def roll_race(chosen_races = {}, table_name = @config.fetch('race_table', 'standard'))
     file_path = "#{Configuration.project_path}/data/tables/race/#{table_name}.yaml"
     table_entries = read_yaml_file(file_path)
     selected_entry = nil
-    while selected_entry.nil? or races_chosen.values.any? { |r| r == selected_entry.fetch('name', nil) }
+    while selected_entry.nil? or (chosen_races.values.any? { |r| r.name == selected_entry.fetch('name', nil) } and chosen_races.size < table_entries.size)
       selected_entry = weighted_random(table_entries)
     end
-    return selected_entry['name']
+    return Race.new(selected_entry)
   end
 
   def generate_races(demographics = all_tables_hash['demographics'], table_name = @config.fetch('race_table', 'standard'))
-    demographics.fetch('races', []).each do |race_label|
+    demographics.fetch('races', []).collect{|r|r['name']}.difference(['other']).each do |race_label|
       demographics['chosen_races'] = Hash.new if demographics['chosen_races'].nil?
-      chosen_race = roll_race(demographics['chosen_races'])
-      log "Chose #{race_label} race: #{chosen_race}"
-      demographics['chosen_races'][race_label] = chosen_race
-      demographics['description'].sub!("#{race_label} race", chosen_race)
+      chosen_races = demographics['chosen_races']
+      chosen_race = roll_race(chosen_races)
+      log "Chose #{race_label} race: #{chosen_race.plural}"
+      chosen_races[race_label] = chosen_race
+      demographics['description'].sub!("#{race_label} race", chosen_race.plural)
     end
   end
 
