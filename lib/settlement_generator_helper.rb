@@ -16,12 +16,20 @@ class String
   def filename_style()
     return downcase.tr(" ", "_")
   end
+
+  def is_integer?
+    self.to_i.to_s == self
+  end
 end
 
 class Integer
   def signed()
     sign = self >= 0 ? '+' : ''
     "#{sign}#{self}"
+  end
+
+  def is_integer?
+    true
   end
 end
 
@@ -92,6 +100,7 @@ module SettlementGeneratorHelper
 
   def weighted_random(obj, modifier = 0)
     arr = obj.kind_of?(Array) ? obj : obj.to_a
+    modifier = 0 if modifier.nil?
     weighted_arr = []
     arr.each { |elem|
       if (elem.kind_of? Array) and (elem.length == 2) and ((elem[0].kind_of? String) or (elem[0].kind_of? Symbol)) and (elem[1].kind_of? Hash)
@@ -126,7 +135,7 @@ module SettlementGeneratorHelper
     if log_roll == true
       roll_modifier_str = modifier != 0 ? " (#{modifier.signed})" : ''
       modifiers_str = " (#{table_entry_modifiers_str(selected_entry)})" if entry_has_modifiers? selected_entry
-      log "Rolled on #{table_name} table#{roll_modifier_str}: #{selected_entry['name'].pretty}#{modifiers_str}"
+      log "Rolled on #{table_name} table#{roll_modifier_str}: #{selected_entry.fetch('name', selected_entry['description'] ).pretty}#{modifiers_str}"
     end
     if selected_entry.kind_of? Hash and selected_entry.has_key? 'roll'
       selected_entry['roll_result'] = weighted_random(selected_entry['roll'])
@@ -139,13 +148,23 @@ module SettlementGeneratorHelper
   end
 
   def roll(range, modifier = 0)
-    if range.kind_of?(String) and range =~ /(\d+)-(\d+)/
+    puts range
+    if range.kind_of?(String) and range =~ /^(\d+)-(\d+)$/
       min = $1.to_i
       max = $2.to_i
+    elsif range.kind_of?(String) and range =~ /^(\d+)d(\d+)([-+]?)(\d*)$/
+      die_num = $1.to_i
+      die_size = $2.to_i
+      die_mod = ($3 == '' or $4 == '') ? 0 : "#{$3}#{$4}".to_i
+      return Array.new(die_num) { rand(1..die_size) }.sum() + die_mod
     elsif range.kind_of?(Array)
       min, max = range
     elsif range.kind_of?(Range)
       return rand(range) + modifier
+    elsif (range.kind_of? String or range.kind_of? Integer) and range.is_integer?
+      return range.to_i
+    else
+      raise "Unsupported format for roll: #{range.to_s}"
     end
     return rand(min..max) + modifier
   end

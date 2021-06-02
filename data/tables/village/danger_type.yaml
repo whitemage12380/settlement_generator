@@ -1,0 +1,28 @@
+---
+- weight: 1
+  name: Wildlife Attack
+  description: Wildlife lives in close proximity to the village, which may be open,
+    or have little in the way of defenses. Wildlife may be free to roam the village,
+    especially in low-traffic hours.
+- weight: 1
+  name: Misunderstanding
+  description: For new arrivals in the village, especially those not from the region,
+    communication can be hard. Miscommunication can lead to dangerous situations.
+- weight: 1
+  name: Workplace Accidents
+  description: Depending on the kind of work being done, there may be some omnipresent
+    danger, from mishaps with animals, to issues with equipment, especially if it
+    is in poor condition.
+- weight: 1
+  name: Disease
+  description: Villages can lack rigorous standards of cleanliness or, due to their
+    rural placement, can sometimes be prone to issues with disease-carrying vermin.
+- weight: 1
+  name: Unwanted Attention
+  description: Being a tight-knit community has the benefit of everyone being very
+    familiar with everyone else. This makes visitors stick out like a sore thumb.
+    This could draw attention from the villagers, or anyone who might be watching.
+- weight: 1
+  name: Monster Prey
+  description: Large monsters, who might view a town or city as too threatening a
+    target, may view a village as a much easier source of food.

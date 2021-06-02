@@ -1,0 +1,42 @@
+---
+- weight: 2
+  name: Destitute
+  description: Most of the population consistently lacks the barest essentials of
+    what they need to survive.
+  modifiers:
+  - modifier: -2
+    table: crime
+- weight: 4
+  name: Impoverished
+  description: Around half of the population struggles to carve out even a meager
+    existence.
+  modifiers:
+  - modifier: -1
+    table: crime
+- weight: 8
+  name: Average
+  description: Most of the population have enough to live a modest life.
+  modifiers:
+  - modifier: 0
+    table: crime
+- weight: 3
+  name: Prosperous
+  description: Most of the population has enough to live a good life and, of them,
+    a fair amount can even live comfortably.
+  modifiers:
+  - modifier: -1
+    table: crime
+- weight: 2
+  name: Wealthy
+  description: The villagers are well off, perhaps even able to indulge once in a
+    while.
+  modifiers:
+  - modifier: -2
+    table: crime
+- weight: 1
+  name: Affluent
+  description: The villagers have plenty of disposable income and want for absolutely
+    nothing.
+  modifiers:
+  - modifier: -3
+    table: crime

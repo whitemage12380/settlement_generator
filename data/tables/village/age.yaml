@@ -1,0 +1,47 @@
+---
+- weight: 5
+  name: Recent
+  description: The village was established within the past year. Those within the
+    village are newly settled.
+  modifiers:
+  - modifier: -5
+    table: population density
+  - modifier: -4
+    table: hardship likelihood
+- weight: 5
+  name: Established
+  description: The village has been settled for a few years. They have been able to
+    successfully sustain themselves, and the families have started to grow.
+  modifiers:
+  - modifier: -2
+    table: population density
+  - modifier: -2
+    table: hardship likelihood
+- weight: 5
+  name: Mature
+  description: The village has been around close to a decade or so. Production has
+    been honed, and practices are optimized. Children born in the settlement may be
+    old enough to start to lend a hand.
+  modifiers:
+  - modifier: 0
+    table: population density
+  - modifier: 0
+    table: hardship likelihood
+- weight: 4
+  name: Old
+  description: The village was founded decades ago. Production has reached peak performance,
+    with the elder members of the community being old hands at the work. There are
+    many adults in the village who were born there.
+  modifiers:
+  - modifier: 0
+    table: population density
+  - modifier: 2
+    table: hardship likelihood
+- weight: 2
+  name: Ancient
+  description: The village was established near to, or more than, a century ago.
+  modifiers:
+  - modifier: 0
+    table: population density
+  - modifier: 4
+    table: hardship likelihood

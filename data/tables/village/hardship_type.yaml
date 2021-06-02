@@ -1,0 +1,47 @@
+---
+- weight: 1
+  name: Plague
+  description: The community fell victim to disease.
+  modified attributes:
+    - population density
+- weight: 1
+  name: Bandits on the Road
+  description: On the way to or from market, the village’s caravan was set upon by bandits.
+  modified attributes:
+    - population wealth
+- weight: 1
+  name: Raid
+  description: The village was raided by marauders.
+  modified attributes:
+    - size
+    - population wealth
+    - population density
+- weight: 1
+  name: Famine / Food Shortage
+  description: If the village normally produces some kind of food, it did not produce. If they typically get their food from the market, they had difficulties doing so for a time.
+  modified attributes:
+    - population density
+- weight: 1
+  name: Harsh Weather
+  description: The region was beset by nature’s wrath.
+  modified attributes:
+    - condition
+    - size
+- weight: 1
+  name: Inter-Community Conflict/Violence
+  description: A conflict between members of the community broke out and split the village, with dire consequences.
+  modified attributes:
+    - population density
+    - disposition
+- weight: 1
+  name: Loss of Community Leader
+  description: A key member of the community died or went missing.
+  modified attributes:
+    - disposition
+- weight: 1
+  name: Victim of War
+  description: The village was struck by the ravages of war (passing or foraging armies, collateral battle damage, disease from war-related issues such as camp hygiene or illness from dead bodies).
+  modified attributes:
+    - condition
+    - size
+    - population density

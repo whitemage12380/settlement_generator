@@ -1,0 +1,52 @@
+---
+- weight: 2
+  name: Very Small
+  description: Up to a dozen standing structures.
+  rolls:
+    - roll: 1
+      table: places of worship
+    - roll: 1d2-1
+      table: places of gathering
+    - roll: 1d2-1
+      table: other locations
+- weight: 4
+  name: Small
+  description: Up to 30 standing structures.
+  rolls:
+    - roll: 1d2
+      table: places of worship
+    - roll: 1
+      table: places of gathering
+    - roll: 1
+    - roll: 1d2
+      table: other locations
+- weight: 8
+  name: Medium
+  description: Up to 60 standing structures.
+  rolls:
+    - roll: 1d2
+      table: places of worship
+    - roll: 1d2
+      table: places of gathering
+    - roll: 1d2+1
+      table: other locations
+- weight: 4
+  name: Large
+  description: Up to 90 standing structures.
+  rolls:
+    - roll: 1d2+1
+      table: places of worship
+    - roll: 1d2
+      table: places of gathering
+    - roll: 2d2
+      table: other locations
+- weight: 2
+  name: Very Large
+  description: Up to 120 standing structures.
+  rolls:
+    - roll: 1d2+1
+      table: places of worship
+    - roll: 1d2+1
+      table: places of gathering
+    - roll: 2d2+1
+      table: other locations

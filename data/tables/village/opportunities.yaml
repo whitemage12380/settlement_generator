@@ -1,0 +1,25 @@
+---
+- weight: 1
+  name: Thief
+  description: Someone has been absconding with large amounts of the village’s major
+    crop, or resource.
+- weight: 1
+  name: Wildlife
+  description: Local wildlife has been harassing the villagers, or animals.
+- weight: 1
+  name: Monster(s)
+  description: Something worse than simple wildlife is terrorizing the village.
+- weight: 1
+  name: Haunting
+  description: A spirit haunts some place within the village. Something was done to
+    this person while they were alive that has tied the spirit to this place.
+- weight: 1
+  name: Party Time
+  description: A festival is coming up soon, and a shipment carrying something important
+    for the event has not arrived.
+- weight: 1
+  name: Shady Doings
+  description: Strange symbols are discovered written on the walls of certain homes,
+    or other buildings. Bits of bones, or piles of stones, placed just-so have been
+    found. Something, or someone, is trying to send a message, or accomplish a less-than-
+    savory task. What is it and why is it happening?

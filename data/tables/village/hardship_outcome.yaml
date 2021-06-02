@@ -1,0 +1,21 @@
+---
+- weight: 2
+  name: Catastrophic Losses
+  description: The village’s losses were brutal, and excruciatingly difficult, or even impossible, to recover from.
+  modifier: -5
+- weight: 2
+  name: Terrible Losses
+  description: The village’s losses were crushing, and incredibly difficult to recover from.
+  modifier: -4
+- weight: 2
+  name: Heavy Losses
+  description: The village’s losses were awful, and recovery is proving difficult.
+  modifier: -3
+- weight: 2
+  name: Moderate Losses
+  description: The village’s losses were rough but recovery is likely, though may be tough.
+  modifier: -2
+- weight: 2
+  name: Minimal Losses
+  description: The village’s losses were as little as could have been hoped for, and recovery should be very possible, or even inevitable.
+  modifier: -1

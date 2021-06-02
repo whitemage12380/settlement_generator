@@ -1,0 +1,44 @@
+---
+- weight: 1
+  name: Animal Issues
+  description: Livestock, or pets, may have been ravaged by local wildlife, or monsters,
+    or animals may have been struck by sickness or pestilence.
+- weight: 1
+  name: Attacks
+  description: Members of the community have been attacked, either by briggands or,
+    perhaps, monsters.
+- weight: 1
+  name: Bumper Production
+  description: A staple resource of the village has yielded very well, recently.
+- weight: 1
+  name: Out of Favor
+  description: The village has been subject to the ire of a nearby ruler, or entity.
+- weight: 1
+  name: Entertainment
+  description: A certain form of entertainment is proving popular, whether a game
+    or pastime, the arrival of a storyteller or musician, or something else.
+- weight: 1
+  name: Fear
+  description: Something unnerving, or frightening, has happened recently.
+- weight: 1
+  name: Good Fortune
+  description: The village has received favorable notice from a nearby ruler, or entity
+    of note.
+- weight: 1
+  name: Infestation
+  description: Some form of vermin, or pest, has recently beset the village, and has
+    become an ongoing issue.
+- weight: 1
+  name: Poor Production
+  description: A staple resource of the village has yielded poorly of late.
+- weight: 1
+  name: Power Vacuum
+  description: The death, or absence, of a local leadership figure, or figures, has
+    led to internal strife within the community.
+- weight: 1
+  name: Safe Haven
+  description: The village has become a sanctuary for refugees, or those in need.
+- weight: 1
+  name: Wartorn
+  description: The village was occupied by military forces, and suffered damages,
+    during wartime in the recent past.

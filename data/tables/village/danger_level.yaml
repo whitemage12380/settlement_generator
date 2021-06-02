@@ -1,0 +1,17 @@
+---
+- weight: 2
+  name: No Danger or Hazards
+  description: The village is a perfectly safe place to be (skip danger type table).
+- weight: 4
+  name: Low
+  description: Danger or hazards are a rarity.
+- weight: 8
+  name: Medium
+  description: Danger or hazards are not unheard of, but not everyone has experienced
+    them.
+- weight: 4
+  name: High
+  description: Danger or hazards are common.
+- weight: 2
+  name: Extreme
+  description: Danger or hazards abound. It is never safe to go anywhere alone.

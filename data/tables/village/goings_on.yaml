@@ -1,0 +1,24 @@
+---
+- weight: 1
+  name: Worker’s Compensation
+  description: A worker has been injured on the job, and folks are rushing to help
+    them.
+- weight: 1
+  name: Road Merchant
+  description: A travellng merchant just arrived in town, and has all kinds of unique
+    things to show and sell.
+- weight: 1
+  name: Children Missing
+  description: Some of the younger villagers have gone missing. How long have they
+    been gone? What were they last seen doing?
+- weight: 1
+  name: Fallen Rider
+  description: A severely injured man in armor has ridden into the village, late at
+    night, and fallen, unconscious, from his horse. He is wearing a tabard displaying
+    an unfamiliar coat of arms.
+- weight: 1
+  name: They’re Mine
+  description: Two villagers are competing for the hand of a local heartthrob.
+- weight: 1
+  name: Echoes in the Deep
+  description: A villager swears they can hear sounds like voices coming from underground.

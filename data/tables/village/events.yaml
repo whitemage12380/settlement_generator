@@ -1,0 +1,39 @@
+---
+- weight: 1
+  name: Birth or Birthday
+  description: Blessings are sought for individuals on the day of their birth.
+- weight: 1
+  name: Party
+  description: These are fun events that bring the community together for fellowship
+    and camaraderie, and could be happening for a number of reasons.
+- weight: 1
+  name: Funeral
+  description: A gathering to remember those from the community who passed away, either
+    in mourning or in celebration of their life, with a party reflecting the things
+    that meant most to the deceased.
+- weight: 1
+  name: Harvest and Productivity
+  description: Villagers seek blessings for upcoming work, such as a harvest, or thanks
+    are given for bountiful yields.
+- weight: 1
+  name: Love
+  description: Festivities to encourage pairing, celebrating couples and family.
+- weight: 1
+  name: Political
+  description: A celebration honoring events of national significance, such as remembering
+    a great victory, or gaining independence.
+- weight: 1
+  name: Religious
+  description: Events relating to and honoring a venerated deity are often regular
+    and steeped in tradition.
+- weight: 1
+  name: Wedding
+  description: Celebrating the formal joining of two families.
+- weight: 1
+  name: Local
+  description: Celebration revolving around a major local event or the deeds of a
+    local hero.
+- weight: 1
+  name: Travel & Welcome
+  description: Festivities welcome someone new to the community, or someone well on
+    a journey.

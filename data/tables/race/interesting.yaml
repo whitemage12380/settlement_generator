@@ -20,7 +20,7 @@
 - name: half-orc
   weight: 4
 - name: tiefling
-  weight: 200
+  weight: 2
 - name: aasimar
   plural: assimar
   weight: 2

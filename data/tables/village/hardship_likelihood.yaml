@@ -1,0 +1,21 @@
+---
+- weight: 2
+  name: No Hardship
+  description: The village has been lucky, and nothing has troubled it so far.
+  hardships: 0
+- weight: 4
+  name: One Hardship
+  description: The village has experienced one notable time of difficulty.
+  hardships: 1
+- weight: 8
+  name: Two Hardships
+  description: The village has gone through a couple of hardships.
+  hardships: 2
+- weight: 4
+  name: Three Hardships
+  description: The village has experienced three difficult situations.
+  hardships: 3
+- weight: 2
+  name: Four Hardships
+  description: The village has been beset by four trying times.
+  hardships: 4

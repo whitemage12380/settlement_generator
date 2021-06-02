@@ -1,0 +1,24 @@
+---
+- weight: 1
+  name: No Leader
+  description: The village operates with no leadership, which could lead to unresolved
+    disputes.
+- weight: 1
+  name: Natural Village Elder
+  description: The village recognizes a wise individual, and informally acknowledges
+    them as an authority figure.
+- weight: 1
+  name: External Ruler
+  description: The village owes fealty to a ruler who is located outside the village
+    itself.
+- weight: 1
+  name: Local Council
+  description: Prominent members of the community were chosen to lead the village
+    collectively.
+- weight: 1
+  name: Single, Elected Leader
+  description: The locals democratically voted for their current leader.
+- weight: 1
+  name: Anarcho-Syndicalist Commune
+  description: The members of the village take turns as a sort of executive officer
+    for the week.

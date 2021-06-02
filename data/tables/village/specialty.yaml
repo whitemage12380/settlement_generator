@@ -1,0 +1,27 @@
+---
+- weight: 1
+  name: None
+  description: The village is unremarkable, or not widely known for any particular
+    thing.
+- weight: 1
+  name: Food or Drink
+  description: Someone in the village makes a particular food or drink (such as bread,
+    stew, produce, ale, wine, etc.) that has gained some notoriety. They may own an
+    establishment, but could easily just sell it out of their home.
+- weight: 1
+  name: Location Proximity
+  description: The village itself may not be very special, but it is near somewhere
+    that is, such as a stunning vista, or a site of historical significance.
+- weight: 1
+  name: Livestock
+  description: The village is known for breeding strong and healthy (perhaps, even
+    pedigree) animals, such as horses, cattle, sheep, etc.
+- weight: 1
+  name: Crop
+  description: The village is known for a particularly notable crop. This could mean
+    rare, high-quality, plentiful, or a mix of the three.
+- weight: 1
+  name: Crafted Goods
+  description: The village is known for the craft of a certain item, or type of goods,
+    widely liked and highly valued, such as hand-crafted furniture, a category of
+    clothing item, etc.

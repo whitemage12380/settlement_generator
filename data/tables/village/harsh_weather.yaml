@@ -1,0 +1,50 @@
+---
+- weight: 1
+  name: Ideal
+  description: Recent conditions have been as good as possible. Work has been able
+    to progress better than usual, and any grown resource may be having a richer yield
+    than normal.
+- weight: 1
+  name: Heavy Precipitation
+  description: Rain or snow have been significantly heavier than usual. There has
+    either been sufficient flooding, or snow has been deep enough, to cause damage,
+    perhaps even trapping folk inside their homes.
+- weight: 1
+  name: Drought
+  description: It has been warm, maybe even pleasantly so, but it also has not rained
+    in some time. Things are getting dry and brittle. Unless water storage solutions
+    are in place, and water distribution (such as irrigation) is available, this doesn’t
+    bode well.
+- weight: 1
+  name: Thunderstorms or Blizzards (non-arid region)
+  description: " The precipitation hasn’t been the problem so much as the severity
+    of the storms. It is impossible to work, or travel, in these conditions, so village
+    residents are holed up inside, waiting out the storms, which have been occurring
+    much more frequently."
+- weight: 1
+  name: Wildfires
+  description: There have been fires, either nearby or some ways off. Either way,
+    they’re too close for comfort. Ash can be seen on the ground, smoke can be smelled
+    in the air, and forests nearby are in danger, if not ablaze already.
+- weight: 1
+  name: Hail
+  description: Storms dropping chunks of ice at great speeds have been devastating
+    the village, possibly damaging crops, structures, or even people and animals caught
+    outdoors.
+- weight: 1
+  name: Dust Storms (arid region)
+  description: Dust storms have been passing through in a choking haze, making it
+    difficult to travel, or do extended work outside. Air quality is awful, and some
+    folk are getting sick.
+- weight: 1
+  name: Hurricane (coastal region)
+  description: A hurricane is approaching, or has arrived. Forceful wind, pounding
+    rain, flooding, and hail have all been seen. Some folks may be fleeing.
+- weight: 1
+  name: Tornado
+  description: A whirling cyclone is approaching, or has careened through or near,
+    the village, uprooting crops, destroying buildings, or worse.
+- weight: 1
+  name: Earthquake
+  description: Shifting earth beneath the village is causing, or has caused, structural
+    collapse and, possibly, even sinkholes and cave-ins.

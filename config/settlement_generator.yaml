@@ -16,4 +16,6 @@ trading_post:
     - inn
   place_of_worship_chance: 0.5
   race_table: interesting #human_only  # common_only, standard, interesting, wild
+village:
+  race_table: interesting
 verbose: off

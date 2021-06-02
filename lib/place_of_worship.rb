@@ -6,6 +6,7 @@ class PlaceOfWorship < PointOfInterest
   attr_reader :alignment, :fervency, :size
 
   def initialize(settlement_type)
+    settlement_type = settlement_type.settlement_type if settlement_type.kind_of? Settlement
     @alignment = roll_on_table('alignment of the faith', 0, settlement_type, false)['name']
     @fervency = roll_on_table('fervency of local following', 0, settlement_type, false)
     @size = roll_on_table('place of worship size', 0, settlement_type, false)

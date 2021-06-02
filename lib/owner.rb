@@ -58,35 +58,6 @@ class Owner
     # Set the first name
     @category = is_child ? 'child' : nil
     @first_name, @category = random_first_name(@name_race, @name_ethnicity, @category, false) if name_table_exist?(@name_race)
-
-    # if family.nil? or rand() < owners_config.fetch('family_race_mismatch_chance', 0)
-    #   @race, @ethnicity = random_race_and_ethnicity(demographics)
-    #   @family = Family.new(race: @race, ethnicity: @ethnicity) # Wrong if family is not nil
-    #   # Some more nuance may be required here. If this hits due to a family race mismatch,
-    #   # it should mean the individual is of a different race than the rest of their family,
-    #   # with consideration toward whether the first name style matches their race or their
-    #   # family's race.
-    #   # The current code's implication is that the individual simply ignores the family entirely
-    #   # and ends up with a new one, which isn't really the intention.
-    # elsif rand() < owners_config.fetch('family_ethnicity_mismatch_chance', 0)
-    #   @family = family
-    #   @race = family.race
-    #   @ethnicity = random_ethnicity(@race)
-    # else
-    #   @family = family
-    #   @race = family.race
-    #   @ethnicity = family.ethnicity
-    # end
-    # if rand() < owners_config.fetch('name_race_mismatch_chance', 0)
-    #   @name_race, @name_ethnicity = random_race_and_ethnicity(demographics)
-    # elsif rand() < owners_config.fetch('name_ethnicity_mismatch_chance', 0)
-    #   @name_race = @race
-    #   @name_ethnicity = random_ethnicity(@name_race)
-    # else
-    #   @name_race, @name_ethnicity = @race, @ethnicity
-    # end
-    # @category = is_child ? 'child' : nil
-    # @first_name = random_first_name(@name_race, @name_ethnicity, @category, false) if name_table_exist?(@name_race)
   end
 
   def random_first_name(race = @name_race, ethnicity = @name_ethnicity, category = nil, child_ok = false)
@@ -156,15 +127,5 @@ class Owner
     end
 
     return "#{full_name} (#{race_and_ethnicity}).#{family_str.to_s}#{name_origin_str.to_s}"
-
-    # if name_race == race and (ethnicity.nil? or name_ethnicity == ethnicity)
-    #   "#{full_name} (#{race_and_ethnicity})"
-    # elsif name_race == race and name_ethnicity != ethnicity
-    #   "#{full_name} (#{race_and_ethnicity}). First name ethnicity of origin: #{name_ethnicity}."
-    # elsif name_race != race
-    #   "#{full_name} (#{race_and_ethnicity}). First name race of origin: #{name_race_and_ethnicity}."
-    # else
-    #   raise "This should not happen."
-    # end
   end
 end

@@ -1,0 +1,39 @@
+---
+- weight: 2
+  name: Ruined
+  description: The village is little but rubble and debris with, perhaps, a few exceptions.
+    This could have been the result of a war, raid, earthquake, or storm.
+  modifiers:
+  - modifier: -6
+    table: population wealth
+- weight: 4
+  name: Dilapidated
+  description: The village is in a state of disrepair. Some buildings may be coming
+    down, or may have been built in a shoddy fashion. Cleanliness is not a priority.
+  modifiers:
+  - modifier: -3
+    table: population wealth
+- weight: 8
+  name: Simple
+  description: Most buildings are organized and seem sturdy enough, though there is
+    nothing remarkable. The streets are clear enough to move through, but may be uneven
+    and rutted.
+  modifiers:
+  - modifier: 0
+    table: population wealth
+- weight: 4
+  name: Hearty
+  description: Everything here appears to be well-built and robust. The village seems
+    mindful of cleanliness and the settlement’s upkeep. Roads and paths are well-groomed
+    and flattened.
+  modifiers:
+  - modifier: 3
+    table: population wealth
+- weight: 2
+  name: Immaculate
+  description: The village is very well organized, and there is clearly a concerted
+    effort to keep the village in the best shape possible. Cleanliness is a priority,
+    as is maintenance. Roads and paths are plainly surfaced and clean.
+  modifiers:
+  - modifier: 6
+    table: population wealth

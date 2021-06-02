@@ -1,0 +1,33 @@
+---
+- weight: 1
+  name: Coastal
+  description: The village is near a large body of water, such as a lake or ocean.
+- weight: 1
+  name: Forest
+  description: The village is nestled among the trees.
+- weight: 1
+  name: Mountains
+  description: The village is found on stony passes or soaring peaks.
+- weight: 1
+  name: Plains
+  description: The village is in the wide open fields.
+- weight: 1
+  name: River
+  description: The village is near a steadily flowing stream, or other watercourse.
+- weight: 1
+  name: Swamp
+  description: The village is in, or near, a vast area of stagnant water.
+- weight: 1
+  name: Underground
+  description: The village is within a large network of caves.
+- weight: 1
+  name: Valley
+  description: The village is found within, or on the edge of, an area of recessed
+    elevation in relation to the landscape around it.
+- weight: 1
+  name: Tundra
+  description: The village is in a very cold environment.
+- weight: 1
+  name: Desert
+  description: The village is in a dry and arid environment, likely covered with vast
+    sand dunes.

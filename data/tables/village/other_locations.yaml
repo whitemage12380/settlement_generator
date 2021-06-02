@@ -1,17 +1,17 @@
 ---
 - weight: 4
   name: Baker
-- weight: 4
+- weight: 3
   name: Butcher
 - weight: 4
   name: Cooper
 - weight: 4
   name: Carpenter
-- weight: 8
+- weight: 4
   name: General Store
 - weight: 4
   name: Herbalist
-- weight: 8
+- weight: 4
   name: Smithy
 - weight: 4
   name: Tailor
@@ -25,37 +25,52 @@
   name: Weaver
 - weight: 3
   name: Alchemist
-- weight: 3
+- weight: 2
   name: Artist
-- weight: 3
-  name: Bank & Exchange
 - weight: 3
   name: Cobbler
 - weight: 3
-  name: Foundry/Smelting
-- weight: 3
   name: Mill
 - weight: 3
-  name: Textile Production
-- weight: 3
   name: Shipwright
-- weight: 2
+- weight: 1
   name: Rare Botanicals
-- weight: 2
+- weight: 1
   name: Luxury Furnishings
-- weight: 2
+- weight: 1
   name: Rare Libations & Fare
-- weight: 2
+- weight: 1
   name: Rare Trade Goods
-- weight: 2
+- weight: 1
   name: Magic Shop - Armor
-- weight: 2
+- weight: 1
   name: Magic Shop - Books
-- weight: 2
+- weight: 1
   name: Magic Shop - Clothing
-- weight: 2
+- weight: 1
   name: Magic Shop - Jewelry
-- weight: 2
+- weight: 1
   name: Magic Shop - Weapons
-- weight: 2
+- weight: 1
   name: Magic Shop - Miscellaneous & Curiosities
+- weight: 2
+  name: Barber
+- weight: 2
+  name: Bathhouse
+- weight: 2
+  name: Doctor/Apothecary
+- weight: 2
+  name: House of Leisure
+- weight: 5
+  name: Inn
+- weight: 5
+  name: Soothsayer
+- weight: 5
+  name: Stable
+- weight: 5
+  name: Tavern
+  description: Provides food and drink.
+- weight: 3
+  name: Burned down or abandoned business
+  special: reroll
+  description: This used to be a place of business, but isn’t anymore.

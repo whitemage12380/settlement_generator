@@ -1,0 +1,39 @@
+---
+- weight: 3
+  name: None
+  description: This could be good or bad, depending on one’s point of view. Good if
+    the folk are honest enough that policing is unnecessary, but bad when you need
+    to call for help.
+  modifiers:
+  - modifier: -2
+    table: crime
+- weight: 7
+  name: Disorganized Rabble
+  description: The quintessential village mob, with little to no organization. This
+    is usually formed on the spur-of-the-moment to address a particular issue.
+  modifiers:
+  - modifier: -1
+    table: crime
+- weight: 4
+  name: Organized Rabble
+  description: Perhaps better than the alternative, this group has guidance and leadership
+    in the form of an individual, or small group. They may or may not be competent.
+  modifiers:
+  - modifier: 0
+    table: crime
+- weight: 4
+  name: Sheriff
+  description: A single, officially sanctioned sheriff looks to maintaining order
+    within the village. If they require additional help, they request it from the
+    villagers, who may assist in a temporary capacity.
+  modifiers:
+  - modifier: 1
+    table: crime
+- weight: 2
+  name: Sheriff and Deputies
+  description: A sheriff and a handful of deputies, who are officially sanctioned
+    authorities, maintain a firm hold on the village. They maintain civility in an
+    official capacity.
+  modifiers:
+  - modifier: 2
+    table: crime

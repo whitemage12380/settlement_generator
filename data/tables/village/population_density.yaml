@@ -1,0 +1,38 @@
+---
+- weight: 2
+  name: Skeleton
+  description: There are only enough people here for the village to function at its
+    most basic level.
+  modifiers:
+  - modifier: 2
+    table: crime
+- weight: 4
+  name: Sparse
+  description: People are living here, but not many. They are able to handle all tasks
+    that need doing but, perhaps, with some difficulty.
+  modifiers:
+  - modifier: 1
+    table: crime
+- weight: 8
+  name: Populous
+  description: There are enough people here for the village to manage all tasks without
+    difficulty.
+  modifiers:
+  - modifier: 0
+    table: crime
+- weight: 4
+  name: Dense
+  description: The village seems to have a large amount of people for its size. There
+    are many hands available to help with any work that needs doing.
+  modifiers:
+  - modifier: -1
+    table: crime
+- weight: 2
+  name: Congested
+  description: The village has as many people in it as it can hold, and camps may
+    be cropping up on the outskirts. There are plenty of hands available to help with
+    work but, unless the work is very large-scale (such as quarrying), there may be
+    at least some idle people.
+  modifiers:
+  - modifier: -2
+    table: crime

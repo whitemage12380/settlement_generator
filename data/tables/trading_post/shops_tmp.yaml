@@ -1,0 +1,264 @@
+---
+- weight: 4
+  name: Baker
+  description: Bakes and sells fresh bread and, possibly, pastries.
+  shop_type: basic
+  names:
+    name: "Bakery"
+    synonyms: ["Bake Shop", "Baker", "Bakers", "Baking", "Bread", "Breads", "Cafe", "Cakes", "Confectionary", "Pâtisserie", "Sweets"]
+    adjectives: ["Chef", "Blistering", "Crumbled", "Kneaded", "Rising", "Risen", "Savory", "Sweet", "Toasty"]
+    nouns: ["Baguette", "Chef", "Cookie", "Crumb",  "Cupcake", "Dough", "Gluten", "Grains", "Loaf", "Ovens", "Pumpernickle", "Rye", "Sourdough", "Starch", "Wheat"]
+- weight: 4
+  name: Butcher
+  description: Processes and sells fresh and/or dried meat.
+  shop_type: basic
+  names:
+    synonyms: ["Fish", "Fish Market", "Meat", "Meats", "Meat Market"]
+    adjectives: ["Bloody", "Fresh", "Quality", "Tasty"]
+    nouns: ["Beef", "Chicken", "Cow", "Cut", "Cuts", "Deer", "Manticore", "Pig", "Pork", "Steak", "Steaks", "Venison"]
+- weight: 4
+  name: Cooper
+  description: Crafts wooden vessels held together with metal hoops, including barrels,
+    buckets, etc.
+  shop_type: basic
+  names:
+    synonyms: ["Barrels", "Barrel-maker"]
+    adjectives: ["Lacquered", "Maple", "Oak", "Oaken", "Ornate", "Pine", " Polished", " Wooden"]
+    nouns: ["Barrel", "Barrels", "Bucket", "Buckets", "Maple", "Oak", "Pine"]
+- weight: 4
+  name: Carpenter
+  description: Builds with or carves wood, as well as carrying out repairs.
+  shop_type: basic
+  names:
+    synonyms: ["Building Supplies", "Builders", "Carpentry", "Construction", "Construction Supplies", "Crafters", "Craftsmen", "Craftswomen", "Mason", "Masonry", "Woodworking", "Repairs"]
+    adjectives: ["Brick", "Crafty", "Lacquered", "Level", "Load-bearing", "Maple", "Oak", "Oaken", "Pine", "Professional", " Shale", "Stone", "Studded", "Sturdy", "Untarnished", "Wood", "Wooden"]
+    nouns: ["Barn", "Depot", "Gazebo", "Girder", "Hammer", "Joist", "Journeyman", "Nail", "Stud", "Wall", "Warehouse"]
+- weight: 8
+  name: General Store
+  description: Sells basic supplies, groceries, and various odds and ends.
+  shop_type: basic
+  names:
+    synonyms: ["Corner", "Country Store", "Emporium", "Goods", "Grocer", "Grocers", "Grocery Store", "Mart", "Shop", "Store", "Traders", "Trading Post"]
+    adjectives: ["Bargain", "Best", "Discount", "Exotic", "Fine", "Finest", "Premium", "Quality", "Sundry"]
+    nouns: ["Assortment", "Bargain", "Barrel", "Barn", "Bin", "Cabbage", "Carrot", "Chest", "Potato", "Quality", "Repository", "Stockpile", "Tackle", "Variety", "Warehouse"]
+- weight: 4
+  name: Herbalist
+  description: Sells common herbs and natural, non-magical remedies.
+  shop_type: basic
+  names:
+    synonyms: ["Drugs", "Herbals", "Herbs", "Herb Doctor", "Medicine", "Ointments", "Remedies", "Spices", "Tinctures", "Teas", "Treatments"]
+    adjectives: ["Bracing", "Fresh", "Green", "Healing", "Healthy", "Refreshing", "Sage", "Soothing", "Sprouting"]
+    nouns: ["Chamomile", "Cumin", "Dill", "Garden", "Greens", "Plants", "Sage", "Sprout", "Tea"]
+- weight: 8
+  name: Smithy
+  description: Sells and crafts metal tools and equipment, including very basic weapons
+    and armor.
+  shop_type: basic
+  names:
+    synonyms: ["Armorer", "Armorers", "Armory", "Blacksmith", "Blacksmiths", "Bowyer", "Forge", "Shoer", "Tools", "Weapons", "Weaponsmiths"]
+    adjectives: ["Bronze", "Fiery", "Hot", "Iron", "Steel", "Stone", "Strong"]
+    nouns: ["Anvil", "Arrow", "Axe", "Axehead", "Battleaxe", "Blade", "Bow", "Claymore", "Crossbow", "Dagger", "Fire", "Glaive", "Hammer", "Horseshoe", "Lance", "Mace", "Spear", "Sword", "Warrior"]
+- weight: 4
+  name: Tailor
+  description: Makes and sells of clothing, including hats and cloaks. Also sells
+    general items made from cloth, such as blankets, and carries out repairs and alterations
+    of cloth goods.
+  shop_type: basic
+  names:
+    synonyms: ["Alterations", "Cloaks", "Clothes", "Clothier", "Clothing", "Cloth Goods", "Costumes", "Dressmaker", "Garments", "Hats", "Lingerie"]
+    adjectives: ["Altered", "Cloth", "Comfortable", "Cozy", "Custom", "Fabric", "Silk", "Stunning"]
+    nouns: ["Cape", "Cloak", "Cloth", "Cotton", "Cuff", "Fabric", "Fashion", "Hat", "Hem", "Needle", "Pants", "Silk", "Thimble", "Thread", "Threads", "Wardrobe", "Wool"]
+  shop_type: basic
+- weight: 4
+  name: Tanner/Taxidermist
+  description: Processes animal hides for practical or ornamental purposes.
+  shop_type: basic
+  names:
+    name: "Tanning & Taxidermy"
+    synonyms: ["Leather", "Leathermaking", "Tanner", "Taxidermist", "Taxidermy"]
+    synonym_chance: 0.7
+    adjectives: ["Tan", "Tanned", "Skinned"]
+    nouns: ["Deer", "Fur", "Hide", "Skin", "Wolf"]
+- weight: 4
+  name: Thatcher
+  description: Builds roofs using layers of dried straw, reeds, rushes, etc.
+  shop_type: basic
+  names:
+    synonyms: ["Roofer", "Roofs", "Roofing"]
+    adjectives: ["Sealed", "Solid", "Woven"]
+    nouns: ["Ceiling", "Hut", "Reed", "Straw", "Weave"]
+- weight: 4
+  name: Wainwright
+  description: Builds carts and wagons.
+  shop_type: basic
+  names:
+    synonyms: ["Carts", "Wagonwright", "Wagons"]
+    adjectives: ["Covered", "Iron", "Lacquered", "Polished", "Professional", "Rolling", "Smooth", "Swift", "Wood", "Wooden"]
+    nouns: ["Caravan", "Carriage", "Coach", "Journey", "Travels", "Wheel"]
+- weight: 4
+  name: Weaver
+  description: Weaves raw fabric and baskets.
+  shop_type: basic
+  names:
+    synonyms: ["Baskets", "Fabric", "Fabrics", "Needlework"]
+    adjectives: ["Cotton", "Handmade", "Silk", "Threaded", "Wire", "Wool", "Woven"]
+    nouns: ["Basket", "Cotton", "Fibers", "Handbasket", " Needle", "Patterns", "Silk", "Vessel", "Wool"]
+- weight: 3
+  name: Alchemist
+  description: Brews and sells potions, as well as mundane herbs and alchemical ingredients.
+  shop_type: specialty
+  names:
+    synonyms: ["Alchemy", "Brews", "Concoctions", "Cure-alls", "Drugs", "Elixirs", "Medicines", "Potions", "Potion Shop", "Tinctures"]
+    adjectives: ["Bubbling", "Caustic", "Eye of", "Foaming", "Hair of", "Melty", "Potent", "Petrified", "Shimmering", "Sweet"]
+    nouns: ["Bottle", "Cauldron", "Cup", "Flask", "Fountain", "Juice", "Lizard", "Magician", "Mix", "Mortar", "Newt", "Pestle", "Snail", "Spoon", "Water", "Witch"]
+- weight: 3
+  name: Artist
+  description: Encompasses painter, sculptor or other visual art as appropriate.
+  shop_type: specialty
+  names:
+    synonyms: ["Art", "Calligraphy", "Carvings", "Crafts", "Decorations", "Gallery", "Painters", "Paintings", "Pottery", "Sculptures", "Studio"]
+    adjectives: ["Abstract", "Alabaster", "Avant-garde", "Brilliant", "Colorful", "Community", "Daring", "Elegant", "Mixed", "Vibrant", "Refined"]
+    nouns: ["Academy", "Archive", "Brush", "Canvas", "Colors", "Concept", "Media", "Realms", "Sky", "Society", "Worlds"]
+- weight: 3
+  name: Bank & Exchange
+  description: Encompasses auctions, banking, and the specific selling of gems or
+    exchange of currency.
+  names:
+    synonyms: ["Auction House", "Bank", "Credit Union", "Exchange"]
+    adjectives: ["Diamond", "Emerald", "Gold", "Golden", "Resplendent", "Silver", "Wealthy"]
+    nouns: ["Coin", "Currency", "Diamond", "Emerald", "Gem", "Gold", "Hall", " Moneybags"]
+  shop_type: specialty
+- weight: 3
+  name: Cobbler
+  description: Makes and mends boots and shoes.
+  shop_type: specialty
+  names:
+    synonyms: ["Boots", "Footwear", "Shoes", "Shoe-maker"]
+    adjectives: ["Comfortable", "Custom", "Elegant", "Fancy", "Jogging", "Leather", "Running", "Specialty", "Standing", "Suede", "Treading", "Walking", "Waterproof"]
+    nouns: ["Arch", "Feet", "Foot", "Heel", "Heels", "Laces", "Leather", "Loafers", "Moccasin", "Sole", "Soles", "Toe", "Toes"]
+- weight: 3
+  name: Foundry/Smelting
+  description: Ore processing and metal fabrication.
+  shop_type: specialty
+  names:
+    name: Foundry
+    synonyms: ["Foundry & Smelting", "Metallurgy", " Metals", "Metalworking", "Smelting"]
+    adjectives: ["Brass", "Blistering", "Bonded", "Bronze", "Burnished", "Cast", "Chrome", "Copper", "Crystal", "Fiery", "Gold", "Hot", "Iron", "Quenched", "Silver", "Steel", "Superheated", "Tempered", "Unbreakable"]
+    nouns: ["Alloy", "Brass", "Bronze", "Carbon", "Chrome", "Copper", "Core", "Crucible", "Dragon", "Gold", "Iron", "Ladle", "Ore", "Silver", "Steel"]
+- weight: 3
+  name: Mill
+  description: Facilities for milling grain.
+  shop_type: specialty
+  names:
+    synonyms: ["Grains", "Mills", "Watermill", "Windmill"]
+    adjectives: ["Autumn", "Fine", "Finest", "Golden", "Rolling", "Vast"]
+    nouns: ["Barley", "Buckwheat", "Flour", "Grains", "Grind", "Oats", "Stone", "Wheat", "Wheel"]
+- weight: 3
+  name: Textile Production
+  description: Larger scale than a single weaver, offering a wider array of materials
+    in larger quantities.
+  shop_type: specialty
+  names:
+    name: Textiles
+    synonyms: ["Carpets", "Cloth", "Fabrics", "Weavers"]
+    adjectives: ["Braided", "Cotton", "Handmade", "Knitted", "Knitting", "Knotted", "Ornate", "Silk", "Stunning", "Threaded", "Wire", "Wool", "Woven"]
+    nouns: ["Cotton", "Fibers", "Needle", "Patterns", "Rug", "Rugs", "Silk", "Weave", "Wool", "Yarn"]
+- weight: 3
+  name: Shipwright
+  description: Builds and launches boats and/ or ships. [Reroll if settlement is not
+    bordering a significant source of water]
+  shop_type: specialty
+  names:
+    synonyms: ["Boatbuilder", "Boats", "Ships", "Swimming"]
+    adjectives: ["Adrift", "Aft", "Crabby", "Docked", "Dry", "Footloose", "Hardened", "Launched", "Leeward", "Moored", "Rigged", "Rugged", " Salty", "Sandy", "Seaworthy", "Starboard", "Stormy", "Wet"]
+    nouns: ["Admiral", "Anchor", "Ballast", "Barge", "Beacon", "Berth", "Brig", "Clam", "Dolphin", "Galleon", "Hull", "Hold", "Mast", "Mizzenmast", "Oyster", "Port", "Quay", "Raft", "River", "Sail", "Sailboat", "Sea", "Shell", "Shark", "Starfish", "Stern", "Wharf"]
+- weight: 2
+  name: Rare Botanicals
+  description: Cultivates and sells herbs rare to the region.
+  shop_type: exotic
+  names:
+    synonyms: ["Botanicals", "Exotic Botanicals", "Potions", "Rare Herbs"]
+    adjectives: ["Bracing", "Flowering", "Foreign", "Fresh", "Green", "Healing", "Healthy", "Refreshing", "Sage", "Secret", "Specialty", "Singular", "Soothing", "Sprouting", "Unique"]
+    nouns: ["Bud", "Chamomile", "Conservatory", "Cumin", "Dill", "Garden", "Greens", "Grove", "Nursery", "Plants", "Sage", "Sprout", "Stem", "Tea", "Vial"]
+- weight: 2
+  name: Luxury Furnishings
+  description: Procures and sells all manner of home items for fine living, including
+    furniture, art, and other high-quality goods.
+  shop_type: exotic
+  names:
+    synonyms: ["Deluxe Furnishings", "Deluxe Furniture", "Furnishings", "Furniture", "Home Decoration", "Luxury Furniture"]
+    adjectives: ["Cozy", "Crafty", "Elegant", "Fancy", "Fine", "Finest", "Glass", "Grand", "Lacquered", "Level", "Maple", "Marble", "Oak", "Oaken", "Ornate", "Pine", "Regal", "Sturdy", "Untarnished", "Wood", "Wooden"]
+    nouns: ["Antechamber", "Armchair", "Armoire", "Bed", "Candelabrum", "Chandlier", "Coffer", "Cupboard", "Curtain", "Cushion", "Chair", "Couch", "Fresco", "Hearth", "Homestead", "Living", "Table", "Tapestry"]
+- weight: 2
+  name: Rare Libations & Fare
+  description: Sells (and, perhaps, makes or brews) drinks and/or food of surpassing
+    quality or rarity to the region.
+  shop_type: exotic
+  names:
+    synonyms: ["Beverages", "Beer", "Brews", "Charcuterie", "Cheese", "Chocolate", "Chocolatier",  "Coffee", "Desserts", "Teas", "Wine"]
+    synonym_chance: 0.7
+    adjectives: ["Best", "Drunken", "Exotic", "Fine", "Finest", "Foaming", "Foreign", "Heavenly", "Legendary", "Quality", "Refreshing", "Scrumptious", "Sublime"]
+    nouns: ["Cup", "Bowl", "Delicacy", "Flavor", "Indulgence", "Mug", "Plate", "Taste", "Treat"]
+- weight: 2
+  name: Rare Trade Goods
+  description: Procures and sells items and materials, such as ores or textiles, that
+    are rare to the region.
+  shop_type: exotic
+  names:
+    synonyms: ["Crystals", "Adamantium", "Diamonds", "Imports", "Rare Fabrics", "Rare Metals", "Toys"]
+    adjectives: ["Buried", "Electrum", "Exotic", "Eye-catching", "Fine", "Finest", "Foreign", "Legendary", "Memorable", "Quality"]
+    nouns: ["Crystal", "Diamond", "Dragon", "Emporium", "Tapestry", "Traders", "Treasure", "Treasures", "Wonders"]
+- weight: 2
+  name: Magic Shop - Armor
+  description: Sells magical items with a focus on armor and protective equipment.
+  shop_type: exotic
+  names:
+    synonyms: ["Armory", "Enchanted Armor", "Enchanted Armory", "Magical Protection", "Protection"]
+    adjectives: ["Adamantine", "Enchanted", "Fiery", "Glowing", "Invincible", "Mystic", "Mystical", "Peerless", "Starmetal", "Untouchable", "Victorious"]
+    nouns: ["Anvil", "Chain", "Cuirass", "Defense", "Fire", "Greaves", "Guard", "Guardian", "Hammer", "Helm", "Knight", "Mail", "Paladin", "Plate", "Ring", "Shield", "Victory", "Warrior"]
+- weight: 2
+  name: Magic Shop - Books
+  description: Sells magical items with a focus on literature, arcane tomes and lore.
+    They may also carry books and documents (such as maps and records) of a rare and
+    significant nature, though non-magical.
+  names:
+    synonyms: ["Arcane Lore", "Bookstore", "Scrolls", "Spells", "Tomes"]
+    adjectives: ["Ancient", "Arcane", "Divine", "Elemental", "Enchanted", "Legendary", "Mystic", "Mystical", "Vellum", "Wise", "Wizened", "Wondrous"]
+    nouns: ["Binding", "Bookshelf", "Knowledge", "Heroic", "Index", "Magician", "Page", "Pages", "Professor", "Scholar", "Scroll", "Sanctum", "Shelf", "Study", "Tome"]
+  shop_type: exotic
+- weight: 2
+  name: Magic Shop - Clothing
+  description: Sells magical items with a focus on clothing of all types which bear
+    magical properties.
+  shop_type: exotic
+  names:
+    synonyms: ["Clothing", "Capes & Cloaks", "Cloaks & Shrouds", "Enchanted Garmants", "Magic Clothing", "Magic Tailor", "Tailor"]
+    adjectives: ["Arcane", "Altered", "Cloth", "Enchanted", "Fabric", "Mystic", "Mystical", "Silk", "Threaded", "Wondrous"]
+    nouns: ["Cape", "Cloak", "Cloth", "Cotton", "Cuff", "Fabric", "Fashion", "Hat", "Hem", "Needle", "Pants", "Silk", "Thimble", "Thread", "Threads", "Wardrobe", "Wool"]
+- weight: 2
+  name: Magic Shop - Jewelry
+  description: Sells magical items with a focus on enchanted, or otherwise magically
+    imbued, jewelry.
+  shop_type: exotic
+  names:
+    synonyms: ["Arcane Adornments", "Gems", "Jewlers", "Jewelry", "Magic Jewlery"]
+    adjectives: ["Amber", "Arcane", "Emerald", "Diamond", "Gleaming", "Glowing", "Haunted", "Mystic", "Mystical", "Opal", "Radiant", "Shimmering", "Shining", "Wondrous"]
+    nouns: ["Amber", "Bangle", "Bracelet", "Brooch", "Charm", "Diamond", "Earring", "Emerald", "Gemstone", "Heart", "Hoard", "Loot", "Necklace", "Locket", "Opal", "Pearl", "Pendant", "Star", "Stone", "Tiara", "Treasure"]
+- weight: 2
+  name: Magic Shop - Weapons
+  description: Sells magical items with a focus on weapons with mystic properties
+    and, perhaps, shields.
+  shop_type: exotic
+  names:
+    synonyms: ["Armory", "Bows", "Enchanted Armory", "Enchanted Arms", "Enchanted Blades", "Magic Weapons", "Swords", "Starmetal", "Weaponry", "Weapons"]
+    adjectives: ["Adamantine", "Arcane", "Bronze", "Dancing", "Diamond", "Enchanted", "Fiery", "Glowing", "Heroic", "Iron", "Keen", "Killing", "Legendary", "Mystic", "Mystical", "Overpowering", "Silver", "Steel", "Vicious", "Victorious", "Wondrous"]
+    nouns: ["Anvil", "Arrow", "Arsenal", "Axe", "Axehead", "Battleaxe", "Blade", "Bolt", "Bow", "Claymore", "Crossbow", "Cutlery", "Dagger", "Fire", "Glaive", "Hammer", "Lance", "Mace", "Paladin", "Spear", "Sword", "Victory", "Warrior"]
+- weight: 2
+  name: Magic Shop - Miscellaneous & Curiosities
+  description: Procures and sells magical items with a focus on strange and rare
+    artifacts of a wondrous or intriguing nature.
+  shop_type: exotic
+  names:
+    synonyms: ["Artefacts", "Artifacts", "Curios", "Potions", "Potions & Oils", "Wands", "Wands & Staves", "Wondrous Items", "Wondrous Wares"]
+    adjectives: ["Ancient", "Arcane", "Amazing", "Astonishing", "Eldritch", "Haunted", "Incredible", "Magical", "Mysterious", "Shimmering", "Slimy", "Mystic", "Mystical", "Wondrous"]
+    nouns: ["Bauble", "Curio", "Emporium", "Hoard", "Loot", "Marvels", "Potion", "Rod", "Staff", "Treasure", "Treasure Room", "Trinket", "Vial", "Wand"]

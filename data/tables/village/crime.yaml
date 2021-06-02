@@ -1,0 +1,28 @@
+---
+- weight: 2
+  name: Average
+  description: Theft or violence can happen from time to time. Best to keep an eye
+    out.
+  modifiers:
+  - modifier: 3
+    table: urban encounter
+- weight: 3
+  name: Uncommon
+  description: Crime does not occur often but, when it does, it is a noteworthy occurrence.
+  modifiers:
+  - modifier: 2
+    table: urban encounter
+- weight: 5
+  name: Rare
+  description: Most villagers have had no personal experience with crime, and few
+    know people that have.
+  modifiers:
+  - modifier: 1
+    table: urban encounter
+- weight: 10
+  name: Little-to-None
+  description: Most, or all, of the villagers believe the village is totally safe,
+    and certainly haven’t experienced any crime personally.
+  modifiers:
+  - modifier: 0
+    table: urban encounter
