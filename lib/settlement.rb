@@ -29,19 +29,6 @@ class Settlement
   end
 
   def modifiers(tables = all_tables)
-    # puts all_tables.to_s
-    # puts "..."
-    # puts (all_tables.collect { |table|
-    #     table.fetch('modifiers', []).collect { |m|
-    #       [m['table'], m['modifier']]
-    #     }
-    #   } + hardship_modifiers()).to_s
-    # puts (all_tables.collect { |table|
-    #     table.fetch('modifiers', []).collect { |m|
-    #       [m['table'], m['modifier']]
-    #     }
-    #   } + hardship_modifiers()).flatten(1).to_s
-    # puts "---"
     return modifier_list(tables)
     .group_by { |m| m[0] } # Hash - keys are deduped table names, vals are arrays of [table, modifier] arrays
     .reject { |k,v| k.nil? } # Remove nil key (case of no modifiers)
@@ -50,8 +37,9 @@ class Settlement
     } # Hash - keys are deduped table names, vals are the final modifiers for those tables
   end
 
+  # Gets all modifier arrays ([impacted table, modifier, impacting table]) for a given impacted table
   def table_modifiers(table, tables = all_tables)
-    return modifier_list_with_reason(tables).select { |m| m[0] == table }
+    return modifier_list_with_reason(tables).select { |m| m[0] == table['table_name'] }
   end
 
   def table_modifiers_string(table, tables = all_tables)
@@ -63,18 +51,11 @@ class Settlement
   # Returns a list of modifiers, where each modifier is an array of [table, modifier number]
   def modifier_list(tables = all_tables)
     return modifier_list_with_reason(tables).collect { |m| [m[0], m[1]] }
-    # return (tables.collect { |table|
-    #     table.fetch('modifiers', []).collect { |m|
-    #       [m['table'], m['modifier']]
-    #     }
-    #   } # Array of [table, modifier] arrays, overly nested, possibly lopsided
-    #   .flatten(1) + ## Array of [name, modifier] arrays
-    #     hardship_modifiers() # Add modifiers from hardships in same format
-    # )
   end
 
   def modifier_list_with_reason(tables = all_tables)
-    return (tables.collect { |table|
+    return (
+      tables.collect { |table|
         table.fetch('modifiers', []).collect { |m|
           [m['table'], m['modifier'], table['table_name']]
         }

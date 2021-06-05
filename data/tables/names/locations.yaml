@@ -586,47 +586,27 @@
 - name: Hired Help - Arcane Academics
   description: Experts in matters of magic and lore (may also be natural magic or
     something else; it need not be exclusively arcane).
-  shop_type: 
-  names: 
 - name: Hired Help - Bows and Slings
   description: Archers and ranged attack specialists.
-  shop_type: 
-  names: 
 - name: Hired Help - Brutes and Brawlers
   description: Thugs, ruffians and muscle.
-  shop_type: 
-  names: 
 - name: Hired Help - Caravan and Mount
   description: Specialists in transportation and journeys to various locations as
     well as expedition organization and management.
-  shop_type: 
-  names: 
 - name: Hired Help - Cloak and Dagger
   description: Assassins, thieves and spies.
-  shop_type: 
-  names: 
 - name: Hired Help - Guides and Trackers
   description: Scouts, rangers and wilderness experts.
-  shop_type: 
-  names: 
 - name: Hired Help - Hands of the Divine
   description: Specialists trained in the use of divine magic in combat and practical
     mission scenarios.
-  shop_type: 
-  names: 
 - name: Hired Help - Magic Mercenaries
   description: Specialists trained the use of arcane or non-divine magic in combat
     and practical mission scenarios.
-  shop_type: 
-  names: 
 - name: Hired Help - Priestly Guidance
   description: Sages offering counsel in all matters of religion and the divine.
-  shop_type: 
-  names: 
 - name: Hired Help - Scribes and Clerks
   description: Masters of history, literature, mathematics and/or business.
-  shop_type: 
-  names: 
 - name: House of Leisure
   description: Provides entertainment and/or relaxation (GM may decide what kind).
   shop_type: 
@@ -1573,7 +1553,6 @@
     - Wolf
 - name: Tavern
   description: Provides food and drink.
-  shop_type: 
   names:
     synonyms:
     - Brewhouse

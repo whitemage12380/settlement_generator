@@ -6,7 +6,6 @@ require_relative 'place_of_worship'
 
 class TradingPost < Settlement
 
-
   def initialize()
     @settlement_type = "trading_post"
     @config = $configuration[settlement_type]

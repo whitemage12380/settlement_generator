@@ -48,7 +48,7 @@
   locations:
     - Butcher
 - weight: 1
-  name: 'Livestock (Shearing): Llamas, sheep, goats, and/or'
+  name: Livestock (Shearing)
   description: 'Livestock (Shearing): Llamas, sheep, goats, and/or yaks are shorn
     in the village, the wool bundled and taken to market. The village may also produce
     its own woolen goods for sale. Location(s): shearing shed, storage, fields/barn,

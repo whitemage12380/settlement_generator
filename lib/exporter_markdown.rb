@@ -15,17 +15,51 @@ class ExporterMarkdown
       save_to_md(filename, output.join("\n"))
     end
 
+    def table_description(table, settlement)
+      output = Array.new
+      output << table['description'] unless table['description'].nil?
+      output.concat(table_impacts(table, settlement))
+      return output.join(" ")
+    end
+
+    def table_impacts(table, settlement)
+      impacted_by_list = settlement.table_modifiers(table)
+      #puts impacted_by_list.to_s
+      negatively_impacted_by_str, positively_impacted_by_str, negatively_impacts_str, positively_impacts_str = [nil, nil, nil, nil]
+      unless impacted_by_list.empty?
+        negatively_impacted_by = impacted_by_list.select {|m| m[1] < 0}.collect {|m| "#{m[2]} (#{m[1].signed})"}
+        negatively_impacted_by_str = impact_string(negatively_impacted_by, "Negatively impacted by")
+        positively_impacted_by = impacted_by_list.select {|m| m[1] > 0}.collect {|m| "#{m[2]} (#{m[1].signed})"}
+        positively_impacted_by_str = impact_string(positively_impacted_by, "Positively impacted by")
+      end
+      #impacts_list = settlement.modifier_list_with_reason().select { |m| m[2] == table['table_name']}
+      impacts_list = table.fetch('modifiers', [])
+      unless impacts_list.empty?
+        negatively_impacts = impacts_list.select {|m| m['modifier'].to_i < 0}.collect {|m| "#{m['table']} (#{m['modifier'].to_i.signed})"}
+        negatively_impacts_str = impact_string(negatively_impacts, "Negatively impacts")
+        positively_impacts = impacts_list.select {|m| m['modifier'].to_i > 0}.collect {|m| "#{m['table']} (#{m['modifier'].to_i.signed})"}
+        positively_impacts_str = impact_string(positively_impacts, "Positively impacts")
+      end
+      return [negatively_impacted_by_str, positively_impacted_by_str, negatively_impacts_str, positively_impacts_str]
+        .reject { |s| s.nil? or s == "" }
+    end
+
+    def impact_string(impact_list, prefix)
+      impact_list.empty? ? nil : "#{prefix} #{impact_list.join(", ")}."
+    end
+
     def tables_md(settlement)
       output = Array.new
       settlement.tables.each_pair do |section, section_tables|
         output << "## #{section.pretty}"
         section_tables.each do |table|
           if not table['name'].nil?
-            output << "### #{table['table_name'].pretty}: #{table['name'].pretty}"
+            output << "### #{table['table_name'].pretty}: #{table['name']}"
           elsif not table['description'].nil?
             output << "### #{table['table_name'].pretty}"
           end
-          output << table['description'] unless table['description'].nil?
+          desc = table_description(table, settlement)
+          output << desc unless desc.nil?
         end
       end
       return output
