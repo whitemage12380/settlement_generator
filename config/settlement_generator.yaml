@@ -7,6 +7,7 @@ owners:
   name_ethnicity_mismatch_chance: 0.2
   race_table: interesting # human_only # Workaround; should figure out how to ultimately handle this key
 save_directory: data/settlements
+show_configuration: off
 trading_post:
   shops: 1-8
   default_shops:

@@ -24,7 +24,6 @@ class ExporterMarkdown
 
     def table_impacts(table, settlement)
       impacted_by_list = settlement.table_modifiers(table)
-      #puts impacted_by_list.to_s
       negatively_impacted_by_str, positively_impacted_by_str, negatively_impacts_str, positively_impacts_str = [nil, nil, nil, nil]
       unless impacted_by_list.empty?
         negatively_impacted_by = impacted_by_list.select {|m| m[1] < 0}.collect {|m| "#{m[2]} (#{m[1].signed})"}

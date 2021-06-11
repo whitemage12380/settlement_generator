@@ -1,0 +1,13 @@
+#!/usr/local/env ruby
+require_relative '../lib/trading_post'
+
+type = ARGV[0]
+
+t = TradingPost.new('WARN')
+
+case type
+when 'shop'
+  Shop.new(t).print()
+when 'service'
+  Service.new(t).print()
+end

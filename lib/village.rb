@@ -9,7 +9,8 @@ require_relative 'location'
 class Village < Settlement
   attr_reader :hardships, :hardships_description
 
-  def initialize()
+  def initialize(log_level = nil)
+    @log_level = log_level.upcase
     @settlement_type = "village"
     @config = $configuration[settlement_type]
     @tables = settlement_type_tables()
@@ -29,12 +30,6 @@ class Village < Settlement
   def hardship_modifiers()
     return [] if @hardships.nil?
     return hardship_modifiers_with_reason.collect { |h| [h[0], h[1]] }
-    # return @hardships.collect { |hardship|
-    #   hardship.type.fetch('modified attributes', []).collect { |table|
-    #     [table, hardship.outcome['modifier']]
-    #   }
-    # } # Array of [table, modifier] arrays, overly nested, possibly lopsided
-    # .flatten(1) ## Array of [name, modifier] arrays
   end
 
   def hardship_modifiers_with_reason()
@@ -44,11 +39,11 @@ class Village < Settlement
         [table, hardship.outcome['modifier'], hardship.name]
       }
     } # Array of [table, modifier] arrays, overly nested, possibly lopsided
-    .flatten(1) ## Array of [name, modifier] arrays
+    .flatten(1) # Array of [name, modifier] arrays
   end
 
-  def generate_hardships()
-    hardships_result = roll_on_table('hardship_likelihood')
+  def generate_hardships(likelihood_modifier = modifiers.fetch('hardship_likelihood', 0))
+    hardships_result = roll_on_table('hardship_likelihood', likelihood_modifier)
     hardships_count = hardships_result['hardships']
     @hardships_description = hardships_result['description']
     @hardships = Array.new(hardships_count) { Hardship.new() }
@@ -60,31 +55,17 @@ class Village < Settlement
     @points_of_interest = Hash.new
     { 'places of worship' => PlaceOfWorship,
       'places of gathering' => PlaceOfGathering,
-      'other locations' => Location}.each do |poi_type, poi_class|
+      'other locations' => Location
+    }.each do |poi_type, poi_class|
       poi_count = roll(roll_strings[poi_type])
       log "Adding #{poi_count} #{poi_count > 1 ? poi_type : poi_type.sub(/s /, ' ').sub(/s$/, '')}"
-      @points_of_interest[poi_type] = Array.new(poi_count) { poi_class.new(self)}
+      @points_of_interest[poi_type] = Array.new(poi_count) { poi_class.new(self) }
       if poi_type == 'other locations'
         log "Adding due to resources: #{free_location_names.join(", ")}"
         @points_of_interest[poi_type].concat(free_location_names.collect { |poi_name| puts poi_name; poi_class.new(self, poi_name) })
       end
     end
   end
-
-  # def generate_points_of_interest()
-  #   @points_of_interest = Hash.new
-  #   {'shops' => Shop, 'services' => Service}.each_pair do |poi_type, poi_class|
-  #     modifier = modifiers.fetch(poi_type, 0)
-  #     poi_count = roll(@config[poi_type], modifier)
-  #     modifier_str = " (#{modifier.signed})" unless modifier == 0
-  #     log "Adding #{poi_count} #{poi_type}#{modifier_str}"
-  #     @points_of_interest[poi_type] = @config.fetch("default_#{poi_type}", []).collect { |poi_name| poi_class.new(self, poi_name) }
-  #     @points_of_interest[poi_type].concat(Array.new(poi_count) { poi_class.new(self) })
-  #   end
-  #   if rand() < @config['place_of_worship_chance'].to_f
-  #     @points_of_interest['place of worship'] = PlaceOfWorship.new(@settlement_type)
-  #   end
-  # end
 
   def print()
     puts @settlement_type.pretty

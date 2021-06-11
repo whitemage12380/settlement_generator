@@ -24,9 +24,9 @@ class Settlement
     all_tables_hash[table_name]['name']
   end
 
-  def hardship_modifiers()
-    return []
-  end
+  def hardships() nil end
+  def hardship_modifiers() [] end
+  def hardship_modifiers_with_reason() [] end
 
   def modifiers(tables = all_tables)
     return modifier_list(tables)
@@ -39,6 +39,8 @@ class Settlement
 
   # Gets all modifier arrays ([impacted table, modifier, impacting table]) for a given impacted table
   def table_modifiers(table, tables = all_tables)
+    table = {'table_name' => table.to_s} if table.kind_of? String
+    raise("Invalid table: #{table.to_s}") unless table.kind_of? Hash and table.has_key?('table_name')
     return modifier_list_with_reason(tables).select { |m| m[0] == table['table_name'] }
   end
 

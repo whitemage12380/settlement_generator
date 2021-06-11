@@ -44,11 +44,16 @@ module SettlementGeneratorHelper
   require 'logger'
 
   def init_logger()
-    $log = Logger.new(STDOUT) if $log.nil?
-    $log.level = $configuration['log_level'] ? $configuration['log_level'].upcase : Logger::INFO
+    if $log.nil?
+      if @log_level.nil?
+        log.level = $configuration['log_level'] ? $configuration['log_level'].upcase : Logger::INFO
+      else
+        log_level = @log_level
+      end
+      $log = Logger.new(STDOUT, level: log_level)
+    end
     $messages = StringIO.new() if $messages.nil?
-    $message_log = Logger.new($messages) if $message_log.nil?
-    $message_log.level = Logger::INFO
+    $message_log = Logger.new($messages, level: log_level) if $message_log.nil?
   end
 
   def debug(message)
@@ -148,7 +153,6 @@ module SettlementGeneratorHelper
   end
 
   def roll(range, modifier = 0)
-    puts range
     if range.kind_of?(String) and range =~ /^(\d+)-(\d+)$/
       min = $1.to_i
       max = $2.to_i

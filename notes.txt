@@ -99,7 +99,7 @@ Roadmap:
 - DONE - Shop owners (basic functionality, individual)
 - DONE - Owner names
 - DONE - Village
-- Better modifier notes on markdown (source and recipient tables)
+- DONE - Better modifier notes on markdown (source and recipient tables)
 - Town
 - City
 - More names

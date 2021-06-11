@@ -6,7 +6,8 @@ require_relative 'place_of_worship'
 
 class TradingPost < Settlement
 
-  def initialize()
+  def initialize(log_level = nil)
+    @log_level = log_level.upcase
     @settlement_type = "trading_post"
     @config = $configuration[settlement_type]
     @tables = settlement_type_tables()

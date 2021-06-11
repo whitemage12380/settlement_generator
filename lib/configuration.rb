@@ -25,7 +25,7 @@ class Configuration < Hash
         v
       end
     }
-    puts "Configurations loaded: #{to_s}"
+    puts "Configurations loaded: #{to_s}" unless self.fetch('show_configuration', true) == false
   end
 
   def self.configuration_path()

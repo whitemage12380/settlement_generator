@@ -1,2 +1,18 @@
 #!/usr/local/env ruby
+require_relative '../lib/exporter_markdown'
 
+type = ARGV[0] ? ARGV[0] : "trading post"
+
+case type
+when 'trading post', 'trading_post', 'tradingpost', 'post'
+  require_relative '../lib/trading_post'
+  settlement = TradingPost.new()
+when 'village'
+  require_relative '../lib/village'
+  settlement = Village.new()
+else
+  raise "Settlement type not supported: #{type}"
+end
+
+settlement.print
+ExporterMarkdown.export_to_markdown(settlement)

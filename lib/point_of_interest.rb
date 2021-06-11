@@ -6,7 +6,7 @@ class PointOfInterest
   include SettlementGeneratorHelper
   attr_reader :name, :title, :description, :quality, :owners, :owner_group_title
 
-  def initialize(settlement, name = nil)
+  def initialize(settlement, name = nil) # TODO: Allow a generic shop or service that gets a generic name
     @location_type = 'location' if @location_type.nil?
     if name.nil?
       # The name roll table is in the individual settlement directory, the location content is in names/locations.yaml
@@ -64,7 +64,7 @@ class PointOfInterest
         if rand() < synonym_chance and @names.has_key? 'synonyms'
           weighted_random(@names['synonyms'])
         else
-          (@names ? @names : []).fetch('name', @name)
+          (@names ? @names : {}).fetch('name', @name)
         end
       when 'individual'
         raise "Person names not supported in location names yet!"
