@@ -1,13 +1,34 @@
 #!/usr/local/env ruby
+require 'optparse'
+require_relative '../lib/configuration'
 require_relative '../lib/trading_post'
 
-type = ARGV[0]
+log_level = 'WARN'
+race = nil
 
-t = TradingPost.new('WARN')
+type = ARGV[0]
+ARGV.shift()
+OptionParser.new do |opts|
+  opts.banner = "Usage: namegen <type> [options]"
+
+  opts.on("-v", "--verbose", "Run verbosely") do |v|
+    log_level = 'INFO'
+  end
+  opts.on("-r", "--race RACE", "All generated individuals and families are of the known race") do |r|
+    race = Race.new(r)
+  end
+end.parse!
+
+$configuration['races'] = race.split(",") unless race.nil?
+
+
+t = TradingPost.new(log_level)
 
 case type
 when 'shop'
   Shop.new(t).print()
 when 'service'
   Service.new(t).print()
+when 'person', 'individual', 'owner'
+  Owner.new(t.all_tables_hash['demographics']).print()
 end

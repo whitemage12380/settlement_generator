@@ -184,13 +184,21 @@ module SettlementGeneratorHelper
   end
 
   def generate_races(demographics = all_tables_hash['demographics'], table_name = @config.fetch('race_table', 'standard'))
-    demographics.fetch('races', []).collect{|r|r['name']}.difference(['other']).each do |race_label|
-      demographics['chosen_races'] = Hash.new if demographics['chosen_races'].nil?
-      chosen_races = demographics['chosen_races']
-      chosen_race = roll_race(chosen_races)
-      log "Chose #{race_label} race: #{chosen_race.plural}"
-      chosen_races[race_label] = chosen_race
-      demographics['description'].sub!("#{race_label} race", chosen_race.plural)
+    if $configuration['races'].nil? or $configuration['races'].empty?
+      demographics.fetch('races', []).collect{|r|r['name']}.difference(['other']).each do |race_label|
+        demographics['chosen_races'] = Hash.new if demographics['chosen_races'].nil?
+        chosen_races = demographics['chosen_races']
+        chosen_race = roll_race(chosen_races)
+        log "Chose #{race_label} race: #{chosen_race.plural}"
+        chosen_races[race_label] = chosen_race
+        demographics['description'].sub!("#{race_label} race", chosen_race.plural)
+      end
+    else
+      races = $configuration['races'].take(3)
+      race_labels = ['primary', 'secondary', 'tertiary'].take(races.size)
+      demographics['races'] = race_labels.collect { |l| {'name' => l, 'weight' => 1} }
+      demographics['chosen_races'] = $configuration['races']
+        .each_with_index.collect { |race_name, i| [race_labels[i], Race.new(race_name)] }.to_h
     end
   end
 

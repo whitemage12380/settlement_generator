@@ -128,4 +128,8 @@ class Owner
 
     return "#{full_name} (#{race_and_ethnicity}).#{family_str.to_s}#{name_origin_str.to_s}"
   end
+
+  def print()
+    puts description
+  end
 end
