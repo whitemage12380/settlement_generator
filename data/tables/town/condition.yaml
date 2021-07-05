@@ -1,0 +1,46 @@
+---
+- weight: 1
+  name: Derelict
+  description: Buildings may be coming down, or in ruins. Refuse may line the streets,
+    which, if they were ever maintained to begin with, are nigh unrecognizable now.
+    Everything seems broken, filthy, or both. This place might benefit from complete
+    destruction and a re-build. The smells are, likely, vile.
+  modifiers:
+  - modifier: -6
+    table: population wealth
+- weight: 3
+  name: Lousy
+  description: Things are in rough shape. Most structures seem unsound, or are just
+    in poor condition. Windows, if there are any, may be broken or boarded up. Walls
+    are stained, and streets are rutted or cracked. The smells are an affront to the
+    senses.
+  modifiers:
+  - modifier: -3
+    table: population wealth
+- weight: 8
+  name: Moderate
+  description: Structures seem sound enough though are, perhaps, not attractive. It
+    is likely that most homes keep occupants dry. Roads are relatively clear, if not
+    clean. The smells are not pleasant, but tolerable.
+  modifiers:
+  - modifier: 0
+    table: population wealth
+- weight: 7
+  name: Robust
+  description: Buildings in the town appear solid. Beams protruding from structure
+    walls look to be sturdy and hard-wearing. While possibly lacking in true refinement,
+    the town bears a strength and sense of reliability. Roads are maintained, though
+    not obsessed over, and are largely free of refuse and filth. The smells are those
+    of smoke and sawdust, leather and sweat.
+  modifiers:
+  - modifier: 3
+    table: population wealth
+- weight: 1
+  name: Superb
+  description: The town is exemplary in all aspects. The buildings are built with
+    exquisite skill and flair, leaving no doubt as to their quality. The roads are
+    immaculately kept, with little to no detritus anywhere. The smells are those of
+    fresh air and flowers, grass and trees, or cool sea mist.
+  modifiers:
+  - modifier: 6
+    table: population wealth

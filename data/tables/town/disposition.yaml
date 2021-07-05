@@ -1,0 +1,21 @@
+---
+- weight: 2
+  name: Hostile
+  description: Locals seem very unfriendly toward visitors, and would likely make
+    out-of-towners feel unwelcome. This could manifest as coldness, passive-aggressiveness,
+    or even violence.
+- weight: 4
+  name: Unfriendly
+  description: Locals don’t care much for visitors, looking upon them with contempt,
+    fear, or suspicion.
+- weight: 8
+  name: Neutral
+  description: Locals are standoffish, or perhaps hard on the outside, but can be
+    friendly if you get to know them.
+- weight: 4
+  name: Friendly
+  description: Locals are generally friendly, welcoming, and slow to take offense.
+- weight: 2
+  name: Open
+  description: The locals actively enjoy visitors, and their culture incorporates
+    this. Just about anyone is welcome.

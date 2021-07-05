@@ -10,6 +10,9 @@ when 'trading post', 'trading_post', 'tradingpost', 'post'
 when 'village'
   require_relative '../lib/village'
   settlement = Village.new()
+when 'town'
+  require_relative '../lib/town'
+  settlement = Town.new()
 else
   raise "Settlement type not supported: #{type}"
 end

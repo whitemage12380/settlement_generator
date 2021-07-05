@@ -1,0 +1,18 @@
+---
+- weight: 4
+  name: None
+  description: If you have any remaining rolls to make on this table, proceed with
+    them.
+- weight: 7
+  name: Farming [Agriculture]
+  description: A group of farms, which provide food, are found on the nearest hospitable
+    land under the town’s control.
+- weight: 5
+  name: Farming [Livestock]
+  description: A group of farms, which provide livestock, are found on the nearest
+    hospitable land under the town’s control.
+- weight: 4
+  name: Resource Harvesting
+  description: Depending on the landscape and available resources (trees, minerals,
+    ore, stone, etc.), a logging camp, mine, or quarry belonging to the town has been
+    built nearby to harvest resources for use or sale.

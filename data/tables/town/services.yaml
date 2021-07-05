@@ -1,0 +1,39 @@
+---
+- weight: 8
+  name: Barber
+- weight: 8
+  name: Bathhouse
+- weight: 8
+  name: Doctor/Apothecary
+- weight: 8
+  name: House of Leisure
+- weight: 12
+  name: Inn
+- weight: 8
+  name: Club
+- weight: 8
+  name: Soothsayer
+- weight: 8
+  name: Stable
+- weight: 12
+  name: Tavern
+- weight: 2
+  name: Hired Help - Brutes and Brawlers
+- weight: 2
+  name: Hired Help - Cloak and Dagger
+- weight: 2
+  name: Hired Help - Bows and Slings
+- weight: 2
+  name: Hired Help - Scribes and Clerks
+- weight: 2
+  name: Hired Help - Guides and Trackers
+- weight: 2
+  name: Hired Help - Caravan and Mount
+- weight: 2
+  name: Hired Help - Arcane Academics
+- weight: 2
+  name: Hired Help - Magic Mercenaries
+- weight: 2
+  name: Hired Help - Priestly Guidance
+- weight: 2
+  name: Hired Help - Hands of the Divine

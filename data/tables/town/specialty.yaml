@@ -1,0 +1,60 @@
+---
+- weight: 1
+  name: Craft
+  description: The town is known for being a place to find high-quality, hand-crafted
+    goods.
+- weight: 1
+  name: Farming or Resource Gathering
+  description: The town is known for the resource(s) it produces. Base this on what
+    kind of environment and climate the town is in. If farming wouldn’t work as well,
+    perhaps they mine or harvest lumber instead.
+  special: farming # +1 roll, first 8 points of weight removed, handled specially
+- weight: 1
+  name: Industry
+  description: 'This town is known for certain industrial processes such as milling,
+    textiles, or smelting. Free Location: [roll]'
+  roll:
+  - weight: 2
+    name: Mill
+    locations:
+    - name: Mill
+      type: Shop
+  - weight: 2
+    name: Textile Production
+    locations:
+    - name: Textile Production
+      type: Shop
+  - weight: 2
+    name: Foundry/Smelting
+    locations:
+    - name: Foundry/Smelting
+      type: Shop
+- weight: 1
+  name: Unique Shipping Methods
+  description: These people know how to get things from one place to another by strange
+    or innovative means.
+- weight: 1
+  name: Connections
+  description: This town is full of people who can find and obtain almost anything
+    (or, perhaps, anyone).
+- weight: 1
+  name: Drink
+  description: The town is known for having a wide variety of (or excellent quality)
+    beverages available throughout.
+- weight: 1
+  name: Education
+  description: 'The town is known as the location of a widely-renowned educational
+    institution. (Free Location: Non-Commercial - Place of Education)'
+  locations: ['Place of Education']
+- weight: 1
+  name: Hospitality
+  description: 'The town is known as a welcoming, desirable place to stay. (The default
+    inn is of [roll])'
+  special: hospitality
+  roll:
+  - weight: 3
+    name: good quality
+    inn_quality: Good
+  - weight: 3
+    name: fine quality
+    inn_quality: Fine

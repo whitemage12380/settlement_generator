@@ -1,0 +1,45 @@
+---
+- weight: 1
+  name: None
+  description: This could be good or bad, depending on one’s point of view. Good if
+    the folk here are trustworthy, but bad if a situation gets out of hand.
+  modifiers:
+  - modifier: -8
+    table: crime
+- weight: 3
+  name: Sheriff
+  description: A sheriff, as well as a handful of deputies, is sanctioned by the town’s
+    governing entity.
+  modifiers:
+  - modifier: -4
+    table: crime
+- weight: 5
+  name: Small Town Watch
+  description: The watch is run by a nominated captain, and employs a small number
+    of guards. Presence may be scattered, or lacking, at times.
+  modifiers:
+  - modifier: -2
+    table: crime
+- weight: 7
+  name: Town Watch
+  description: The watch is run by an appointed captain, with one lieutenant, and
+    enough guards, to adequately guard key points in the town with token patrols.
+  modifiers:
+  - modifier: 0
+    table: crime
+- weight: 3
+  name: Strong Town Watch
+  description: The watch is run by a seasoned captain with two lieutenants, a few
+    corporals, and an ample quantity of boots on the ground. Presence allows for extra
+    patrols and well-rested guards.
+  modifiers:
+  - modifier: 4
+    table: crime
+- weight: 1
+  name: Extensive Town Watch
+  description: The watch is overseen by a decorated captain with three lieutenants,
+    several corporals and more than enough guards. Presence allows for the watch to
+    maintain an ever-present appearance. A guard is never more than a shout away.
+  modifiers:
+  - modifier: 8
+    table: crime

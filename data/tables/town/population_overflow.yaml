@@ -1,0 +1,21 @@
+---
+- weight: 1
+  name: "<10%"
+  description: Less than a tenth of the town’s population is outside the town proper.
+    This typically means that the only people who live outside the town are those
+    that do so out of necessity, due to requirement of duties (such as owning a farm).
+- weight: 3
+  name: 10%
+  description: A tenth of the town’s population is outside the town proper.
+- weight: 8
+  name: 20%
+  description: A fifth of the town’s population is outside the town proper.
+- weight: 5
+  name: 30%
+  description: A third of the town’s population is outside the town proper.
+- weight: 2
+  name: 40%
+  description: Just under half the town’s population is outside the town proper.
+- weight: 1
+  name: 50%
+  description: Around half the town’s population is outside the town proper.

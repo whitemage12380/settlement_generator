@@ -7,9 +7,9 @@ require_relative 'place_of_worship'
 class TradingPost < Settlement
 
   def initialize(log_level = nil)
-    @log_level = log_level.upcase
+    @log_level = log_level.nil? ? nil : log_level.upcase
     @settlement_type = "trading_post"
-    @config = $configuration[settlement_type]
+    @config = $configuration.fetch(settlement_type, {})
     @tables = settlement_type_tables()
     all_tables.each do |table|
       table_name = table['table_name']

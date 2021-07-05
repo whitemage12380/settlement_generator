@@ -8,6 +8,14 @@ owners:
   race_table: interesting # human_only # Workaround; should figure out how to ultimately handle this key
 save_directory: data/settlements
 show_configuration: off
+town:
+  default_services:
+    - Inn
+    - Tavern
+  default_shops:
+    - General Store
+    - Smithy
+  race_table: interesting
 trading_post:
   shops: 1-8
   default_shops:

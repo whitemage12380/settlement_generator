@@ -6,7 +6,7 @@ class PointOfInterest
   include SettlementGeneratorHelper
   attr_reader :name, :title, :description, :quality, :owners, :owner_group_title
 
-  def initialize(settlement, name = nil) # TODO: Allow a generic shop or service that gets a generic name
+  def initialize(settlement, name = nil, quality = nil) # TODO: Allow a generic shop or service that gets a generic name
     @location_type = 'location' if @location_type.nil?
     if name.nil?
       # The name roll table is in the individual settlement directory, the location content is in names/locations.yaml
@@ -23,14 +23,18 @@ class PointOfInterest
       end
       name = result['name']
     end
-    table = read_table('locations', 'names').select { |entry| entry['name'].downcase == name.downcase}.first
+    table = read_table('locations', 'names').select { |entry| entry['name'].downcase == name.downcase }.first
     @name = name + (append_name ? append_name : '')
     @owners = generate_owners(settlement.all_tables_hash['demographics'])
     @names = table.fetch('names', {}) unless table.nil?
     @title = generate_title()
     @description = (table['description'] + (append_description ? append_description : '')) unless table.nil?
     if table_exist?('quality', settlement.settlement_type)
-      @quality = roll_on_table('quality', settlement.modifiers['quality'], settlement.settlement_type, false)
+      if quality.nil?
+        @quality = roll_on_table('quality', settlement.modifiers['quality'], settlement.settlement_type, false)
+      else
+        @quality = read_table('quality', settlement.settlement_type).select{|q|q['name'] == quality}.first
+      end
     end
     quality_str = @quality.nil? ? '' : " (#{@quality['name']})"
     log "Added #{@location_type}: #{@name.pretty}#{quality_str}"

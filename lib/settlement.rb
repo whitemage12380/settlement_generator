@@ -67,6 +67,27 @@ class Settlement
     )
   end
 
+  def restrictions(tables = all_tables)
+    return restriction_list(tables)
+      .reduce(Hash.new) { |memo, n|
+        memo.merge(n) { |k, v1, v2| v1 + v2 }
+      }
+      .reject { |k,v| k.nil? } # Remove nil key (case of no restrictions)
+    # Hash - keys are deduped table names, vals are the combined restrictions for that table
+  end
+
+  def restriction_list(tables = all_tables)
+    return restriction_list_with_reason(tables).collect { |r| {r[0] => r[1]} }
+  end
+
+  def restriction_list_with_reason(tables = all_tables)
+    return tables.collect { |table|
+      table.fetch('restrictions', []).collect { |r|
+        [r['table'], r['restrictions'], table['table_name']]
+      }
+    }.flatten(1)
+  end
+
   def default_filename()
     "#{@settlement_type}_#{table_value('age').filename_style}_#{table_value('size').filename_style}"
   end

@@ -1,0 +1,54 @@
+---
+- weight: 15
+  name: Town Council
+  description: 'Prominent members of the community were chosen to lead the town collectively.
+    (Free Location: Non-Commercial - Town Hall)'
+  locations:
+    - name: 'Town Hall'
+      type: 'Place of Government'
+- weight: 15
+  name: Mayor
+  description: The locals democratically voted for their current leader.
+- weight: 15
+  name: Hereditary
+  description: A non-elected leader is in power, by virtue of their bloodline.
+- weight: 15
+  name: Merchant Monarch
+  description: The wealthiest shop owner in the town leads by default.
+  modifiers:
+  - modifier: 2
+    table: commercial locations
+- weight: 15
+  name: Military Rule
+  description: The town is controlled by a current or ex-leader of a military group.
+  modifiers:
+  - modifier: 1
+    table: law enforcement
+- weight: 15
+  name: Oligarchy
+  description: 'A few individuals hold sway, collectively, over the town: [roll]
+    (Free Location: [roll])'
+  roll:
+  - weight: 1
+    name: merchants (plutocracy)
+    locations: ['Place of Government']
+  - weight: 1
+    name: mages (magocracy)
+    locations: ['Place of Education']
+  - weight: 1
+    name: priests (theocracy)
+    locations: ['Place of Worship']
+  - weight: 1
+    name: other small group
+    locations: ['Non-Commercial Location']
+- weight: 9
+  name: Underworld or Criminal Enterprise
+  description: A criminal, or group of criminals, either publicly, or privately, controls
+    the town.
+  modifiers:
+  - modifier: -1
+    table: crime
+- weight: 1
+  name: Anarcho-Syndicalist Commune
+  description: The members of the town take turns as a sort of executive officer for
+    the week.

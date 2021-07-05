@@ -1,0 +1,47 @@
+---
+- weight: 2
+  name: Skeleton
+  description: The town only has enough people to function at its most basic level.
+  modifiers:
+  - modifier: -2
+    table: population overflow
+  - modifier: -2
+    table: night activity
+- weight: 4
+  name: Sparse
+  description: Folk live here, but it would never be called bustling. Walking down
+    the street, you’ll typically only see a few people.
+  modifiers:
+  - modifier: -1
+    table: population overflow
+  - modifier: -1
+    table: night activity
+- weight: 8
+  name: Populous
+  description: A moderate amount of people live here. Walking through the streets,
+    you will see plenty of people, but never so many that it would feel cramped.
+  modifiers:
+  - modifier: 0
+    table: population overflow
+  - modifier: 0
+    table: night activity
+- weight: 4
+  name: Dense
+  description: There is a large amount of people living here. There are few, if any,
+    vacant buildings. In high traffic areas, one generally has elbow room, but not
+    much more.
+  modifiers:
+  - modifier: 1
+    table: population overflow
+  - modifier: 1
+    table: night activity
+- weight: 11
+  name: Crowded
+  description: The town is filled with jostling throngs. Practically all structures
+    are occupied. Some may even camp outside town. Moving about can be difficult,
+    and bumping into other people is typical in higher traffic areas.
+  modifiers:
+  - modifier: 2
+    table: population overflow
+  - modifier: 2
+    table: night activity

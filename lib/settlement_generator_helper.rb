@@ -46,7 +46,7 @@ module SettlementGeneratorHelper
   def init_logger()
     if $log.nil?
       if @log_level.nil?
-        log.level = $configuration['log_level'] ? $configuration['log_level'].upcase : Logger::INFO
+        log_level = $configuration['log_level'] ? $configuration['log_level'].upcase : Logger::INFO
       else
         log_level = @log_level
       end
@@ -136,18 +136,33 @@ module SettlementGeneratorHelper
 
   def roll_on_table(table_name, modifier = 0, table_directory = @settlement_type, log_roll = true)
     table_entries = read_table(table_name, table_directory)
+    if self.class.method_defined? :restrictions
+      table_restrictions = restrictions[table_name]
+      unless table_restrictions.nil?
+        log "Restricting entries on #{table_name}: #{table_restrictions.join(', ')}"
+        table_entries.reject! { |entry| table_restrictions.include? entry['name'] }
+      end
+    end
     selected_entry = weighted_random(table_entries, modifier)
     if log_roll == true
       roll_modifier_str = modifier != 0 ? " (#{modifier.signed})" : ''
       modifiers_str = " (#{table_entry_modifiers_str(selected_entry)})" if entry_has_modifiers? selected_entry
-      log "Rolled on #{table_name} table#{roll_modifier_str}: #{selected_entry.fetch('name', selected_entry['description'] ).pretty}#{modifiers_str}"
+      if selected_entry['name'].nil? and selected_entry['description'].nil?
+        logged_str = selected_entry.to_s
+      elsif selected_entry['name'].nil?
+        logged_str = selected_entry['description']
+      else
+        logged_str = selected_entry['name']
+      end
+      log "Rolled on #{table_name} table#{roll_modifier_str}: #{logged_str.pretty}#{modifiers_str}"
     end
-    if selected_entry.kind_of? Hash and selected_entry.has_key? 'roll'
+    if selected_entry.kind_of?(Hash) and selected_entry.has_key?('roll')
       selected_entry['roll_result'] = weighted_random(selected_entry['roll'])
       log "Sub-table roll result on #{table_name} table: #{selected_entry['roll_result']['name'].pretty}" if log_roll == true
       if selected_entry['description'] =~ /\[roll\]/
         selected_entry['description'].sub!(/\[roll\]/, selected_entry['roll_result']['name'])
       end
+      selected_entry.merge!(selected_entry['roll_result'].reject {|k,v| ['weight', 'name', 'description'].include? k })
     end
     return selected_entry
   end

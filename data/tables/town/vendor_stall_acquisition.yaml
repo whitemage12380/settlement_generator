@@ -1,0 +1,17 @@
+---
+- weight: 1
+  name: First Come, First Served - No Fee
+  description: Merchants line up prior to market day. Those at the front of the line
+    are given the spaces. No fees are charged.
+- weight: 1
+  name: First Come, First Served - Fee
+  description: Merchants line up prior to market day. Those at the front of the line
+    are given first pick of the available stall spaces, provided they can pay the
+    fee for the day.
+- weight: 1
+  name: Lease
+  description: Merchants pay in advance (sometimes far in advance) for the right to
+    a space in the market square.
+- weight: 1
+  name: Bid
+  description: Prior to market day, the spaces are auctioned off.

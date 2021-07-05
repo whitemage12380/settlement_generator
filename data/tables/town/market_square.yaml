@@ -1,0 +1,10 @@
+---
+- weight: 2
+  name: Tight
+  description: Only room for a few, key vendor stalls.
+- weight: 2
+  name: Ample
+  description: Room for a fair number of vendor stalls.
+- weight: 2
+  name: Spacious
+  description: Room for lots of vendor stalls.

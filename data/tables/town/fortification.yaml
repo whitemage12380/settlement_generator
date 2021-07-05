@@ -1,0 +1,44 @@
+---
+- weight: 1
+  name: Unfortified
+  description: The town’s perimeter is open, allowing entry from almost any point.
+  modifiers:
+  - modifier: -5
+    table: disposition
+- weight: 7
+  name: Lightly Fortified
+  description: The town proper is surrounded by a light wall of wood or stacked stone.
+    The fortifications pose only a mild inconvenience to outside forces, but they
+    easily keep out wild animals.
+  modifiers:
+  - modifier: 1
+    table: disposition
+- weight: 7
+  name: Fortified
+  description: The town proper is surrounded by a substantial wall of wood or stone.
+    The wall is able to be patrolled by guards on a raised walkway. Visitors to the
+    city pass through a main gate that can be barred in the evenings. A few watch
+    towers may be placed around the town, though they are likely sporadic.
+  modifiers:
+  - modifier: 3
+    table: disposition
+- weight: 4
+  name: Heavily Fortified
+  description: The town proper is surrounded by a heavy wall of wood or stone, with
+    several watchtowers built along its length. The gate is double-thickness and reinforced
+    with metal bands. There are additional watchtowers built at various points throughout
+    the surrounding countryside.
+  modifiers:
+  - modifier: 5
+    table: disposition
+- weight: 1
+  name: Extremely Fortified
+  description: The town proper is surrounded by an imposing wall of wood or stone,
+    with many fully-staffed watchtowers at regular intervals along its length. The
+    gate is double- thickness, reinforced with metal bands, augmented with a portcullis,
+    and is always manned. A supplementary wall of wood or stone encompasses the surrounding
+    countryside, with its own watchtowers. Nothing goes in or out without the watch’s
+    knowledge or permission.
+  modifiers:
+  - modifier: 7
+    table: disposition

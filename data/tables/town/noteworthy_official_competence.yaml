@@ -1,0 +1,14 @@
+---
+- weight: 1
+  name: Corrupt
+  description: Taking advantage of the position for personal gain.
+- weight: 2
+  name: Incompetent
+  description: Doesn’t truly understand how to execute the position.
+- weight: 2
+  name: Committed
+  description: Utterly committed to the job, truly feeling it is of vital importance.
+- weight: 1
+  name: Overqualified
+  description: Based on skills and experience, ought to be in a higher or more challenging
+    position.

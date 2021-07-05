@@ -1,0 +1,14 @@
+---
+- weight: 1
+  name: Academy/University
+  description: A conservatory devoted to the pursuit of higher knowledge, sometimes
+    of a specific area of study.
+- weight: 1
+  name: Archives/Library
+  description: A structure devoted to housing records and written information.
+- weight: 1
+  name: Forum
+  description: A place designated for the use of intellectual debate and discussion.
+- weight: 1
+  name: Schoolhouse
+  description: An institution focused on educating children.

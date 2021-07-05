@@ -1,0 +1,29 @@
+---
+- weight: 2
+  name: Dark
+  description: By the time the sun goes down, the streets are nearly empty and the
+    town closes up. All is quiet and peaceful. If the town has a gate, it is closed
+    and barred. Guards may, or may not, allow night travelers inside.
+- weight: 4
+  name: Quiet
+  description: Everything is closed except for inns and taverns, which remain open
+    until midnight. Late guests would have to wake an innkeeper to get a room. If
+    the town has a gate, it is closed and barred. Guards will usually let visitors
+    in, but will discourage wandering.
+- weight: 8
+  name: Slow
+  description: Almost everything is closed except for taverns, which may be open until
+    early morning, and inns, which stay open perpetually. If the town has a gate,
+    it is closed, but guards will generally be ready to open it, as needed.
+- weight: 4
+  name: Active
+  description: Inns and taverns remain open perpetually. Some shops and services may
+    be open, catering to late travelers or night owls. A fair amount of establishments
+    may still be closed. If the town has a gate, it is kept open, but guarded, ready
+    to be closed, if needed.
+- weight: 2
+  name: Lively
+  description: There is little difference between day and night traffic. There are
+    always people on the streets and it may seem like no one ever sleeps. Most shops
+    and services remain open constantly. If the town has a gate, it remains open and
+    is only closed under the most dire of circumstances.

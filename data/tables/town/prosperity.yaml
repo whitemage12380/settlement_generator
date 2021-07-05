@@ -1,0 +1,51 @@
+---
+- weight: 1
+  name: Abysmal Failure
+  description: The town has had little to no business, or has been very unfortunate.
+  modifiers:
+  - modifier: -8
+    table: visitor traffic
+  - modifier: -13
+    table: population wealth
+- weight: 3
+  name: Failure
+  description: The town has struggled to generate meaningful wealth or notoriety.
+  modifiers:
+  - modifier: -6
+    table: visitor traffic
+  - modifier: -6
+    table: population wealth
+- weight: 6
+  name: Mildly Successful
+  description: The town has attained a mild degree of success and visibility.
+  modifiers:
+  - modifier: -1
+    table: visitor traffic
+  - modifier: -3
+    table: population wealth
+- weight: 6
+  name: Successful
+  description: The town is functional and generates a modest to good amount of coin.
+  modifiers:
+  - modifier: 0
+    table: visitor traffic
+  - modifier: 0
+    table: population wealth
+- weight: 3
+  name: Very Successful
+  description: The town has achieved real financial success and attracts a large number
+    of visitors.
+  modifiers:
+  - modifier: 2
+    table: visitor traffic
+  - modifier: 3
+    table: population wealth
+- weight: 1
+  name: Incredibly Successful
+  description: The town attracts huge amounts of wealth for its citizens and visitors
+    flock to be part of it.
+  modifiers:
+  - modifier: 6
+    table: visitor traffic
+  - modifier: 6
+    table: population wealth

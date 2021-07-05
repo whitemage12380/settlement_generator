@@ -1,0 +1,39 @@
+---
+- weight: 2
+  name: Recent
+  description: Established within the past year, the town has not been around long.
+    Awareness has likely not spread beyond the immediate surrounding area.
+  modifiers:
+  - modifier: -2
+    table: population density
+- weight: 2
+  name: Established
+  description: The town has been around for a few years. Folk within a few dozen miles
+    may have heard of it. It has most likely been added to major official maps.
+  modifiers:
+  - modifier: -1
+    table: population density
+- weight: 2
+  name: Mature
+  description: The town has been around for decades, and may have developed some sort
+    of reputation, depending on its community, location, and what goes on in the town.
+  modifiers:
+  - modifier: 0
+    table: population density
+- weight: 2
+  name: Old
+  description: The town has been around near enough to a century, or so. Families
+    have grown up here. Some businesses have grown, folded, and been replaced by new
+    ones. Features have likely been added, or it may have expanded outwards. It may
+    also have seen through many events that could have altered the town’s course.
+  modifiers:
+  - modifier: 1
+    table: population density
+- weight: 2
+  name: Ancient
+  description: The town is hundreds of years old, or more. It may still be thriving,
+    or in ruins, remaining much like it has always been, or may have drastically changed,
+    for better or worse.
+  modifiers:
+  - modifier: 2
+    table: population density

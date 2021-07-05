@@ -1,0 +1,48 @@
+---
+- weight: 2
+  name: Very Small
+  description: Up to a few hundred standing structures in an area able to support
+    up to around 1000 people
+  modifiers:
+  - modifier: 2
+    table: population overflow
+  farms_and_resources_rolls: 1
+  commercial_locations: 4
+  noncommercial_locations: 1
+- weight: 4
+  name: Small
+  description: Up to 500 standing structures in an area able to support around 2000
+    people.
+  modifiers:
+  - modifier: 1
+    table: population overflow
+  farms_and_resources_rolls: 2
+  commercial_locations: 6
+  noncommercial_locations: 2
+- weight: 8
+  name: Medium
+  description: Up to 1000 standing structures in an area able to support around 4000
+    people.
+  farms_and_resources_rolls: 2
+  commercial_locations: 8
+  noncommercial_locations: 3
+- weight: 4
+  name: Large
+  description: Up to 1500 standing structures in an area able to support around 6000
+    people.
+  modifiers:
+  - modifier: -1
+    table: population overflow
+  farms_and_resources_rolls: 3
+  commercial_locations: 10
+  noncommercial_locations: 4
+- weight: 2
+  name: Very Large
+  description: Up to 2000 standing structures in an area able to support around 8000
+    people.
+  modifiers:
+  - modifier: -2
+    table: population overflow
+  farms_and_resources_rolls: 3
+  commercial_locations: 12
+  noncommercial_locations: 5

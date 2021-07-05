@@ -1,0 +1,12 @@
+---
+- weight: 6
+  name: Individual Person
+  description: The hired help is a single person hiring out their services.
+- weight: 4
+  name: Team
+  description: The hired help is a team of individuals who work together.
+- weight: 2
+  name: Guild
+  description: An organized guild is hiring out their services. When hired, a portion
+    of the guild’s members handle the job, not the entire guild (unless the job is
+    very large).

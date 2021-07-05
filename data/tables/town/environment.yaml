@@ -1,0 +1,34 @@
+---
+- weight: 1
+  name: Coastal
+  description: The town is near a large body of water, such as a lake or ocean.
+- weight: 1
+  name: Forest
+  description: The town has been established in area cleared of the surrounding trees.
+- weight: 1
+  name: Mountains
+  description: The town is found on a plateaux of a stony pass or soaring peak.
+- weight: 1
+  name: Plains
+  description: The town is encircled by wide, open fields.
+- weight: 1
+  name: River
+  description: The town is near or built around a steadily flowing stream, or other
+    watercourse.
+- weight: 1
+  name: Swamp
+  description: The town is in, or near, a vast area of stagnant water.
+- weight: 1
+  name: Underground
+  description: The town is within a vast network of caves.
+- weight: 1
+  name: Valley
+  description: The town is found within, or on the edge of, an area of recessed elevation
+    in relation to the landscape around it.
+- weight: 1
+  name: Tundra
+  description: The town is in a very cold environment.
+- weight: 1
+  name: Desert
+  description: The town is in a dry and arid environment, likely flanked by vast sand
+    dunes.

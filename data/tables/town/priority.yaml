@@ -1,0 +1,81 @@
+---
+- weight: 1
+  name: Military
+  description: The town prioritizes defenses and law enforcement.
+  modifiers:
+  - modifier: 1
+    table: fortification
+  - modifier: 1
+    table: law enforcement
+- weight: 1
+  name: Government
+  description: 'The town prioritizes structure, order, and law. (When rolling on the
+    leadership table, reroll any results from 91-100.) (Free location: Place of Government)'
+  modifiers:
+  - modifier: 1
+    table: law enforcement
+  restrictions:
+  - table: leadership
+    restrictions: ['Underworld or Criminal Enterprise', 'Anarcho-Syndicalist Commune']
+  locations:
+  - Place of Government
+- weight: 1
+  name: Production
+  description: The town prioritizes generation and movement of resources. (Roll a
+    d4 instead of a d8 on the specialty table.)
+  restrictions:
+  - table: specialty
+    restrictions: ['Connections', 'Drink', 'Education', 'Hospitality']
+- weight: 1
+  name: Economic
+  description: The town prioritizes their market, ensuring a large area, wide streets,
+    more shops, and lodging. (When checking the commercial locations table, consider
+    your town 1 size category larger)
+  modifiers:
+  - modifier: 2
+    table: market square
+  - modifier: 1
+    table: commercial locations
+- weight: 1
+  name: Religious
+  description: 'The town contains substantial temples in prominent locations. (Free
+    location: Non-Commercial - Place of Worship and +5 to its place of worship size
+    roll)'
+  special: religious
+  locations:
+  - Place of Worship +5
+- weight: 1
+  name: Magic
+  description: 'The town is focused on some form of magical pursuit. (Free location:
+    [roll]'
+  roll:
+  - weight: 1
+    name: Magic Shop - Armor
+    locations: 
+    - name: 'Magic Shop - Armor'
+      type: 'Shop'
+  - weight: 1
+    name: Magic Shop - Books
+    locations: 
+    - name: 'Magic Shop - Books'
+      type: 'Shop'
+  - weight: 1
+    name: Magic Shop - Clothing
+    locations: 
+    - name: 'Magic Shop - Clothing'
+      type: 'Shop'
+  - weight: 1
+    name: Magic Shop - Jewelry
+    locations: 
+    - name: 'Magic Shop - Jewelry'
+      type: 'Shop'
+  - weight: 1
+    name: Magic Shop - Weapons
+    locations: 
+    - name: 'Magic Shop - Weapons'
+      type: 'Shop'
+  - weight: 1
+    name: Magic Shop - Misc & Curiosities
+    locations: 
+    - name: 'Magic Shop - Misc & Curiosities'
+      type: 'Shop'

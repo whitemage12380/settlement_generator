@@ -1,0 +1,40 @@
+---
+- weight: 1
+  description: A merchant selling lively, little monkeys has arrived, and whipped
+    both the local, and visiting, children into an excited frenzy.
+- weight: 1
+  name: 
+  description: It’s raining. Hard. Many of the vendors are fighting to get their wares covered so
+    they remain unspoiled.
+- weight: 1
+  description: Fruits and vegetables have been in easy supply recently, so are being
+    sold at half the usual price.
+- weight: 1
+  description: A cattle merchant’s pen has broken, and cows now roam all over town.
+    The merchant is trying their best to round them up.
+- weight: 1
+  description: A cookfire has sparked a blaze, setting one of the stalls alight, and
+    is now threatening to spread to neighboring tables.
+- weight: 1
+  description: A traveling puppet show is in town, performing a political parody of
+    some famous regional figures to rapturous applause.
+- weight: 1
+  description: Bandits, posing as merchants, are stealing goods from the other, legitimate
+    merchants nearby.
+- weight: 1
+  description: A small child has swiped an apple from a fruit cart. The merchant has noticed,
+    and is yelling after the small, fleeing figure, calling for someone to catch them.
+- weight: 1
+  description: A local wedding is taking place in town, and the reception is being
+    set up alongside the merchants in the square, supplementing all the hubbub with
+    happy music and dancing.
+- weight: 1
+  description: One of the taverns, facing onto the market square, has announced a
+    market day special, and now has an ever-growing line out their door.
+- weight: 1
+  description: An injured guard has ridden into the marketplace, looking around frantically.
+    They have promptly passed out, falling from their horse.
+- weight: 1
+  description: One of the merchants’ wagon loads is infested with some kind of pest,
+    and the guards are working to remove the cart and its cargo to be burnt outside
+    of town, before it spreads. The merchant is arguing loudly and desperately.

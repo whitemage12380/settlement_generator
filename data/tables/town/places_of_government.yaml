@@ -1,0 +1,13 @@
+---
+- weight: 1
+  name: Chancery
+  description: Used as an office for official documentation and administrative tasks.
+- weight: 1
+  name: Courthouse
+  description: Used to hold trials or dispense justice.
+- weight: 1
+  name: Town Hall
+  description: Used for official town business, audiences, and meetings.
+- weight: 1
+  name: Treasury
+  description: Used as a centralised place to manage the town’s funds.

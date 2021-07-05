@@ -1,0 +1,35 @@
+---
+- weight: 2
+  name: Regular
+  description: The streets are crawling with criminals, and a purse unstowed is almost
+    sure to be snatched.
+  modifiers:
+  - modifier: 4
+    table: urban encounter
+- weight: 4
+  name: Common
+  description: Most are used to hearing about trouble every day or two. Everyone knows
+    someone who’s been a victim of crime.
+  modifiers:
+  - modifier: 3
+    table: urban encounter
+- weight: 8
+  name: Average
+  description: Theft or mild violence can happen from time to time. Best to keep an
+    eye out.
+  modifiers:
+  - modifier: 2
+    table: urban encounter
+- weight: 4
+  name: Uncommon
+  description: Crime does not occur often but, when it does, it is a noteworthy occurrence.
+  modifiers:
+  - modifier: 1
+    table: urban encounter
+- weight: 2
+  name: Rare
+  description: Most in the town have had no personal experience of crime in the town,
+    and know few people that have.
+  modifiers:
+  - modifier: 0
+    table: urban encounter

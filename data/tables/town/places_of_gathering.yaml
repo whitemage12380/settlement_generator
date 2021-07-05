@@ -1,0 +1,15 @@
+---
+- weight: 1
+  name: Amphitheater
+  description: Outdoor space with a stage and tiered seating.
+- weight: 1
+  name: Dance Hall
+  description: Location for dances and festive events.
+- weight: 1
+  name: Gathering Hall
+  description: General, open-use building, such as a community center, used for local
+    activities, or where locals may simply socialize on a day-to-day basis.
+- weight: 1
+  name: Outdoor Recreational Area
+  description: A tended space where locals might eat, take leisure time, or duel to
+    the death...

@@ -1,0 +1,13 @@
+---
+- weight: 1
+  name: Place of Education
+  description: Place of Education
+- weight: 1
+  name: Place of Gathering
+  description: Place of Gathering
+- weight: 1
+  name: Place of Government
+  description: Place of Government
+- weight: 1
+  name: Place of Worship
+  description: Place of Worship

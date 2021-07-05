@@ -1,0 +1,10 @@
+---
+- weight: 1
+  name: Evil
+  description: Evil
+- weight: 4
+  name: Neutral
+  description: Neutral
+- weight: 5
+  name: Good
+  description: Good

@@ -1,0 +1,43 @@
+---
+- weight: 3
+  name: Mostly Locals
+  description: On any given day, there are typically a few from out-of-town, though
+    not enough to impact congestion.
+  modifiers:
+  - modifier: 0
+    table: night activity
+- weight: 6
+  name: Groups
+  description: There are generally a fair amount of visitors. May slightly increase
+    congestion.
+  modifiers:
+  - modifier: 1
+    table: night activity
+- weight: 5
+  name: Crowds
+  description: A noticeable amount of people come through town on a regular basis.
+    Congestion is increased.
+  modifiers:
+  - modifier: 2
+    table: night activity
+- weight: 3
+  name: Droves
+  description: Large groups of people regularly frequent the town. Congestion is significantly
+    increased.
+  modifiers:
+  - modifier: 3
+    table: night activity
+- weight: 2
+  name: Masses
+  description: Huge groups of people always seem to be visiting. Congestion could
+    cause difficulties, if the town is unable to cope with very large amounts of people.
+  modifiers:
+  - modifier: 4
+    table: night activity
+- weight: 1
+  name: Multitudes
+  description: Massive groups of people throng the streets, likely spilling out onto
+    the roads outside town. Congestion is an ever-present reality, and a regular issue.
+  modifiers:
+  - modifier: 5
+    table: night activity

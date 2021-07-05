@@ -1,0 +1,25 @@
+---
+- weight: 1
+  name: Catchpole
+  description: Catches and brings in debtors.
+- weight: 1
+  name: Clerk
+  description: Recordkeeper for the town.
+- weight: 1
+  name: Exchequer
+  description: Responsible for taxes.
+- weight: 1
+  name: Jailer
+  description: In charge of confining prisoners.
+- weight: 1
+  name: Judge
+  description: Decision-maker in legal matters.
+- weight: 1
+  name: Liner
+  description: Determines property boundaries.
+- weight: 1
+  name: Master of Revels
+  description: Lead organizer of festivals and special events.
+- weight: 1
+  name: Master of Stores
+  description: Oversees the town’s stores of supplies such as grain or building materials.
