@@ -101,8 +101,10 @@ Roadmap:
 - DONE - Owner names
 - DONE - Village
 - DONE - Better modifier notes on markdown (source and recipient tables)
-- Town
-  - Markdown Export
+- DONE - Town
+- Basic packaging (gem)
+- Save settlement to internal file
+- Display or create md out of saved settlement
 - City
 - More names
   - Expanded halfling names (from Xanathar's)

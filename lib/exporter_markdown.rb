@@ -31,7 +31,6 @@ class ExporterMarkdown
         positively_impacted_by = impacted_by_list.select {|m| m[1] > 0}.collect {|m| "#{m[2]} (#{m[1].signed})"}
         positively_impacted_by_str = impact_string(positively_impacted_by, "Positively impacted by")
       end
-      #impacts_list = settlement.modifier_list_with_reason().select { |m| m[2] == table['table_name']}
       impacts_list = table.fetch('modifiers', [])
       unless impacts_list.empty?
         negatively_impacts = impacts_list.select {|m| m['modifier'].to_i < 0}.collect {|m| "#{m['table']} (#{m['modifier'].to_i.signed})"}

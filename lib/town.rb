@@ -213,19 +213,5 @@ class Town < Settlement
           .each { |poi| poi.print(); puts}
       end
     end
-    # unless @points_of_interest.fetch('shops'.empty?
-    #   puts "------------------"
-    #   puts "SHOPS"
-    #   puts "------------------"
-    #   puts
-    #   @points_of_interest['shops'].each { |poi| poi.print(); puts}
-    # end
-    # unless @points_of_interest['services'].empty?
-    #   puts "------------------"
-    #   puts "SERVICES"
-    #   puts "------------------"
-    #   puts
-    #   @points_of_interest['services'].each { |poi| poi.print(); puts}
-    # end
   end
 end
