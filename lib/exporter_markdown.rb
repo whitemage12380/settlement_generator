@@ -66,7 +66,14 @@ class ExporterMarkdown
 
     def points_of_interest_md(settlement)
       output = ["## Points of Interest"]
-      settlement.points_of_interest.each_pair do |poi_type, pois|
+      settlement.points_of_interest.sort_by { |poi_type, v|
+        case poi_type
+        when /^places/
+          "0_#{poi_type}"
+        else
+          poi_type
+        end
+      }.to_h.each_pair do |poi_type, pois|
         output << "### #{poi_type.pretty}"
         if pois.kind_of?(PlaceOfWorship) or pois.first.kind_of?(PlaceOfWorship)
           (pois.kind_of?(Array) ? pois : [pois]).each do |poi|
