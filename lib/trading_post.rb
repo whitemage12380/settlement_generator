@@ -6,11 +6,8 @@ require_relative 'place_of_worship'
 
 class TradingPost < Settlement
 
-  def initialize(log_level = nil)
-    @log_level = log_level.nil? ? nil : log_level.upcase
-    @settlement_type = "trading_post"
-    @config = $configuration.fetch(settlement_type, {})
-    @tables = settlement_type_tables()
+  def initialize(settings: {}, configuration_path: nil)
+    super('trading_post', settings, configuration_path)
     all_tables.each do |table|
       table_name = table['table_name']
       table.merge!(roll_on_table(table_name, modifiers.fetch(table_name, 0)))

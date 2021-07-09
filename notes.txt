@@ -102,8 +102,8 @@ Roadmap:
 - DONE - Village
 - DONE - Better modifier notes on markdown (source and recipient tables)
 - DONE - Town
-- Basic packaging (gem)
-- Save settlement to internal file
+- DONE - Basic packaging (gem)
+- DONE - Save settlement to internal file
 - Display or create md out of saved settlement
 - City
 - More names

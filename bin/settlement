@@ -1,5 +1,13 @@
 #!/usr/local/env ruby
+require 'optparse'
 require_relative '../lib/exporter_markdown'
+
+# options = Hash.new
+# optparse = OptionParser.new do |opts|
+#   opts.banner = "Usage: settlement [options] {\"trading post\" | village | town | city | capitol | fortress}"
+#   opts.on('-f', '--file FILENAME')
+# end
+# # 
 
 type = ARGV[0] ? ARGV[0] : "trading post"
 
@@ -18,4 +26,5 @@ else
 end
 
 settlement.print
+settlement.save
 ExporterMarkdown.export_to_markdown(settlement)

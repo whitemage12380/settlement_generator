@@ -6,7 +6,7 @@ class Service < PointOfInterest
 
   def initialize(settlement, name = nil, quality = nil)
     @location_type = 'service'
-    super(settlement, name, quality)
+    super(settlement, name: name, quality: quality)
     if @name =~ /Hired Help/
       @hired_help_size = roll_on_table('hired help size', 0, settlement.settlement_type)
       @name.concat(" (#{@hired_help_size['name']})")

@@ -10,8 +10,8 @@ class Owner
               :race, :ethnicity, :category, :name_race, :name_ethnicity, :name_category
 
   
-  def initialize(demographics, family = nil, is_child = false)
-    @config = owners_config
+  def initialize(demographics, family: nil, is_child: false, settings: Configuration.new.fetch('owners', {}))
+    @config = settings.fetch('owners', settings)
     family_name_race_relationship = roll_on_table('family_relationships', 0, 'names', false)
     race_relationship = family_name_race_relationship['race']
     name_relationship = family_name_race_relationship['name_style']
@@ -20,7 +20,7 @@ class Owner
     case race_relationship
     when 'family'
       @race = @family.race
-      if not (@family.ethnicity.nil?) and rand() < owners_config.fetch('family_ethnicity_mismatch_chance', 0)
+      if not (@family.ethnicity.nil?) and rand() < @config.fetch('family_ethnicity_mismatch_chance', 0)
         @ethnicity = random_ethnicity(@race)
       else
         @ethnicity = @family.ethnicity
@@ -36,14 +36,14 @@ class Owner
     case name_relationship
     when 'family'
       @name_race = @family.race
-      if rand() < owners_config.fetch('name_ethnicity_mismatch_chance', 0)
+      if rand() < @config.fetch('name_ethnicity_mismatch_chance', 0)
         @name_ethnicity = @ethnicity
       else
         @name_ethnicity = @family.ethnicity
       end
     when 'individual'
       @name_race = @race
-      if rand() < owners_config.fetch('name_ethnicity_mismatch_chance', 0)
+      if rand() < @config.fetch('name_ethnicity_mismatch_chance', 0)
         @name_ethnicity = @family.ethnicity
       else
         @name_ethnicity = @ethnicity

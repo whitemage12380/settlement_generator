@@ -4,8 +4,10 @@ require_relative 'settlement_generator_helper'
 
 class Configuration < Hash
 
-  def initialize()
-    config_file_contents = YAML.load_file(Configuration.configuration_path)
+  def initialize(custom_settings = {}, configuration_path = nil)
+    custom_settings = {} unless custom_settings.kind_of? Hash
+    configuration_path ||= Configuration.configuration_path
+    config_file_contents = YAML.load_file(configuration_path)
     unless config_file_contents.kind_of? Hash
       puts "Could not load configuration"
       return
@@ -25,6 +27,7 @@ class Configuration < Hash
         v
       end
     }
+    self.deep_merge!(custom_settings)
     puts "Configurations loaded: #{to_s}" unless self.fetch('show_configuration', true) == false
   end
 
@@ -36,4 +39,3 @@ class Configuration < Hash
     File.expand_path('../', __dir__)
   end
 end
-$configuration = Configuration.new()

@@ -6,7 +6,8 @@ class PointOfInterest
   include SettlementGeneratorHelper
   attr_reader :name, :title, :description, :quality, :owners, :owner_group_title
 
-  def initialize(settlement, name = nil, quality = nil) # TODO: Allow a generic shop or service that gets a generic name
+  def initialize(settlement, name: nil, quality: nil, settings: Configuration.new.fetch('locations', {})) # TODO: Allow a generic shop or service that gets a generic name
+    @config = settings.fetch('locations', settings)
     @location_type = 'location' if @location_type.nil?
     if name.nil?
       # The name roll table is in the individual settlement directory, the location content is in names/locations.yaml
@@ -51,7 +52,7 @@ class PointOfInterest
           location_word_chance = 0
         else
           location_word_chance = @names.fetch("location_#{elem}_chance",
-                                 $configuration['locations'].fetch("location_#{elem}_chance", 0.5))
+                                 @config.fetch("location_#{elem}_chance", 0.5))
         end
         if rand() < location_word_chance and @names.has_key? elem_plural
           weighted_random(@names[elem_plural])
@@ -63,7 +64,7 @@ class PointOfInterest
           synonym_chance = 0
         else
           synonym_chance = @names.fetch("synonym_chance",
-                           $configuration['locations'].fetch("synonym_chance", 0.5))
+                           @config.fetch("synonym_chance", 0.5))
         end
         if rand() < synonym_chance and @names.has_key? 'synonyms'
           weighted_random(@names['synonyms'])

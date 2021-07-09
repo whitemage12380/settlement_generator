@@ -6,23 +6,25 @@ require_relative '../lib/trading_post'
 log_level = 'WARN'
 race = nil
 
+conf = {'log_level' => 'WARN'}
+
 type = ARGV[0]
 ARGV.shift()
 OptionParser.new do |opts|
   opts.banner = "Usage: namegen <type> [options]"
 
   opts.on("-v", "--verbose", "Run verbosely") do |v|
-    log_level = 'INFO'
+    conf['log_level'] = 'INFO'
   end
   opts.on("-r", "--race RACE", "All generated individuals and families are of the known race") do |r|
     race = Race.new(r)
   end
 end.parse!
 
-$configuration['races'] = race.split(",") unless race.nil?
+conf['races'] = race.split(",") unless race.nil?
 
 
-t = TradingPost.new(log_level)
+t = TradingPost.new(conf)
 
 case type
 when 'shop'

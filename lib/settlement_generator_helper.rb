@@ -1,6 +1,4 @@
-require 'yaml'
-require_relative 'configuration'
-require_relative 'race'
+
 
 class String
 
@@ -38,48 +36,73 @@ class Hash
     merger = proc { |_, v1, v2| Hash === v1 && Hash === v2 ? v1.merge(v2, &merger) : Array === v1 && Array === v2 ? v1 | v2 : [:undefined, nil, :nil].include?(v2) ? v1 : v2 }
     merge(second.to_h, &merger)
   end
+  def deep_merge!(second)
+    merger = proc { |_, v1, v2| Hash === v1 && Hash === v2 ? v1.merge(v2, &merger) : Array === v1 && Array === v2 ? v1 | v2 : [:undefined, nil, :nil].include?(v2) ? v1 : v2 }
+    merge!(second.to_h, &merger)
+  end
 end
 
 module SettlementGeneratorHelper
   require 'logger'
+  require 'yaml'
+  require_relative 'configuration'
+  require_relative 'race'
 
-  def init_logger()
-    if $log.nil?
-      if @log_level.nil?
-        log_level = $configuration['log_level'] ? $configuration['log_level'].upcase : Logger::INFO
-      else
-        log_level = @log_level
-      end
-      $log = Logger.new(STDOUT, level: log_level)
-    end
-    $messages = StringIO.new() if $messages.nil?
-    $message_log = Logger.new($messages, level: log_level) if $message_log.nil?
+  def init_configuration(settings, configuration_path = nil)
+    @configuration = Configuration.new(settings, configuration_path)
+    @config = configuration.fetch(settlement_type, {})
   end
 
-  def debug(message)
-    init_logger()
-    $log.debug(message)
+  def configuration
+    @configuration ||= Configuration.new
+  end
+
+  def self.logger(log_level = 'INFO')
+    @logger ||= Logger.new(STDOUT, log_level)
+  end
+
+  def logger(log_level = configuration.fetch('log_level', 'INFO'))
+    SettlementGeneratorHelper.logger
+  end
+
+  # def init_logger()
+  #   if $log.nil?
+  #     if @log_level.nil?
+  #       log_level = $configuration['log_level'] ? $configuration['log_level'].upcase : Logger::INFO
+  #     else
+  #       log_level = @log_level
+  #     end
+  #     $log = Logger.new(STDOUT, level: log_level)
+  #   end
+  #   $messages = StringIO.new() if $messages.nil?
+  #   $message_log = Logger.new($messages, level: log_level) if $message_log.nil?
+  # end
+
+  def log_debug(message)
+    logger.debug(message)
   end
 
   def log(message)
-    init_logger()
-    $log.info(message)
+    logger.info(message)
+  end
+
+  def log_warning(message)
+    logger.warn(message)
   end
 
   def log_error(message)
-    init_logger()
-    $log.error(message)
-  end
-
-  def log_important(message)
-    init_logger()
-    $log.info(message)
-    $message_log.info(message)
+    logger.error(message)
   end
 
   def verbose(str)
-    puts str if $configuration['verbose'] == true
+    puts str if configuration['verbose'] == true
   end
+
+  # def log_important(message)
+  #   init_logger()
+  #   $log.info(message)
+  #   $message_log.info(message)
+  # end
 
   def parse_path(path_str)
     # Currently only callable from ruby files directly in lib, no nesting (can be changed later)
@@ -196,25 +219,6 @@ module SettlementGeneratorHelper
       selected_entry = weighted_random(table_entries)
     end
     return Race.new(selected_entry)
-  end
-
-  def generate_races(demographics = all_tables_hash['demographics'], table_name = @config.fetch('race_table', 'standard'))
-    if $configuration['races'].nil? or $configuration['races'].empty?
-      demographics.fetch('races', []).collect{|r|r['name']}.difference(['other']).each do |race_label|
-        demographics['chosen_races'] = Hash.new if demographics['chosen_races'].nil?
-        chosen_races = demographics['chosen_races']
-        chosen_race = roll_race(chosen_races)
-        log "Chose #{race_label} race: #{chosen_race.plural}"
-        chosen_races[race_label] = chosen_race
-        demographics['description'].sub!("#{race_label} race", chosen_race.plural)
-      end
-    else
-      races = $configuration['races'].take(3)
-      race_labels = ['primary', 'secondary', 'tertiary'].take(races.size)
-      demographics['races'] = race_labels.collect { |l| {'name' => l, 'weight' => 1} }
-      demographics['chosen_races'] = $configuration['races']
-        .each_with_index.collect { |race_name, i| [race_labels[i], Race.new(race_name)] }.to_h
-    end
   end
 
   def entry_has_modifiers?(entry)

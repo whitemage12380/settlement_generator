@@ -9,8 +9,8 @@ class Family
   attr_reader :family_name, :family_name_label, :family_name_translation,
               :race, :ethnicity, :family_members
 
-  def initialize(demographics: nil, adults: 1, children: 0, race: nil, ethnicity: nil)
-    @config = owners_config
+  def initialize(demographics: nil, adults: 1, children: 0, race: nil, ethnicity: nil, settings: Configuration.new.fetch('owners', {}))
+    @config = settings.fetch('owners', settings)
     if demographics.kind_of? Hash and not race.kind_of? Race
       @race, @ethnicity = random_race_and_ethnicity(demographics)
     elsif demographics.nil? and race.nil?

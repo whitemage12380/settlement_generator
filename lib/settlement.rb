@@ -4,6 +4,13 @@ class Settlement
   include SettlementGeneratorHelper
 
   attr_reader :settlement_type, :tables, :points_of_interest
+  attr_accessor :name, :file
+
+  def initialize(settlement_type, settings, configuration_path = nil)
+    @settlement_type = settlement_type
+    init_configuration(settings, configuration_path)
+    @tables = settlement_type_tables()
+  end
 
   def settlement_type_tables(settlement_type = @settlement_type)
     file_path = "#{Configuration.project_path}/data/settlement_types/#{settlement_type}.yaml"
@@ -27,6 +34,25 @@ class Settlement
   def hardships() nil end
   def hardship_modifiers() [] end
   def hardship_modifiers_with_reason() [] end
+
+  def generate_races(demographics = all_tables_hash['demographics'], table_name = @config.fetch('race_table', 'standard'))
+    if configuration['races'].nil? or configuration['races'].empty?
+      demographics.fetch('races', []).collect{|r|r['name']}.difference(['other']).each do |race_label|
+        demographics['chosen_races'] = Hash.new if demographics['chosen_races'].nil?
+        chosen_races = demographics['chosen_races']
+        chosen_race = roll_race(chosen_races)
+        log "Chose #{race_label} race: #{chosen_race.plural}"
+        chosen_races[race_label] = chosen_race
+        demographics['description'].sub!("#{race_label} race", chosen_race.plural)
+      end
+    else
+      races = configuration['races'].take(3)
+      race_labels = ['primary', 'secondary', 'tertiary'].take(races.size)
+      demographics['races'] = race_labels.collect { |l| {'name' => l, 'weight' => 1} }
+      demographics['chosen_races'] = configuration['races']
+        .each_with_index.collect { |race_name, i| [race_labels[i], Race.new(race_name)] }.to_h
+    end
+  end
 
   def modifiers(tables = all_tables)
     return modifier_list(tables)
@@ -90,5 +116,43 @@ class Settlement
 
   def default_filename()
     "#{@settlement_type}_#{table_value('age').filename_style}_#{table_value('size').filename_style}"
+  end
+
+  def save(filename = (@file ? @file : default_filename), filepath = configuration['save_directory'])
+    filename += ".yaml" unless filename =~ /\.yaml$/
+    if filename =~ /^\//
+      fullpath = filename
+    else
+      filepath = File.expand_path("#{File.dirname(__FILE__)}/../#{filepath}") unless filepath[0] == '/'
+      fullpath = "#{filepath}/#{filename}"
+    end
+    @file = fullpath unless @file == fullpath
+    log "Saving #{@settlement_type} to file: #{fullpath}"
+    begin
+      File.open(fullpath, "w") do |f|
+        YAML::dump(self, f)
+      end
+    rescue SystemCallError => e
+      log_error "Failed to save #{@settlement_type}:"
+      log_error e.message
+      return false
+    end
+    return true
+  end
+
+  def self.load(filename, filepath = Configuration.new['save_directory'])
+    if filename =~ /^\/.*\.yaml$/
+      fullpath = filename
+    else
+      filepath = File.expand_path("#{File.dirname(__FILE__)}/../#{filepath}") unless filepath[0] == '/'
+      fullpath = "#{filepath}/#{filename}.yaml"
+    end
+    log "Loading settlement from file: #{fullpath}"
+    settlement = nil
+    File.open(fullpath, "r") do |f|
+      settlement = YAML::load(f)
+    end
+    settlement.file = fullpath
+    return settlement
   end
 end

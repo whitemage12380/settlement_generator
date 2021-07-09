@@ -11,11 +11,8 @@ require_relative 'location'
 class Town < Settlement
   attr_reader :farms_and_resources
 
-  def initialize(log_level = nil)
-    @log_level = log_level.nil? ? nil : log_level.upcase
-    @settlement_type = "town"
-    @config = $configuration.fetch(settlement_type, {})
-    @tables = settlement_type_tables()
+  def initialize(settings: {}, configuration_path: nil)
+    super('town', settings, configuration_path)
     all_tables.each do |table|
       table_name = table['table_name']
       case table_name

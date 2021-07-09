@@ -19,9 +19,9 @@ module InhabitantHelper
     table_exist?(race, 'names')
   end
 
-  def owners_config()
-    $configuration.fetch('owners', {})
-  end
+  # def owners_config()
+  #   $configuration.fetch('owners', {})
+  # end
 
   def random_race_and_ethnicity(demographics = nil)
     race = Race.new(random_race(demographics))
@@ -46,7 +46,7 @@ module InhabitantHelper
   end
 
   def random_ethnicity(race)
-    return nil unless name_table_exist?(race) and name_table(race).first[1].kind_of?(Hash) and owners_config['use_ethnicity'] == true
+    return nil unless name_table_exist?(race) and name_table(race).first[1].kind_of?(Hash) and @config['use_ethnicity'] == true
     return name_table(race).keys.reject{|e| e == 'options'}.sample
   end
 

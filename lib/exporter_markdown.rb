@@ -6,13 +6,13 @@ class ExporterMarkdown
   extend SettlementGeneratorHelper
 
   class << self
-    def export_to_markdown(settlement, filename = nil)
+    def export_to_markdown(settlement, filename = nil, filepath = nil)
       output = ["# #{settlement.settlement_type.pretty}"]
       output.concat(tables_md(settlement))
       output.concat(hardships_md(settlement)) unless settlement.hardships.nil?
       output.concat(points_of_interest_md(settlement))
       filename = settlement.default_filename if filename.nil?
-      save_to_md(filename, output.join("\n"))
+      save_to_md(output.join("\n"), filename, filepath)
     end
 
     def table_description(table, settlement)
@@ -111,18 +111,23 @@ class ExporterMarkdown
       return output
     end
 
-    def save_to_md(filename, text)
+    def save_to_md(text, filename, filepath = nil)
+      if filepath.nil?
+        config = Configuration.new()
+        filepath = config.fetch('export_directory', config['save_directory'])
+      end
       filename_full = "#{filename}.md"
-      save_directory = parse_path($configuration['save_directory'])
+      save_directory = parse_path(filepath)
       # mkdir it?
       saved_settlements = Dir[save_directory]
       if saved_settlements.include? filename_full # Determine unique name if a filename matches
         latest_filename_num = saved_settlements.select { |f| f.include?(filename) and f =~ /\d\.md$/ }
-        .collect { |f| f.delete_prefix("#{filename}_").delete_suffix(".md").to_i } # If 
+        .collect { |f| f.delete_prefix("#{filename}_").delete_suffix(".md").to_i }
         .sort.last
         filename_num = latest_filename_num.nil? ? 1 : latest_filename_num + 1
         filename_full = "#{filename}_#{filename_num.to_s}.md"
       end
+      log "Exporting to Markdown: #{save_directory}/#{filename_full}"
       File.write("#{save_directory}/#{filename_full}", text)
     end
   end

@@ -9,11 +9,8 @@ require_relative 'location'
 class Village < Settlement
   attr_reader :hardships, :hardships_description
 
-  def initialize(log_level = nil)
-    @log_level = log_level.nil? ? nil : log_level.upcase
-    @settlement_type = "village"
-    @config = $configuration.fetch(settlement_type, {})
-    @tables = settlement_type_tables()
+  def initialize(settings: {}, configuration_path: nil)
+    super('village', settings, configuration_path)
     all_tables.each do |table|
       table_name = table['table_name']
       case table_name

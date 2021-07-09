@@ -5,6 +5,6 @@ class Shop < PointOfInterest
 
   def initialize(settlement, name = nil, quality = nil)
     @location_type = 'shop'
-    super(settlement, name, quality)
+    super(settlement, name: name, quality: quality)
   end
 end
