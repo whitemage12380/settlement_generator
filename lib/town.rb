@@ -6,7 +6,8 @@ require_relative 'place_of_gathering'
 require_relative 'place_of_education'
 require_relative 'place_of_government'
 require_relative 'town_resource'
-require_relative 'location'
+require_relative 'service'
+require_relative 'shop'
 
 module Settlements
   class Town < Settlement

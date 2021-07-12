@@ -148,11 +148,12 @@ module Settlements
         filepath = File.expand_path("#{File.dirname(__FILE__)}/../#{filepath}") unless filepath[0] == '/'
         fullpath = "#{filepath}/#{filename}.yaml"
       end
-      log "Loading settlement from file: #{fullpath}"
+      SettlementGeneratorHelper.logger.info "Loading settlement from file: #{fullpath}"
       settlement = nil
       File.open(fullpath, "r") do |f|
         settlement = YAML::load(f)
       end
+      settlement.log "Loaded settlement"
       settlement.file = fullpath
       return settlement
     end
