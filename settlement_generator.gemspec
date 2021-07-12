@@ -1,7 +1,7 @@
 require 'rake'
 Gem::Specification.new do |s|
   s.name        = 'settlement_generator'
-  s.version     = '0.2.0'
+  s.version     = '0.3.0'
   s.summary     = "Generate shops, trading posts, villages, towns and more"
   s.description = "A tool that randomly produces settlement content based on Spectacular Settlements by Nord Games"
   s.authors     = ["Egan Neuhengen"]
