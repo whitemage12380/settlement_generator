@@ -24,13 +24,13 @@ end.parse!
 conf['races'] = race.split(",") unless race.nil?
 
 
-t = TradingPost.new(conf)
+t = Settlements::TradingPost.new(conf)
 
 case type
 when 'shop'
-  Shop.new(t).print()
+  Settlements::Shop.new(t).print()
 when 'service'
-  Service.new(t).print()
+  Settlements::Service.new(t).print()
 when 'person', 'individual', 'owner'
-  Owner.new(t.all_tables_hash['demographics']).print()
+  Settlements::Owner.new(t.all_tables_hash['demographics']).print()
 end

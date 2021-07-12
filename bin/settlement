@@ -14,17 +14,17 @@ type = ARGV[0] ? ARGV[0] : "trading post"
 case type
 when 'trading post', 'trading_post', 'tradingpost', 'post'
   require_relative '../lib/trading_post'
-  settlement = TradingPost.new()
+  settlement = Settlements::TradingPost.new()
 when 'village'
   require_relative '../lib/village'
-  settlement = Village.new()
+  settlement = Settlements::Village.new()
 when 'town'
   require_relative '../lib/town'
-  settlement = Town.new()
+  settlement = Settlements::Town.new()
 else
   raise "Settlement type not supported: #{type}"
 end
 
 settlement.print
 settlement.save
-ExporterMarkdown.export_to_markdown(settlement)
+Settlements::ExporterMarkdown.export_to_markdown(settlement)
