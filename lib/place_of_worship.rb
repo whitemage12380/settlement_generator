@@ -26,5 +26,13 @@ module Settlements
       puts "    #{@fervency['description']}"
       puts "Alignment of the faith: #{@alignment}"
     end
+
+    def to_h()
+      return {
+        'alignment' => @alignment,
+        'fervency' => @fervency,
+        'size' => @size
+      }
+    end
   end
 end

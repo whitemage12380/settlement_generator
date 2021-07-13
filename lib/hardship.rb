@@ -26,5 +26,14 @@ module Settlements
       puts "  #{@type['description']}"
       puts "  Suffered #{@outcome['name'].downcase} (#{modifiers_string})."
     end
+
+    def to_h()
+      return {
+        'type' => @type,
+        'outcome' => @outcome,
+        'name' => @name,
+        'description' => @description
+      }
+    end
   end
 end

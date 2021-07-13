@@ -7,7 +7,7 @@ module Settlements
     include SettlementGeneratorHelper
     include InhabitantHelper
 
-    attr_reader :first_name, :family_name, :family_name_label, :family,
+    attr_reader :first_name, :family,
                 :race, :ethnicity, :category, :name_race, :name_ethnicity, :name_category
 
     
@@ -132,6 +132,29 @@ module Settlements
 
     def print()
       puts description
+    end
+
+    attr_reader :first_name, :family_name, :family_name_label, :family,
+                :race, :ethnicity, :category, :name_race, :name_ethnicity, :name_category
+
+    def to_h()
+      output = {
+        'first_name' => @first_name,
+        'last_name' => family_name(),
+        'full_name' => full_name(),
+        'race' => @race,
+        'name_race' => @name_race,
+        'description' => description()
+      }
+      output['ethnicity'] = @ethnicity unless @ethnicity.nil?
+      output['category'] = @category unless [nil, 'any'].include? @category
+      output['name_ethnicity'] = @name_ethnicity unless @name_ethnicity.nil?
+      output['name_category'] = @name_category unless [nil, 'any'].include? @name_category
+      output['family_race'] = @family.race unless @family.race.nil?
+      output['family_ethnicity'] = @family.ethnicity unless @family.ethnicity.nil?
+      output['family_name_label'] = @family.family_name_label unless @family.family_name_label.nil?
+      output['family_name_translation'] = @family.family_name_translation unless @family.family_name_translation.nil?
+      return output
     end
   end
 end

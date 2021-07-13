@@ -101,7 +101,12 @@ module Settlements
     end
 
     def to_h()
-      {name: @name, description: @description, quality: @quality['name']}
+      output = {'name' => @name, 'description' => @description, 'location_type' => @location_type}
+      output['title'] = @title unless @title.nil?
+      output['quality'] = @quality unless @quality.nil?
+      output['hired_help_size'] = @hired_help_size unless @hired_help_size.nil?
+      output['owners'] = @owners.collect { |owner| owner.to_h } unless @owners.nil?
+      return output
     end
   end
 end

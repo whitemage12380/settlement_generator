@@ -119,6 +119,23 @@ module Settlements
       "#{@settlement_type}_#{table_value('age').filename_style}_#{table_value('size').filename_style}"
     end
 
+    def to_h()
+      output = {
+        'name' => @name,
+        'file' => @file,
+        'settlement_type' => @settlement_type,
+        'tables' => @tables,
+        'points_of_interest' => @points_of_interest.collect { |poi_type, pois|
+          pois.kind_of?(Array) ? [poi_type, pois.collect { |poi| poi.to_h }] : [poi_type, pois.to_h]
+        }.to_h,
+        'configuration' => configuration()
+      }
+      unless hardships.nil?
+        output['hardships'] = hardships.collect { |hardship| hardship.to_h }
+      end
+      return output
+    end
+
     def save(filename = (@file ? @file : default_filename), filepath = configuration['save_directory'])
       filename += ".yaml" unless filename =~ /\.yaml$/
       if filename =~ /^\//

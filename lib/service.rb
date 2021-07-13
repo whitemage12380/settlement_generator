@@ -13,9 +13,5 @@ module Settlements
         @name.concat(" (#{@hired_help_size['name']})")
       end
     end
-
-    def to_h()
-      {name: @name, description: @description, quality: @quality['name'], hired_help_size: @hired_help_size}
-    end
   end
 end
