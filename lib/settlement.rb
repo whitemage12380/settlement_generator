@@ -1,16 +1,18 @@
+require 'date'
 require_relative 'settlement_generator_helper'
 
 module Settlements
   class Settlement
     include SettlementGeneratorHelper
 
-    attr_reader :settlement_type, :tables, :points_of_interest
-    attr_accessor :name, :file
+    attr_reader :settlement_type, :tables, :points_of_interest, :created_at, :modified_at
 
-    def initialize(settlement_type, settings, configuration_path = nil)
+    def initialize(settlement_type, settings, configuration_path = nil, name = nil)
+      @name = name.pretty unless name.nil?
       @settlement_type = settlement_type
       init_configuration(settings, configuration_path)
       @tables = settlement_type_tables()
+      @created_at = DateTime.now()
     end
 
     def settlement_type_tables(settlement_type = @settlement_type)
@@ -115,14 +117,47 @@ module Settlements
       }.flatten(1)
     end
 
+    def rename(new_name)
+      if new_name.pretty == name
+        log_warning "Cannot rename #{@settlement_type} to the same name"
+        return
+      end
+      log "Renaming #{name} to #{new_name}"
+      new_filename = "#{new_name.underscore}.yaml"
+      old_fullpath = full_filepath()
+      new_fullpath = full_filepath(new_filename)
+      save(new_filename)
+      log "Deleting old file: #{old_fullpath}"
+      File.delete(old_fullpath) if File.file?(old_fullpath)
+      return name
+    end
+
+    def name()
+      @name ||= default_filename.pretty
+    end
+
+    def filename()
+      "#{name.underscore}.yaml"
+    end
+
     def default_filename()
       "#{@settlement_type}_#{table_value('age').filename_style}_#{table_value('size').filename_style}"
     end
 
+    def filepath()
+      @filepath ||= configuration['save_directory']
+    end
+
+    def full_filepath(filename = filename(), filepath = filepath())
+      Settlement.full_filepath(filename, filepath)
+    end
+
     def to_h()
       output = {
-        'name' => @name,
-        'file' => @file,
+        'name' => name(),
+        'filepath' => filepath(),
+        'fullpath' => full_filepath(),
+        'created_at' => @created_at.to_s,
         'settlement_type' => @settlement_type,
         'tables' => @tables,
         'points_of_interest' => @points_of_interest.collect { |poi_type, pois|
@@ -136,17 +171,33 @@ module Settlements
       return output
     end
 
-    def save(filename = (@file ? @file : default_filename), filepath = configuration['save_directory'])
+    def self.full_filepath(filename, filepath = Configuration.new['save_directory'])
       filename += ".yaml" unless filename =~ /\.yaml$/
-      if filename =~ /^\//
+      if filename =~ /^\/.*\.yaml$/
         fullpath = filename
       else
         filepath = File.expand_path("#{File.dirname(__FILE__)}/../#{filepath}") unless filepath[0] == '/'
         fullpath = "#{filepath}/#{filename}"
       end
-      @file = fullpath unless @file == fullpath
+      return fullpath
+    end
+
+    def save(filename = filename(), filepath = filepath())
+      fullpath = full_filepath(filename, filepath)
       log "Saving #{@settlement_type} to file: #{fullpath}"
       begin
+        while File.file?(fullpath) # Add a number in the case of a filename conflict
+          if filename =~ /_([0-9]+)\.yaml$/
+            next_number = ($1.to_i + 1).to_s
+            filename.sub!(/_([0-9]+)\.yaml/, "_#{next_number}.yaml")
+          elsif filename =~ /\.yaml$/
+            filename.sub!(/\.yaml$/, "_1.yaml")
+          else
+            raise "Filename expected to have .yaml suffix: #{filename}"
+          end
+          fullpath = full_filepath(filename, filepath)
+          log "Filename conflict detected, saving instead to: #{fullpath}"
+        end
         File.open(fullpath, "w") do |f|
           YAML::dump(self, f)
         end
@@ -155,23 +206,19 @@ module Settlements
         log_error e.message
         return false
       end
+      @filepath = filepath
+      @name = File.basename(filename, '.yaml').pretty
       return true
     end
 
     def self.load(filename, filepath = Configuration.new['save_directory'])
-      if filename =~ /^\/.*\.yaml$/
-        fullpath = filename
-      else
-        filepath = File.expand_path("#{File.dirname(__FILE__)}/../#{filepath}") unless filepath[0] == '/'
-        fullpath = "#{filepath}/#{filename}.yaml"
-      end
+      fullpath = full_filepath(filename, filepath)
       SettlementGeneratorHelper.logger.info "Loading settlement from file: #{fullpath}"
       settlement = nil
       File.open(fullpath, "r") do |f|
         settlement = YAML::load(f)
       end
       settlement.log "Loaded settlement"
-      settlement.file = fullpath
       return settlement
     end
   end

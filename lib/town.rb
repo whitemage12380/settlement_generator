@@ -13,8 +13,8 @@ module Settlements
   class Town < Settlement
     attr_reader :farms_and_resources
 
-    def initialize(settings: {}, configuration_path: nil)
-      super('town', settings, configuration_path)
+    def initialize(name: nil, settings: {}, configuration_path: nil)
+      super('town', settings, configuration_path, name)
       all_tables.each do |table|
         table_name = table['table_name']
         case table_name

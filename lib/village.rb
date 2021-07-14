@@ -10,8 +10,8 @@ module Settlements
   class Village < Settlement
     attr_reader :hardships, :hardships_description
 
-    def initialize(settings: {}, configuration_path: nil)
-      super('village', settings, configuration_path)
+    def initialize(name: nil, settings: {}, configuration_path: nil)
+      super('village', settings, configuration_path, name)
       all_tables.each do |table|
         table_name = table['table_name']
         case table_name

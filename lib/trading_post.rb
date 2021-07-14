@@ -7,8 +7,8 @@ require_relative 'place_of_worship'
 module Settlements
   class TradingPost < Settlement
 
-    def initialize(settings: {}, configuration_path: nil)
-      super('trading_post', settings, configuration_path)
+    def initialize(name: nil, settings: {}, configuration_path: nil)
+      super('trading_post', settings, configuration_path, name)
       all_tables.each do |table|
         table_name = table['table_name']
         table.merge!(roll_on_table(table_name, modifiers.fetch(table_name, 0)))

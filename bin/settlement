@@ -10,17 +10,18 @@ require_relative '../lib/exporter_markdown'
 # # 
 
 type = ARGV[0] ? ARGV[0] : "trading post"
+name = ARGV[1]
 
 case type
 when 'trading post', 'trading_post', 'tradingpost', 'post'
   require_relative '../lib/trading_post'
-  settlement = Settlements::TradingPost.new()
+  settlement = Settlements::TradingPost.new(name: name)
 when 'village'
   require_relative '../lib/village'
-  settlement = Settlements::Village.new()
+  settlement = Settlements::Village.new(name: name)
 when 'town'
   require_relative '../lib/town'
-  settlement = Settlements::Town.new()
+  settlement = Settlements::Town.new(name: name)
 else
   raise "Settlement type not supported: #{type}"
 end
