@@ -10,6 +10,7 @@ module Settlements
     def initialize(settlement_type, settings, configuration_path = nil, name = nil)
       @name = name.pretty unless name.nil?
       @settlement_type = settlement_type
+      log "#{@settlement_type} name: #{name}"
       init_configuration(settings, configuration_path)
       @tables = settlement_type_tables()
       @created_at = DateTime.now()
@@ -37,6 +38,7 @@ module Settlements
     def hardships() nil end
     def hardship_modifiers() [] end
     def hardship_modifiers_with_reason() [] end
+    def farms_and_resources() [] end
 
     def generate_races(demographics = all_tables_hash['demographics'], table_name = @config.fetch('race_table', 'standard'))
       if configuration['races'].nil? or configuration['races'].empty?
@@ -165,8 +167,11 @@ module Settlements
         }.to_h,
         'configuration' => configuration()
       }
-      unless hardships.nil?
+      unless hardships.nil? or hardships.empty?
         output['hardships'] = hardships.collect { |hardship| hardship.to_h }
+      end
+      unless farms_and_resources.nil? or farms_and_resources.empty?
+        output['farms_and_resources'] = farms_and_resources.collect { |resource| resource.to_h }
       end
       return output
     end
@@ -198,6 +203,8 @@ module Settlements
           fullpath = full_filepath(filename, filepath)
           log "Filename conflict detected, saving instead to: #{fullpath}"
         end
+        @filepath = filepath
+        @name = File.basename(filename, '.yaml').pretty
         File.open(fullpath, "w") do |f|
           YAML::dump(self, f)
         end
@@ -206,8 +213,6 @@ module Settlements
         log_error e.message
         return false
       end
-      @filepath = filepath
-      @name = File.basename(filename, '.yaml').pretty
       return true
     end
 
@@ -218,7 +223,7 @@ module Settlements
       File.open(fullpath, "r") do |f|
         settlement = YAML::load(f)
       end
-      settlement.log "Loaded settlement"
+      settlement.log "Loaded settlement #{settlement.name}"
       return settlement
     end
   end

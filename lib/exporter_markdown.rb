@@ -12,7 +12,7 @@ module Settlements
         output.concat(tables_md(settlement))
         output.concat(hardships_md(settlement)) unless settlement.hardships.nil?
         output.concat(points_of_interest_md(settlement))
-        filename = settlement.default_filename if filename.nil?
+        filename = settlement.name.underscore if filename.nil?
         save_to_md(output.join("\n"), filename, filepath)
       end
 

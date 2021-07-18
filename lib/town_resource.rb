@@ -25,5 +25,9 @@ module Settlements
       puts @name
       puts "    #{@description}"
     end
+
+    def to_h()
+      return {'name' => @name, 'description' => @description}
+    end
   end
 end
