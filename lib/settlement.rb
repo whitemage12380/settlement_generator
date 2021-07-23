@@ -1,5 +1,6 @@
 require 'date'
 require_relative 'settlement_generator_helper'
+require_relative 'exporter_markdown'
 
 module Settlements
   class Settlement
@@ -35,6 +36,7 @@ module Settlements
       all_tables_hash[table_name]['name']
     end
 
+    def hardships_description() nil end
     def hardships() nil end
     def hardship_modifiers() [] end
     def hardship_modifiers_with_reason() [] end
@@ -168,12 +170,17 @@ module Settlements
         'configuration' => configuration()
       }
       unless hardships.nil? or hardships.empty?
+        output['hardships_description'] = hardships_description
         output['hardships'] = hardships.collect { |hardship| hardship.to_h }
       end
       unless farms_and_resources.nil? or farms_and_resources.empty?
         output['farms_and_resources'] = farms_and_resources.collect { |resource| resource.to_h }
       end
       return output
+    end
+
+    def to_markdown()
+      ExporterMarkdown.to_markdown(self)
     end
 
     def self.full_filepath(filename, filepath = Configuration.new['save_directory'])

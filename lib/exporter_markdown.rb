@@ -1,6 +1,5 @@
 require 'fileutils'
 require_relative 'settlement_generator_helper'
-require_relative 'trading_post'
 
 module Settlements
   class ExporterMarkdown
@@ -8,12 +7,17 @@ module Settlements
 
     class << self
       def export_to_markdown(settlement, filename = nil, filepath = nil)
+        markdown = to_markdown(settlement)
+        filename = settlement.name.underscore if filename.nil?
+        save_to_md(markdown, filename, filepath)
+      end
+
+      def to_markdown(settlement)
         output = ["# #{settlement.settlement_type.pretty}"]
         output.concat(tables_md(settlement))
         output.concat(hardships_md(settlement)) unless settlement.hardships.nil?
         output.concat(points_of_interest_md(settlement))
-        filename = settlement.name.underscore if filename.nil?
-        save_to_md(output.join("\n"), filename, filepath)
+        return output.join("\n")
       end
 
       def table_description(table, settlement)
