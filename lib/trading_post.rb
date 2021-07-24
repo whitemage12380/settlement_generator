@@ -28,7 +28,7 @@ module Settlements
         @points_of_interest[poi_type].concat(Array.new(poi_count) { poi_class.new(self) })
       end
       if rand() < @config['place_of_worship_chance'].to_f
-        @points_of_interest['place of worship'] = PlaceOfWorship.new(@settlement_type)
+        @points_of_interest['place of worship'] = [PlaceOfWorship.new(@settlement_type)]
       end
     end
 
@@ -38,6 +38,10 @@ module Settlements
 
     def services()
       @points_of_interest.fetch('services', []).sort_by { |s| s.name }
+    end
+
+    def place_of_worship()
+      @points_of_interest.fetch('place of worship', []).first
     end
 
     def print()
@@ -65,12 +69,12 @@ module Settlements
       puts "------------------"
       puts
       services.each { |service| service.print(); puts}
-      unless @points_of_interest['place of worship'].nil?
+      unless place_of_worship.nil?
         puts "------------------"
         puts "PLACE OF WORSHIP"
         puts "------------------"
         puts
-        @points_of_interest['place of worship'].print()
+        place_of_worship.print()
       end
     end
   end
