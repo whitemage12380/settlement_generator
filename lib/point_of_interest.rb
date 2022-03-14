@@ -7,7 +7,7 @@ module Settlements
     include SettlementGeneratorHelper
     attr_reader :name, :title, :description, :quality, :owners, :owner_group_title
 
-    def initialize(settlement, name: nil, quality: nil, settings: Configuration.new) # TODO: Allow a generic shop or service that gets a generic name
+    def initialize(settlement, name: nil, quality: nil, settings: configuration) # TODO: Allow a generic shop or service that gets a generic name
       set_configuration(settings, 'locations')
       @location_type = 'location' if @location_type.nil?
       if name.nil?

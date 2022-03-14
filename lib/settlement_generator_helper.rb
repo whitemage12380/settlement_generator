@@ -57,6 +57,10 @@ module Settlements
     require_relative 'configuration'
     require_relative 'race'
 
+    #####
+    ##  CONFIGURATION
+    #####
+
     def init_configuration(settings, configuration_path = nil, settlement_type = nil)
       @configuration = Configuration.new(settings, configuration_path)
       @config = configuration.fetch(settlement_type, {})
@@ -67,15 +71,13 @@ module Settlements
       @config = settings.fetch(settlement_type, {})
     end
 
-    def self.configuration()
-      Configuration.new({"show_configuration" => false})
-    end
-
     def configuration()
-      # puts "Configuration: #{(@configuration.nil? ? "nil" : @configuration)}"
-      raise "configuration not found" if @configuration.nil? # temp
       @configuration ||= Configuration.new
     end
+
+    #####
+    ##  LOGGING
+    #####
 
     def init_logger(log_level = configuration.fetch('log_level', 'INFO'))
       Settlements::SettlementGeneratorLogger.logger(log_level)
@@ -84,27 +86,6 @@ module Settlements
     def logger()
       Settlements::SettlementGeneratorLogger.logger
     end
-
-    # def self.logger(log_level = 'INFO')
-    #   @logger ||= Logger.new(STDOUT, log_level)
-    # end
-
-    # def logger(log_level = configuration.fetch('log_level', 'INFO'))
-    #   SettlementGeneratorHelper.logger
-    # end
-
-    # def init_logger()
-    #   if $log.nil?
-    #     if @log_level.nil?
-    #       log_level = $configuration['log_level'] ? $configuration['log_level'].upcase : Logger::INFO
-    #     else
-    #       log_level = @log_level
-    #     end
-    #     $log = Logger.new(STDOUT, level: log_level)
-    #   end
-    #   $messages = StringIO.new() if $messages.nil?
-    #   $message_log = Logger.new($messages, level: log_level) if $message_log.nil?
-    # end
 
     def log_debug(message)
       logger.debug(message)
@@ -126,11 +107,9 @@ module Settlements
       puts str if configuration['verbose'] == true
     end
 
-    # def log_important(message)
-    #   init_logger()
-    #   $log.info(message)
-    #   $message_log.info(message)
-    # end
+    #####
+    ##  FILES AND TABLES
+    #####
 
     def parse_path(path_str)
       # Currently only callable from ruby files directly in lib, no nesting (can be changed later)

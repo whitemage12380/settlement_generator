@@ -20,10 +20,6 @@ module Settlements
       table_exist?(race, 'names')
     end
 
-    # def owners_config()
-    #   $configuration.fetch('owners', {})
-    # end
-
     def random_race_and_ethnicity(demographics = nil)
       race = Race.new(random_race(demographics))
       ethnicity = random_ethnicity(race)

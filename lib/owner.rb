@@ -11,7 +11,7 @@ module Settlements
                 :race, :ethnicity, :category, :name_race, :name_ethnicity, :name_category
 
     
-    def initialize(demographics, family: nil, is_child: false, settings: Configuration.new)
+    def initialize(demographics, family: nil, is_child: false, settings: configuration)
       set_configuration(settings, 'owners')
       family_name_race_relationship = roll_on_table('family_relationships', 0, 'names', false)
       race_relationship = family_name_race_relationship['race']

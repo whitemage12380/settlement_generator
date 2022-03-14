@@ -5,7 +5,7 @@ module Settlements
   class Service < PointOfInterest
     attr_reader :hired_help_size
 
-    def initialize(settlement, name: nil, quality: nil, settings: Configuration.new)
+    def initialize(settlement, name: nil, quality: nil, settings: configuration)
       @location_type = 'service'
       super(settlement, name: name, quality: quality, settings: settings)
       if @name =~ /Hired Help/

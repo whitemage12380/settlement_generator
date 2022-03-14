@@ -1,5 +1,6 @@
 require 'fileutils'
 require_relative 'settlement_generator_helper'
+require_relative 'service'
 
 module Settlements
   class ExporterMarkdown
