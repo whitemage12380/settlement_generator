@@ -7,8 +7,8 @@ module Settlements
     include SettlementGeneratorHelper
     attr_reader :name, :title, :description, :quality, :owners, :owner_group_title
 
-    def initialize(settlement, name: nil, quality: nil, settings: Configuration.new.fetch('locations', {})) # TODO: Allow a generic shop or service that gets a generic name
-      @config = settings.fetch('locations', settings)
+    def initialize(settlement, name: nil, quality: nil, settings: Configuration.new) # TODO: Allow a generic shop or service that gets a generic name
+      set_configuration(settings, 'locations')
       @location_type = 'location' if @location_type.nil?
       if name.nil?
         # The name roll table is in the individual settlement directory, the location content is in names/locations.yaml
@@ -85,7 +85,7 @@ module Settlements
     def generate_owners(demographics)
       owner_strategy = roll_on_table('location_owners', 0, 'names', true)
       chosen_owners = Array.new (owner_strategy['adults']) {
-        Owner.new(demographics)
+        Owner.new(demographics, settings: configuration)
       }
       return chosen_owners
     end

@@ -3,13 +3,13 @@ locations:
   location_noun_chance: 0.7
   synonym_chance: 0.5
 log_file: 'log/settlement_generator.log'
-log_level: 'INFO'
+log_level: 'WARN'
 owners:
   use_ethnicity: on
   name_ethnicity_mismatch_chance: 0.2
   race_table: interesting # human_only # Workaround; should figure out how to ultimately handle this key
 save_directory: data/settlements
-show_configuration: off
+show_configuration: on
 town:
   default_services:
     - Inn

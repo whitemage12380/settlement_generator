@@ -9,6 +9,9 @@ module Settlements
       def export_to_markdown(settlement, filename = nil, filepath = nil)
         markdown = to_markdown(settlement)
         filename = settlement.name.underscore if filename.nil?
+        if filepath.nil?
+          filepath = settlement.configuration.fetch('export_directory', settlement.configuration['save_directory'])
+        end
         save_to_md(markdown, filename, filepath)
       end
 
@@ -116,11 +119,7 @@ module Settlements
         return output
       end
 
-      def save_to_md(text, filename, filepath = nil)
-        if filepath.nil?
-          config = Configuration.new()
-          filepath = config.fetch('export_directory', config['save_directory'])
-        end
+      def save_to_md(text, filename, filepath)
         filename_full = "#{filename}.md"
         save_directory = parse_path(filepath)
         # mkdir it?

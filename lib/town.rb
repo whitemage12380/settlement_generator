@@ -62,9 +62,9 @@ module Settlements
       commercial_locations_count.times do
         case roll_on_table('shop_or_service')['name']
         when 'Shop'
-          commercial_locations['shops'] << Shop.new(self)
+          commercial_locations['shops'] << Shop.new(self, settings: configuration)
         when 'Service'
-          commercial_locations['services'] << Service.new(self)
+          commercial_locations['services'] << Service.new(self, settings: configuration)
         end
       end
       @points_of_interest.merge!(commercial_locations) { |k, v1, v2| v1 + v2 }
@@ -75,9 +75,9 @@ module Settlements
         .collect { |poi|
           if (poi == 'Inn') and not hospitality_quality.nil?
             log "Assigning quality to default inn due to hospitality specialty: #{hospitality_quality}"
-            Service.new(self, poi, hospitality_quality)
+            Service.new(self, name: poi, quality: hospitality_quality, settings: configuration)
           else
-            Service.new(self, poi)
+            Service.new(self, name: poi, settings: configuration)
           end
         }
       }
@@ -86,7 +86,7 @@ module Settlements
     def default_shops()
       {'shops' => @config.fetch('default_shops', [])
         .collect { |poi|
-          Shop.new(self, poi)
+          Shop.new(self, name: poi, settings: configuration)
         }
       }
     end
@@ -147,9 +147,9 @@ module Settlements
         end
         {'places of worship' => [PlaceOfWorship.new(@settlement_type, modifiers)]}
       when 'Shop'
-        {'shops' => [Shop.new(self, name)]}
+        {'shops' => [Shop.new(self, name: name, settings: configuration)]}
       when 'Service'
-        {'service' => [Service.new(self, name)]}
+        {'service' => [Service.new(self, name: name, settings: configuration)]}
       else
         raise "Unsupported location: #{type}"
       end

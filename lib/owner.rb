@@ -11,12 +11,13 @@ module Settlements
                 :race, :ethnicity, :category, :name_race, :name_ethnicity, :name_category
 
     
-    def initialize(demographics, family: nil, is_child: false, settings: Configuration.new.fetch('owners', {}))
-      @config = settings.fetch('owners', settings)
+    def initialize(demographics, family: nil, is_child: false, settings: Configuration.new)
+      set_configuration(settings, 'owners')
       family_name_race_relationship = roll_on_table('family_relationships', 0, 'names', false)
       race_relationship = family_name_race_relationship['race']
       name_relationship = family_name_race_relationship['name_style']
-      @family = Family.new(demographics: demographics) if family.nil?
+      @family = Family.new(demographics: demographics, settings: configuration) if family.nil?
+
       # Set race and ethnicity
       case race_relationship
       when 'family'

@@ -52,27 +52,46 @@ end
 
 module Settlements
   module SettlementGeneratorHelper
-    require 'logger'
     require 'yaml'
+    require_relative 'settlement_generator_logger'
     require_relative 'configuration'
     require_relative 'race'
 
-    def init_configuration(settings, configuration_path = nil)
+    def init_configuration(settings, configuration_path = nil, settlement_type = nil)
       @configuration = Configuration.new(settings, configuration_path)
       @config = configuration.fetch(settlement_type, {})
     end
 
-    def configuration
+    def set_configuration(settings, settlement_type = nil)
+      @configuration = settings
+      @config = settings.fetch(settlement_type, {})
+    end
+
+    def self.configuration()
+      Configuration.new({"show_configuration" => false})
+    end
+
+    def configuration()
+      # puts "Configuration: #{(@configuration.nil? ? "nil" : @configuration)}"
+      raise "configuration not found" if @configuration.nil? # temp
       @configuration ||= Configuration.new
     end
 
-    def self.logger(log_level = 'INFO')
-      @logger ||= Logger.new(STDOUT, log_level)
+    def init_logger(log_level = configuration.fetch('log_level', 'INFO'))
+      Settlements::SettlementGeneratorLogger.logger(log_level)
     end
 
-    def logger(log_level = configuration.fetch('log_level', 'INFO'))
-      SettlementGeneratorHelper.logger
+    def logger()
+      Settlements::SettlementGeneratorLogger.logger
     end
+
+    # def self.logger(log_level = 'INFO')
+    #   @logger ||= Logger.new(STDOUT, log_level)
+    # end
+
+    # def logger(log_level = configuration.fetch('log_level', 'INFO'))
+    #   SettlementGeneratorHelper.logger
+    # end
 
     # def init_logger()
     #   if $log.nil?

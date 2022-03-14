@@ -57,10 +57,15 @@ module Settlements
       }.each do |poi_type, poi_class|
         poi_count = roll(roll_strings[poi_type])
         log "Adding #{poi_count} #{poi_count > 1 ? poi_type : poi_type.sub(/s /, ' ').sub(/s$/, '')}"
-        @points_of_interest[poi_type] = Array.new(poi_count) { poi_class.new(self) }
+        @points_of_interest[poi_type] = Array.new(poi_count) {
+          poi_class.kind_of?(Location) ? poi_class.new(self, settings: configuration) : poi_class.new(self)
+        }
         if poi_type == 'other locations'
           log "Adding due to resources: #{free_location_names.join(", ")}"
-          @points_of_interest[poi_type].concat(free_location_names.collect { |poi_name| puts poi_name; poi_class.new(self, poi_name) })
+          @points_of_interest[poi_type].concat(free_location_names.collect { |poi_name|
+            puts poi_name
+            poi_class.new(self, name: poi_name, settings: configuration)
+          })
         end
       end
     end

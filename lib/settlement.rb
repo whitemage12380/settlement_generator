@@ -11,8 +11,9 @@ module Settlements
     def initialize(settlement_type, settings, configuration_path = nil, name = nil)
       @name = name.pretty unless name.nil?
       @settlement_type = settlement_type
+      init_configuration(settings, configuration_path, settlement_type)
+      init_logger()
       log "#{@settlement_type} name: #{name}"
-      init_configuration(settings, configuration_path)
       @tables = settlement_type_tables()
       @created_at = DateTime.now()
     end
@@ -47,7 +48,7 @@ module Settlements
         demographics.fetch('races', []).collect{|r|r['name']}.difference(['other']).each do |race_label|
           demographics['chosen_races'] = Hash.new if demographics['chosen_races'].nil?
           chosen_races = demographics['chosen_races']
-          chosen_race = roll_race(chosen_races)
+          chosen_race = roll_race(chosen_races, table_name)
           log "Chose #{race_label} race: #{chosen_race.plural}"
           chosen_races[race_label] = chosen_race
           demographics['description'].sub!("#{race_label} race", chosen_race.plural)

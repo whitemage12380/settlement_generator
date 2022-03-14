@@ -24,8 +24,10 @@ module Settlements
         poi_count = roll(@config[poi_type], modifier)
         modifier_str = " (#{modifier.signed})" unless modifier == 0
         log "Adding #{poi_count} #{poi_type}#{modifier_str}"
-        @points_of_interest[poi_type] = @config.fetch("default_#{poi_type}", []).collect { |poi_name| poi_class.new(self, poi_name) }
-        @points_of_interest[poi_type].concat(Array.new(poi_count) { poi_class.new(self) })
+        @points_of_interest[poi_type] = @config.fetch("default_#{poi_type}", []).collect { |poi_name|
+          poi_class.new(self, name: poi_name, settings: configuration)
+        }
+        @points_of_interest[poi_type].concat(Array.new(poi_count) { poi_class.new(self, settings: configuration) })
       end
       if rand() < @config['place_of_worship_chance'].to_f
         @points_of_interest['place of worship'] = [PlaceOfWorship.new(@settlement_type)]

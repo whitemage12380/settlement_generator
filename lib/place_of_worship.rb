@@ -6,7 +6,7 @@ module Settlements
     include SettlementGeneratorHelper
     attr_reader :alignment, :fervency, :size
 
-    def initialize(settlement_type, modifiers = {})
+    def initialize(settlement_type, modifiers: {})
       settlement_type = settlement_type.settlement_type if settlement_type.kind_of? Settlement
       @alignment = roll_on_table('alignment of the faith', modifiers.fetch('alignment', 0), settlement_type, false)['name']
       @fervency = roll_on_table('fervency of local following', modifiers.fetch('fervency', 0), settlement_type, false)

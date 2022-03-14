@@ -10,8 +10,8 @@ module Settlements
     attr_reader :family_name, :family_name_label, :family_name_translation,
                 :race, :ethnicity, :family_members
 
-    def initialize(demographics: nil, adults: 1, children: 0, race: nil, ethnicity: nil, settings: Configuration.new.fetch('owners', {}))
-      @config = settings.fetch('owners', settings)
+    def initialize(demographics: nil, adults: 1, children: 0, race: nil, ethnicity: nil, settings: Configuration.new)
+      set_configuration(settings, 'owners')
       if demographics.kind_of? Hash and not race.kind_of? Race
         @race, @ethnicity = random_race_and_ethnicity(demographics)
       elsif demographics.nil? and race.nil?

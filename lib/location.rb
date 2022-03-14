@@ -5,9 +5,9 @@ module Settlements
   class Location < PointOfInterest
     attr_reader :hired_help_size
 
-    def initialize(settlement, name = nil)
+    def initialize(settlement, name: nil, settings: Configuration.new)
       @location_type = 'other location'
-      super(settlement, name: nil)
+      super(settlement, name: name, settings: settings)
     end
   end
 end
