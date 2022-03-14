@@ -1,6 +1,10 @@
 require 'date'
 require_relative 'settlement_generator_helper'
 require_relative 'exporter_markdown'
+# Requiring all settlement types to allow load to use them
+require_relative 'town'
+require_relative 'trading_post'
+require_relative 'village'
 
 module Settlements
   class Settlement
@@ -224,9 +228,15 @@ module Settlements
       return true
     end
 
-    def self.load(filename, filepath = Configuration.new['save_directory'])
+    def self.load(filename, filepath: nil, settings: {})
+      filepath ||= settings['save_directory']
+      if filepath.nil? or settings['log_level'].nil?
+        config = Configuration.new({'show_configuration' => false})
+        filepath ||= config['save_directory']
+        settings['log_level'] ||= config['log_level']
+      end
       fullpath = full_filepath(filename, filepath)
-      SettlementGeneratorHelper.logger.info "Loading settlement from file: #{fullpath}"
+      SettlementGeneratorLogger.logger.info "Loading settlement from file: #{fullpath}"
       settlement = nil
       File.open(fullpath, "r") do |f|
         settlement = YAML::load(f)

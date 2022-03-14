@@ -3,7 +3,7 @@ locations:
   location_noun_chance: 0.7
   synonym_chance: 0.5
 log_file: 'log/settlement_generator.log'
-log_level: 'WARN'
+log_level: 'INFO'
 owners:
   use_ethnicity: on
   name_ethnicity_mismatch_chance: 0.2

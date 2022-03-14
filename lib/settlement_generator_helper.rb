@@ -72,7 +72,7 @@ module Settlements
     end
 
     def configuration()
-      @configuration ||= Configuration.new
+      @configuration ||= Configuration.new({'show_configuration' => false})
     end
 
     #####
