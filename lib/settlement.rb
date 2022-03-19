@@ -1,10 +1,6 @@
 require 'date'
 require_relative 'settlement_generator_helper'
 require_relative 'exporter_markdown'
-# Requiring all settlement types to allow load to use them
-require_relative 'town'
-require_relative 'trading_post'
-require_relative 'village'
 
 module Settlements
   class Settlement
@@ -229,6 +225,10 @@ module Settlements
     end
 
     def self.load(filename, filepath: nil, settings: {})
+      # Requiring all settlement types to allow load to use them
+      require_relative 'town'
+      require_relative 'trading_post'
+      require_relative 'village'
       filepath ||= settings['save_directory']
       if filepath.nil? or settings['log_level'].nil?
         config = Configuration.new({'show_configuration' => false})
