@@ -239,7 +239,7 @@ module Settlements
       SettlementGeneratorLogger.logger.info "Loading settlement from file: #{fullpath}"
       settlement = nil
       File.open(fullpath, "r") do |f|
-        settlement = YAML::load(f)
+        settlement = YAML::unsafe_load(f)
       end
       settlement.log "Loaded settlement #{settlement.name}"
       return settlement
